@@ -1,0 +1,15 @@
+language: python
+python:
+    - "2.7"
+sudo: false
+
+# Cache the pip directory. "cache: pip" doesn't work due to install override. See https://github.com/travis-ci/travis-ci/issues/3239.
+cache:
+  directories:
+    - $HOME/.cache/pip
+install:
+    - "pip install coveralls"
+    - "pip install -r requirements.txt"
+script: make validate
+after_success:
+    - coveralls
