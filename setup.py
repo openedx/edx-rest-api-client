@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='ecommerce-api-client',
-    version='0.1.0',
+    version='0.2.0',
     packages=['ecommerce_api_client'],
     url='https://github.com/edx/ecommerce-api-client',
     description='Client used to access edX E-Commerce Service',
@@ -12,6 +12,7 @@ setup(
     ],
     tests_require=[
         'coverage==3.7.1',
+        'ddt==1.0.0',
         'httpretty==0.8.8',
         'nose==1.3.6',
         'pep8==1.6.2',
