@@ -22,3 +22,16 @@ class JwtAuth(AuthBase):
 
         r.headers['Authorization'] = 'JWT ' + jwt.encode(data, self.signing_key)
         return r
+
+
+class BearerAuth(AuthBase):
+    """ Attaches Bearer Authentication to the given Request object. """
+
+    def __init__(self, token):
+        """ Instantiate the auth class. """
+        self.token = token
+
+    def __call__(self, r):
+        """ Update the request headers. """
+        r.headers['Authorization'] = 'Bearer {}'.format(self.token)
+        return r
