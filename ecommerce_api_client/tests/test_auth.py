@@ -4,11 +4,10 @@ import httpretty
 import jwt
 import requests
 
-from ecommerce_api_client.auth import JwtAuth
+from ecommerce_api_client.auth import JwtAuth, BearerAuth
 
 
 class JwtAuthTests(TestCase):
-
     def setUp(self):
         super(JwtAuthTests, self).setUp()
         self.url = 'http://example.com/'
@@ -31,7 +30,7 @@ class JwtAuthTests(TestCase):
         }
         data.update(auth_kwargs)
         token = jwt.encode(data, self.signing_key)
-        self.assertEqual(httpretty.last_request().headers['Authorization'], 'JWT {0}'.format(token))
+        self.assertEqual(httpretty.last_request().headers['Authorization'], 'JWT {}'.format(token))
 
     @httpretty.activate
     def test_headers(self):
@@ -42,3 +41,17 @@ class JwtAuthTests(TestCase):
     def test_tracking_context(self):
         """ Verify the tracking context is enclosed in the token payload, when specified. """
         self.assert_expected_token_value({'foo': 'bar'})
+
+
+class BearerAuthTests(TestCase):
+    def setUp(self):
+        super(BearerAuthTests, self).setUp()
+        self.url = 'http://example.com/'
+        httpretty.register_uri(httpretty.GET, self.url)
+
+    @httpretty.activate
+    def test_headers(self):
+        """ Verify the class adds an Authorization headers with the bearer token. """
+        token = 'abc123'
+        requests.get(self.url, auth=BearerAuth(token))
+        self.assertEqual(httpretty.last_request().headers['Authorization'], 'Bearer {}'.format(token))
