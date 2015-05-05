@@ -7,7 +7,7 @@ from ecommerce_api_client.auth import JwtAuth
 class EcommerceApiClient(slumber.API):
     DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 
-    def __init__(self, url, signing_key, username, email, timeout=5):
+    def __init__(self, url, signing_key, username, email, timeout=5, tracking_context=None):
         """
         Instantiate a new client.
 
@@ -28,4 +28,8 @@ class EcommerceApiClient(slumber.API):
 
         session = requests.Session()
         session.timeout = timeout
-        super(EcommerceApiClient, self).__init__(url, session=session, auth=JwtAuth(username, email, signing_key))
+        super(EcommerceApiClient, self).__init__(
+            url,
+            session=session,
+            auth=JwtAuth(username, email, signing_key, tracking_context)
+        )
