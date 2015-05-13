@@ -1,4 +1,4 @@
-slumber==0.7.0
+git+https://github.com/edx/slumber.git@0.7.0.edx#egg=slumber==0.7.0.edx
 
 # Testing
 coverage==3.7.1
