@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ecommerce-api-client',
-    version='0.4.3',
+    version='1.0.0',
     packages=['ecommerce_api_client'],
     url='https://github.com/edx/ecommerce-api-client',
     description='Client used to access edX E-Commerce Service',

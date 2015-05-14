@@ -5,15 +5,17 @@ from requests.auth import AuthBase
 class JwtAuth(AuthBase):
     """Attaches JWT Authentication to the given Request object."""
 
-    def __init__(self, username, email, signing_key, tracking_context=None):
+    def __init__(self, username, full_name, email, signing_key, tracking_context=None):
         self.username = username
         self.email = email
+        self.full_name = full_name
         self.signing_key = signing_key
         self.tracking_context = tracking_context
 
     def __call__(self, r):
         data = {
             'username': self.username,
+            'full_name': self.full_name,
             'email': self.email,
         }
 
