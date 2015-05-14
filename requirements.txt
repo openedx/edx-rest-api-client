@@ -1,4 +1,4 @@
-git+https://github.com/edx/slumber.git@0.7.1-decode-utf8#egg=slumber==0.7.1-decode-utf8
+slumber==0.7.1
 
 # Testing
 coverage==3.7.1
