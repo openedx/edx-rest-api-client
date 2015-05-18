@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from unittest import TestCase
 
 import httpretty
@@ -12,6 +13,7 @@ class JwtAuthTests(TestCase):
         super(JwtAuthTests, self).setUp()
         self.url = 'http://example.com/'
         self.username = 'alice'
+        self.full_name = 'αlícє whítє'
         self.email = 'alice@example.com'
         self.signing_key = 'edx'
         httpretty.register_uri(httpretty.GET, self.url)
@@ -21,11 +23,12 @@ class JwtAuthTests(TestCase):
 
         # Mock the HTTP response and issue the request
         auth_kwargs = {'tracking_context': tracking_context} if tracking_context else {}
-        requests.get(self.url, auth=JwtAuth(self.username, self.email, self.signing_key, **auth_kwargs))
+        requests.get(self.url, auth=JwtAuth(self.username, self.full_name, self.email, self.signing_key, **auth_kwargs))
 
         # Verify the header was set as expected on the request
         data = {
             'username': self.username,
+            'full_name': self.full_name,
             'email': self.email
         }
         data.update(auth_kwargs)
