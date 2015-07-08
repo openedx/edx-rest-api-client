@@ -1,3 +1,5 @@
+import datetime
+
 import jwt
 from requests.auth import AuthBase
 
@@ -5,7 +7,9 @@ from requests.auth import AuthBase
 class JwtAuth(AuthBase):
     """Attaches JWT Authentication to the given Request object."""
 
-    def __init__(self, username, full_name, email, signing_key, tracking_context=None):
+    def __init__(self, username, full_name, email, signing_key, issuer=None, expires_in=30, tracking_context=None):
+        self.issuer = issuer
+        self.expires_in = expires_in
         self.username = username
         self.email = email
         self.full_name = full_name
@@ -13,11 +17,18 @@ class JwtAuth(AuthBase):
         self.tracking_context = tracking_context
 
     def __call__(self, r):
+
         data = {
             'username': self.username,
             'full_name': self.full_name,
             'email': self.email,
         }
+
+        if self.issuer:
+            data['iss'] = self.issuer
+
+        if self.expires_in:
+            data['exp'] = datetime.datetime.utcnow() + datetime.timedelta(seconds=self.expires_in)
 
         if self.tracking_context is not None:
             data['tracking_context'] = self.tracking_context

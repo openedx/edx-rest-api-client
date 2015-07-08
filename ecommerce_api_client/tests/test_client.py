@@ -44,7 +44,7 @@ class EcommerceApiClientTests(TestCase):
     def test_tracking_context(self, mock_auth):
         """ Ensure the tracking context is included with API requests if specified. """
         EcommerceApiClient(URL, SIGNING_KEY, USERNAME, FULL_NAME, EMAIL, tracking_context=TRACKING_CONTEXT)
-        self.assertDictContainsSubset(mock_auth.call_args[1], TRACKING_CONTEXT)
+        self.assertIn(TRACKING_CONTEXT, mock_auth.call_args[1].values())
 
     def test_oauth2(self):
         """ Ensure OAuth2 authentication is used when an access token is supplied to the constructor. """
