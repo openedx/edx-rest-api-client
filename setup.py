@@ -1,23 +1,28 @@
-from setuptools import setup
+from setuptools import setup, find_packages
+
+
+with open('README.rst') as readme, open('AUTHORS') as authors:
+    long_description = '{}\n\n{}'.format(readme.read(), authors.read())
 
 setup(
-    name='ecommerce-api-client',
+    name='edx-ecommerce-api-client',
     version='1.1.0',
-    packages=['ecommerce_api_client'],
-    url='https://github.com/edx/ecommerce-api-client',
-    description='Client used to access edX E-Commerce Service',
-    long_description=open('README.rst').read(),
-    install_requires=[
-        'slumber==0.7.1',
+    description='Slumber client used to access APIs exposed by the edX E-Commerce Service',
+    long_description=long_description,
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'License :: OSI Approved :: Apache Software License',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Internet',
+        'Intended Audience :: Developers',
+        'Environment :: Web Environment',
     ],
-    tests_require=[
-        'coverage==3.7.1',
-        'ddt==1.0.0',
-        'httpretty==0.8.8',
-        'mock==1.0.1',
-        'nose==1.3.6',
-        'pep8==1.6.2',
-        'PyJWT==1.1.0',
-        'pylint==1.4.3'
-    ]
+    keywords='edx ecommerce api client',
+    url='https://github.com/edx/ecommerce-api-client',
+    author='edX',
+    author_email='oscm@edx.org',
+    license='Apache',
+    packages=find_packages(exclude=['*.tests']),
+    install_requires=['slumber', 'PyJWT'],
 )
