@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 
-with open('README.rst') as readme, open('AUTHORS') as authors:
-    long_description = '{}\n\n{}'.format(readme.read(), authors.read())
+with open('README.rst') as readme:
+    long_description = readme.read()
 
 setup(
     name='edx-ecommerce-api-client',
-    version='1.1.0',
+    version='1.1.1',
     description='Slumber client used to access APIs exposed by the edX E-Commerce Service',
     long_description=long_description,
     classifiers=[
