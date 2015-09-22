@@ -2,9 +2,6 @@ language: python
 python:
     - "2.7"
 sudo: false
-branches:
-    only:
-        - master
 
 # Cache the pip directory. "cache: pip" doesn't work due to install override. See https://github.com/travis-ci/travis-ci/issues/3239.
 cache:
