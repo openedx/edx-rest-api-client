@@ -16,3 +16,11 @@ install:
 script: make validate
 after_success:
     - coveralls
+
+deploy:
+  provider: pypi
+  user: edx
+  password:
+    secure: EX4fUMQ02zaz/pC6HWITFDm0KCBgsVSWw8SWhvzxTI0J7TPQ06HVPvVZQw5oygwBYnrqlclRUJhpkUfF904awLwW9CevIm+mbOy2hDxVbCxSIP2eFhjEluIUNUc5ps9eiBmowypPJpfgtBF3/UxYnNPRxysp/0EQqw+MANe1njs=
+  on:
+    tags: true
