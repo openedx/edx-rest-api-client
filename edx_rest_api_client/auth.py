@@ -37,6 +37,19 @@ class JwtAuth(AuthBase):
         return r
 
 
+class SuppliedJwtAuth(AuthBase):
+    """Attaches a supplied JWT to the given Request object."""
+
+    def __init__(self, token):
+        """Instantiate the auth class."""
+        self.token = token
+
+    def __call__(self, r):
+        """Update the request headers."""
+        r.headers['Authorization'] = 'JWT {jwt}'.format(jwt=self.token)
+        return r
+
+
 class BearerAuth(AuthBase):
     """ Attaches Bearer Authentication to the given Request object. """
 

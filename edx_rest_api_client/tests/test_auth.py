@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 
 import datetime
 from unittest import TestCase
@@ -102,3 +102,25 @@ class BearerAuthTests(TestCase):
         token = 'abc123'
         requests.get(self.url, auth=auth.BearerAuth(token))
         self.assertEqual(httpretty.last_request().headers['Authorization'], 'Bearer {}'.format(token))
+
+
+class SuppliedJwtAuthTests(TestCase):
+
+    signing_key = 'super-secret'
+    url = 'http://example.com/'
+
+    def setUp(self):
+        """Set up tests."""
+        super(SuppliedJwtAuthTests, self).setUp()
+        httpretty.register_uri(httpretty.GET, self.url)
+
+    @httpretty.activate
+    def test_headers(self):
+        """Verify that the token is added to the Authorization headers."""
+        payload = {
+            u'key1': u'value1',
+            u'key2': u'vαlue2'
+        }
+        token = jwt.encode(payload, self.signing_key)
+        requests.get(self.url, auth=auth.SuppliedJwtAuth(token))
+        self.assertEqual(httpretty.last_request().headers['Authorization'], 'JWT {}'.format(token))

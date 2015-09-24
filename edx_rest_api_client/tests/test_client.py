@@ -14,6 +14,7 @@ FULL_NAME = 'édx äpp'
 EMAIL = 'edx@example.com'
 TRACKING_CONTEXT = {'foo': 'bar'}
 ACCESS_TOKEN = 'abc123'
+JWT = 'abc.123.doremi'
 
 
 @ddt.ddt
@@ -52,3 +53,9 @@ class EdxRestApiClientTests(TestCase):
         with mock.patch('edx_rest_api_client.auth.BearerAuth.__init__', return_value=None) as mock_auth:
             EdxRestApiClient(URL, oauth_access_token=ACCESS_TOKEN)
             mock_auth.assert_called_with(ACCESS_TOKEN)
+
+    def test_supplied_jwt(self):
+        """Ensure JWT authentication is used when a JWT is supplied to the constructor."""
+        with mock.patch('edx_rest_api_client.auth.SuppliedJwtAuth.__init__', return_value=None) as mock_auth:
+            EdxRestApiClient(URL, jwt=JWT)
+            mock_auth.assert_called_with(JWT)
