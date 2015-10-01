@@ -5,15 +5,14 @@ from ecommerce_api_client.auth import JwtAuth, BearerAuth
 
 
 class EcommerceApiClient(slumber.API):
-    DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
-
     def __init__(self, url, signing_key=None, username=None, full_name=None, email=None,
-                 timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None):
+                 timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,
+                 session=None):
         """
         Instantiate a new client.
 
-        Raises
-            ValueError if either the URL or necessary authentication values are not provided.
+        Raises:
+            ValueError, if either the URL or necessary authentication values are not provided.
         """
 
         if not url:
@@ -27,7 +26,7 @@ class EcommerceApiClient(slumber.API):
         else:
             raise ValueError('Either JWT or OAuth2 credentials must be suppled for authentication!')
 
-        session = requests.Session()
+        session = session or requests.Session()
         session.timeout = timeout
         super(EcommerceApiClient, self).__init__(
             url,
