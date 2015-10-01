@@ -6,7 +6,7 @@ with open('README.rst') as readme:
 
 setup(
     name='edx-ecommerce-api-client',
-    version='1.1.1',
+    version='1.1.2',
     description='Slumber client used to access APIs exposed by the edX E-Commerce Service',
     long_description=long_description,
     classifiers=[
