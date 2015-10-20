@@ -8,7 +8,7 @@ import jwt
 import mock
 import requests
 
-from ecommerce_api_client import auth
+from edx_rest_api_client import auth
 
 CURRENT_TIME = datetime.datetime(2015, 7, 2, 10, 10, 10)
 

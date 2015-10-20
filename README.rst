@@ -1,14 +1,16 @@
-edX E-Commerce API Client  |Travis|_ |Coveralls|_
+edX REST API Client  |Travis|_ |Coveralls|_
 =================================================
-.. |Travis| image:: https://travis-ci.org/edx/ecommerce-api-client.svg?branch=master
-.. _Travis: https://travis-ci.org/edx/ecommerce-api-client
+.. |Travis| image:: https://travis-ci.org/edx/edx-rest-api-client.svg?branch=master
+.. _Travis: https://travis-ci.org/edx/edx-rest-api-client
 
-.. |Coveralls| image:: https://coveralls.io/repos/edx/ecommerce-api-client/badge.svg?branch=master
-.. _Coveralls: https://coveralls.io/r/edx/ecommerce-api-client?branch=master
+.. |Coveralls| image:: https://coveralls.io/repos/edx/edx-rest-api-client/badge.svg?branch=master
+.. _Coveralls: https://coveralls.io/r/edx/edx-rest-api-client?branch=master
 
-The edX E-Commerce API Client (henceforth, client) allows users to communicate with the `E-Commerce Service`_.
+The edX REST API Client (henceforth, client) allows users to communicate with various edX REST
+APIs, including the `E-Commerce Service`_ and the `Programs Service`_.
 
 .. _E-Commerce Service: https://github.com/edx/ecommerce
+.. _Programs Service: https://github.com/edx/programs
 
 Testing
 -------
