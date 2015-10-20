@@ -5,9 +5,9 @@ with open('README.rst') as readme:
     long_description = readme.read()
 
 setup(
-    name='edx-ecommerce-api-client',
-    version='1.1.2',
-    description='Slumber client used to access APIs exposed by the edX E-Commerce Service',
+    name='edx-rest-api-client',
+    version='1.2.0',
+    description='Slumber client used to access various edX Platform REST APIs.',
     long_description=long_description,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -18,8 +18,8 @@ setup(
         'Intended Audience :: Developers',
         'Environment :: Web Environment',
     ],
-    keywords='edx ecommerce api client',
-    url='https://github.com/edx/ecommerce-api-client',
+    keywords='edx rest api client',
+    url='https://github.com/edx/edx-rest-api-client',
     author='edX',
     author_email='oscm@edx.org',
     license='Apache',

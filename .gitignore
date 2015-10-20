@@ -49,7 +49,6 @@ coverage.xml
 diff_*.html
 *.report
 report
-edx_ecommerce.log
 venv
 acceptance_tests.*.log
 acceptance_tests.*.png

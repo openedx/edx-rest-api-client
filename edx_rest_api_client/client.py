@@ -1,10 +1,10 @@
 import requests
 import slumber
 
-from ecommerce_api_client.auth import JwtAuth, BearerAuth
+from edx_rest_api_client.auth import JwtAuth, BearerAuth
 
 
-class EcommerceApiClient(slumber.API):
+class EdxRestApiClient(slumber.API):
     def __init__(self, url, signing_key=None, username=None, full_name=None, email=None,
                  timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,
                  session=None):
@@ -28,7 +28,7 @@ class EcommerceApiClient(slumber.API):
 
         session = session or requests.Session()
         session.timeout = timeout
-        super(EcommerceApiClient, self).__init__(
+        super(EdxRestApiClient, self).__init__(
             url,
             session=session,
             auth=auth
