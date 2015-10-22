@@ -10,6 +10,7 @@ import requests
 
 from edx_rest_api_client import auth
 
+
 CURRENT_TIME = datetime.datetime(2015, 7, 2, 10, 10, 10)
 
 
@@ -102,3 +103,19 @@ class BearerAuthTests(TestCase):
         token = 'abc123'
         requests.get(self.url, auth=auth.BearerAuth(token))
         self.assertEqual(httpretty.last_request().headers['Authorization'], 'Bearer {}'.format(token))
+
+
+class OidcIdTokenAuthTests(TestCase):
+    def setUp(self):
+        super(OidcIdTokenAuthTests, self).setUp()
+        self.url = 'http://example.com/'
+        httpretty.register_uri(httpretty.GET, self.url)
+
+    @httpretty.activate
+    def test_headers(self):
+        """Verify the the class adds an Authorization headers with the Open Id
+         token.
+         """
+        token = 'abc123'
+        requests.get(self.url, auth=auth.OidcIdTokenAuth(token))
+        self.assertEqual(httpretty.last_request().headers['Authorization'], 'JWT {}'.format(token))

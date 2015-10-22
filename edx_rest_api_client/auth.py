@@ -48,3 +48,16 @@ class BearerAuth(AuthBase):
         """ Update the request headers. """
         r.headers['Authorization'] = 'Bearer {}'.format(self.token)
         return r
+
+
+class OidcIdTokenAuth(AuthBase):
+    """ Attaches Open Id Authentication to the given Request object. """
+
+    def __init__(self, token):
+        """ Instantiate the auth class. """
+        self.token = token
+
+    def __call__(self, r):
+        """ Update the request headers. """
+        r.headers['Authorization'] = 'JWT {}'.format(self.token)
+        return r

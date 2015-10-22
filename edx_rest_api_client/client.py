@@ -1,13 +1,13 @@
 import requests
 import slumber
 
-from edx_rest_api_client.auth import JwtAuth, BearerAuth
+from edx_rest_api_client.auth import JwtAuth, BearerAuth, OidcIdTokenAuth
 
 
 class EdxRestApiClient(slumber.API):
     def __init__(self, url, signing_key=None, username=None, full_name=None, email=None,
                  timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,
-                 session=None):
+                 session=None, oidc_id_token=None):
         """
         Instantiate a new client.
 
@@ -18,7 +18,9 @@ class EdxRestApiClient(slumber.API):
         if not url:
             raise ValueError('An API url must be supplied!')
 
-        if oauth_access_token:
+        if oidc_id_token:
+            auth = OidcIdTokenAuth(oidc_id_token)
+        elif oauth_access_token:
             auth = BearerAuth(oauth_access_token)
         elif signing_key and username:
             auth = JwtAuth(username, full_name, email, signing_key,

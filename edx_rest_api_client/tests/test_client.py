@@ -34,7 +34,7 @@ class EdxRestApiClientTests(TestCase):
         {'url': None, 'signing_key': SIGNING_KEY, 'username': USERNAME},
         {'url': URL, 'signing_key': None, 'username': USERNAME},
         {'url': URL, 'signing_key': SIGNING_KEY, 'username': None},
-        {'url': None, 'signing_key': None, 'username': None, 'oauth_access_token': None},
+        {'url': None, 'signing_key': None, 'username': None, 'oauth_access_token': None, 'oidc_id_token': None},
     )
     def test_invalid_configuration(self, kwargs):
         """ If the constructor arguments are invalid, an InvalidConfigurationError should be raised. """
@@ -51,4 +51,13 @@ class EdxRestApiClientTests(TestCase):
 
         with mock.patch('edx_rest_api_client.auth.BearerAuth.__init__', return_value=None) as mock_auth:
             EdxRestApiClient(URL, oauth_access_token=ACCESS_TOKEN)
+            mock_auth.assert_called_with(ACCESS_TOKEN)
+
+    def test_oidc(self):
+        """ Ensure Open Id authentication is used when an access token is
+        supplied to the constructor.
+        """
+
+        with mock.patch('edx_rest_api_client.auth.OidcIdTokenAuth.__init__', return_value=None) as mock_auth:
+            EdxRestApiClient(URL, oidc_id_token=ACCESS_TOKEN)
             mock_auth.assert_called_with(ACCESS_TOKEN)
