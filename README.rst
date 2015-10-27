@@ -1,10 +1,10 @@
-edX REST API Client  |Travis|_ |Coveralls|_
-=================================================
+edX REST API Client  |Travis|_ |Codecov|_
+=========================================
 .. |Travis| image:: https://travis-ci.org/edx/edx-rest-api-client.svg?branch=master
 .. _Travis: https://travis-ci.org/edx/edx-rest-api-client
 
-.. |Coveralls| image:: https://coveralls.io/repos/edx/edx-rest-api-client/badge.svg?branch=master
-.. _Coveralls: https://coveralls.io/r/edx/edx-rest-api-client?branch=master
+.. |Codecov| image:: https://codecov.io/github/edx/edx-rest-api-client/coverage.svg?branch=master
+.. _Codecov: https://codecov.io/github/edx/edx-rest-api-client?branch=master
 
 The edX REST API Client (henceforth, client) allows users to communicate with various edX REST
 APIs, including the `E-Commerce Service`_ and the `Programs Service`_.
