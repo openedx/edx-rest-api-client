@@ -1,5 +1,8 @@
-PyJWT==1.1.0
-slumber==0.7.1
+# These requirements are for development.  There is no need to install from
+# requirements.txt in production.
+
+# Package requirements
+-e .
 
 # Testing
 coverage==3.7.1
