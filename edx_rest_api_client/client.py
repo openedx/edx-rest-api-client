@@ -21,7 +21,7 @@ class EdxRestApiClient(slumber.API):
         if jwt:
             auth = SuppliedJwtAuth(jwt)
         elif oauth_access_token:
-            auth = BearerAuth(oauth_access_token)
+            auth = BearerAuth(oauth_access_token)  # pylint: disable=redefined-variable-type
         elif signing_key and username:
             auth = JwtAuth(username, full_name, email, signing_key,
                            issuer=issuer, expires_in=expires_in, tracking_context=tracking_context)
