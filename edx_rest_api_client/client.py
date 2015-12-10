@@ -12,7 +12,8 @@ class EdxRestApiClient(slumber.API):
         Instantiate a new client.
 
         Raises:
-            ValueError, if either the URL or necessary authentication values are not provided.
+            ValueError: If a URL is not provided.
+
         """
 
         if not url:
@@ -26,7 +27,7 @@ class EdxRestApiClient(slumber.API):
             auth = JwtAuth(username, full_name, email, signing_key,
                            issuer=issuer, expires_in=expires_in, tracking_context=tracking_context)
         else:
-            raise ValueError('Either JWT or OAuth2 credentials must be supplied for authentication!')
+            auth = None
 
         session = session or requests.Session()
         session.timeout = timeout
