@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+from types import NoneType
 from unittest import TestCase
 
 import ddt
 import mock
 
+from edx_rest_api_client.auth import JwtAuth
 from edx_rest_api_client.client import EdxRestApiClient
 
 
@@ -21,19 +23,26 @@ JWT = 'abc.123.doremi'
 class EdxRestApiClientTests(TestCase):
     """ Tests for the E-Commerce API client. """
 
+    @ddt.unpack
     @ddt.data(
-        {'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': FULL_NAME, 'email': EMAIL},
-        {'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': None, 'email': EMAIL},
-        {'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': FULL_NAME, 'email': None},
-        {'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': None, 'email': None},
-        {'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME},
-        {'url': URL, 'signing_key': None, 'username': USERNAME},
-        {'url': URL, 'signing_key': SIGNING_KEY, 'username': None},
-        {'url': URL, 'signing_key': None, 'username': None, 'oauth_access_token': None},
+        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME,
+          'full_name': FULL_NAME, 'email': EMAIL}, JwtAuth),
+        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': None, 'email': EMAIL}, JwtAuth),
+        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME,
+          'full_name': FULL_NAME, 'email': None}, JwtAuth),
+        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': None, 'email': None}, JwtAuth),
+        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME}, JwtAuth),
+        ({'url': URL, 'signing_key': None, 'username': USERNAME}, NoneType),
+        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': None}, NoneType),
+        ({'url': URL, 'signing_key': None, 'username': None, 'oauth_access_token': None}, NoneType)
     )
-    def test_valid_configuration(self, kwargs):
-        """ The constructor should return successfully if all arguments are valid. """
-        EdxRestApiClient(**kwargs)
+    def test_valid_configuration(self, kwargs, auth_type):
+        """
+        The constructor should return successfully if all arguments are valid.
+        We also check that the auth type of the api is what we expect.
+        """
+        api = EdxRestApiClient(**kwargs)
+        self.assertEqual(auth_type, type(getattr(api._store["session"], "auth")))  # pylint: disable=protected-access
 
     @ddt.data(
         {'url': None, 'signing_key': SIGNING_KEY, 'username': USERNAME},
