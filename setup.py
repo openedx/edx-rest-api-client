@@ -6,7 +6,7 @@ with open('README.rst') as readme:
 
 setup(
     name='edx-rest-api-client',
-    version='1.2.2',
+    version='1.3.0',
     description='Slumber client used to access various edX Platform REST APIs.',
     long_description=long_description,
     classifiers=[
