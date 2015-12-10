@@ -26,6 +26,10 @@ class EdxRestApiClientTests(TestCase):
         {'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': None, 'email': EMAIL},
         {'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': FULL_NAME, 'email': None},
         {'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': None, 'email': None},
+        {'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME},
+        {'url': URL, 'signing_key': None, 'username': USERNAME},
+        {'url': URL, 'signing_key': SIGNING_KEY, 'username': None},
+        {'url': URL, 'signing_key': None, 'username': None, 'oauth_access_token': None},
     )
     def test_valid_configuration(self, kwargs):
         """ The constructor should return successfully if all arguments are valid. """
@@ -33,8 +37,6 @@ class EdxRestApiClientTests(TestCase):
 
     @ddt.data(
         {'url': None, 'signing_key': SIGNING_KEY, 'username': USERNAME},
-        {'url': URL, 'signing_key': None, 'username': USERNAME},
-        {'url': URL, 'signing_key': SIGNING_KEY, 'username': None},
         {'url': None, 'signing_key': None, 'username': None, 'oauth_access_token': None},
     )
     def test_invalid_configuration(self, kwargs):
