@@ -7,9 +7,10 @@ from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
 class EdxRestApiClient(slumber.API):
     def __init__(self, url, signing_key=None, username=None, full_name=None, email=None,
                  timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,
-                 session=None, jwt=None):
+                 session=None, jwt=None, **kwargs):
         """
-        Instantiate a new client.
+        Instantiate a new client. You can pass extra kwargs to Slumber like
+        'append_slash'.
 
         Raises:
             ValueError: If a URL is not provided.
@@ -34,5 +35,6 @@ class EdxRestApiClient(slumber.API):
         super(EdxRestApiClient, self).__init__(
             url,
             session=session,
-            auth=auth
+            auth=auth,
+            **kwargs
         )
