@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
+import datetime
 from types import NoneType
 from unittest import TestCase
 
 import ddt
+from freezegun import freeze_time
+import httpretty
 import mock
+import requests
 
 from edx_rest_api_client.auth import JwtAuth
 from edx_rest_api_client.client import EdxRestApiClient
+from edx_rest_api_client.tests.mixins import AuthenticationTestMixin
 
 
 URL = 'http://example.com/api/v2'
@@ -70,3 +75,37 @@ class EdxRestApiClientTests(TestCase):
         with mock.patch('edx_rest_api_client.auth.SuppliedJwtAuth.__init__', return_value=None) as mock_auth:
             EdxRestApiClient(URL, jwt=JWT)
             mock_auth.assert_called_with(JWT)
+
+
+@httpretty.activate
+@ddt.ddt
+class ClientCredentialTests(TestCase, AuthenticationTestMixin):
+    """ Test client credentials requests. """
+
+    URL = "http://test-auth/access_token/"
+
+    def test_get_client_credential_access_token_success(self):
+        """ Test that the get access token method handles 200 responses and returns the access token. """
+        code = 200
+        body = {"access_token": "my-token", "expires_in": 1000}
+        now = datetime.datetime.utcnow()
+
+        expected_return = ("my-token", now + datetime.timedelta(seconds=1000))
+
+        with freeze_time(now):
+            self._mock_auth_api(URL, code, body=body)
+            self.assertEqual(
+                EdxRestApiClient.get_oauth_access_token(URL, "client_id", "client_secret"),
+                expected_return
+            )
+
+    @ddt.data(
+        (400, {"error": "denied"}),
+        (500, None)
+    )
+    @ddt.unpack
+    def test_get_client_credential_access_token_failure(self, code, body):
+        """ Test that the get access token method handles failure responses. """
+        with self.assertRaises(requests.RequestException):
+            self._mock_auth_api(URL, code, body=body)
+            EdxRestApiClient.get_oauth_access_token(URL, "client_id", "client_secret")

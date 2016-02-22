@@ -1,3 +1,5 @@
+import datetime
+
 import requests
 import slumber
 
@@ -5,6 +7,42 @@ from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
 
 
 class EdxRestApiClient(slumber.API):
+
+    @classmethod
+    def get_oauth_access_token(cls, url, client_id, client_secret):
+        """ Retrieves OAuth 2.0 access token using the client credentials grant.
+
+        Args:
+            url (str): Oauth2 access token endpoint
+            client_id (str): client ID
+            client_secret (str): client secret
+
+        Returns:
+            tuple: Tuple containing access token string and expiration datetime.
+        """
+        now = datetime.datetime.utcnow()
+
+        response = requests.post(
+            url,
+            data={
+                'grant_type': 'client_credentials',
+                'client_id': client_id,
+                'client_secret': client_secret,
+            }
+        )
+
+        data = response.json()
+
+        try:
+            access_token = data['access_token']
+            expires_in = data['expires_in']
+        except KeyError:
+            raise requests.RequestException(response=response)
+
+        expires_at = now + datetime.timedelta(seconds=expires_in)
+
+        return access_token, expires_at
+
     def __init__(self, url, signing_key=None, username=None, full_name=None, email=None,
                  timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,
                  session=None, jwt=None, **kwargs):
