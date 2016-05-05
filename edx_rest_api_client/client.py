@@ -9,13 +9,14 @@ from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
 class EdxRestApiClient(slumber.API):
 
     @classmethod
-    def get_oauth_access_token(cls, url, client_id, client_secret):
+    def get_oauth_access_token(cls, url, client_id, client_secret, token_type='bearer'):
         """ Retrieves OAuth 2.0 access token using the client credentials grant.
 
         Args:
             url (str): Oauth2 access token endpoint
             client_id (str): client ID
             client_secret (str): client secret
+            token_type (str): Type of token to return. Options include bearer and jwt.
 
         Returns:
             tuple: Tuple containing access token string and expiration datetime.
@@ -28,6 +29,7 @@ class EdxRestApiClient(slumber.API):
                 'grant_type': 'client_credentials',
                 'client_id': client_id,
                 'client_secret': client_secret,
+                'token_type': token_type,
             }
         )
 
