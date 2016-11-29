@@ -118,8 +118,8 @@ class SuppliedJwtAuthTests(TestCase):
     def test_headers(self):
         """Verify that the token is added to the Authorization headers."""
         payload = {
-            u'key1': u'value1',
-            u'key2': u'vαlue2'
+            'key1': 'value1',
+            'key2': 'vαlue2'
         }
         token = jwt.encode(payload, self.signing_key)
         requests.get(self.url, auth=auth.SuppliedJwtAuth(token))

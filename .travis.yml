@@ -1,16 +1,26 @@
-language: python
-python:
-    - "2.7"
 sudo: false
 
-# Cache the pip directory. "cache: pip" doesn't work due to install override. See https://github.com/travis-ci/travis-ci/issues/3239.
+language: python
+
+matrix:
+ include:
+  - python: 2.7
+    env: TOXENV=py27
+  - python: 3.5
+    env: TOXENV=py35
+  - python: 3.5
+    env: TOXENV=quality
+
 cache:
-  directories:
-    - $HOME/.cache/pip
+  - pip
+
 install:
   - pip install -U pip wheel codecov
-  - pip install -r requirements.txt
-script: make validate
+  - make requirements
+
+script:
+  - make test
+
 after_success:
   - codecov
 
@@ -22,3 +32,4 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     tags: true
+    python: 3.5

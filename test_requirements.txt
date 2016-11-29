@@ -1,0 +1,9 @@
+coverage
+ddt
+edx-lint
+freezegun
+mock
+nose
+pep8
+responses
+tox
