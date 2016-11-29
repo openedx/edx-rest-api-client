@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import datetime
-from types import NoneType
 from unittest import TestCase
 
 import ddt
@@ -36,9 +35,9 @@ class EdxRestApiClientTests(TestCase):
           'full_name': FULL_NAME, 'email': None}, JwtAuth),
         ({'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': None, 'email': None}, JwtAuth),
         ({'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME}, JwtAuth),
-        ({'url': URL, 'signing_key': None, 'username': USERNAME}, NoneType),
-        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': None}, NoneType),
-        ({'url': URL, 'signing_key': None, 'username': None, 'oauth_access_token': None}, NoneType)
+        ({'url': URL, 'signing_key': None, 'username': USERNAME}, type(None)),
+        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': None}, type(None)),
+        ({'url': URL, 'signing_key': None, 'username': None, 'oauth_access_token': None}, type(None))
     )
     def test_valid_configuration(self, kwargs, auth_type):
         """
@@ -46,7 +45,7 @@ class EdxRestApiClientTests(TestCase):
         We also check that the auth type of the api is what we expect.
         """
         api = EdxRestApiClient(**kwargs)
-        self.assertEqual(auth_type, type(api._store['session'].auth))  # pylint: disable=protected-access
+        self.assertIsInstance(api._store['session'].auth, auth_type)  # pylint: disable=protected-access
 
     @ddt.data(
         {'url': None, 'signing_key': SIGNING_KEY, 'username': USERNAME},
