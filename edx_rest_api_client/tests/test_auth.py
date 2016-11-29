@@ -29,7 +29,7 @@ class JwtAuthTests(TestCase):
             mock.Mock(wraps=datetime.datetime)
         )
         mocked_datetime = datetime_patcher.start()
-        mocked_datetime.utcnow.return_value = CURRENT_TIME
+        mocked_datetime.utcnow.return_value = CURRENT_TIME  # pylint: disable=no-member
         self.addCleanup(datetime_patcher.stop)
 
         httpretty.register_uri(httpretty.GET, self.url)

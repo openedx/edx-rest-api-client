@@ -47,7 +47,7 @@ class EdxRestApiClientTests(TestCase):
         We also check that the auth type of the api is what we expect.
         """
         api = EdxRestApiClient(**kwargs)
-        self.assertEqual(auth_type, type(getattr(api._store["session"], "auth")))  # pylint: disable=protected-access
+        self.assertEqual(auth_type, type(api._store['session'].auth))  # pylint: disable=protected-access
 
     @ddt.data(
         {'url': None, 'signing_key': SIGNING_KEY, 'username': USERNAME},

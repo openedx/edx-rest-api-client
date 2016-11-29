@@ -2,10 +2,10 @@ ROOT = $(shell echo "$$PWD")
 COVERAGE = $(ROOT)/build/coverage
 PACKAGE = edx_rest_api_client
 
-validate: requirements test quality
+validate: test quality
 
 requirements:
-	pip install -q -r requirements.txt
+	pip install -r requirements.txt
 
 test:
 	nosetests --with-coverage --cover-inclusive --cover-branches \
@@ -15,4 +15,4 @@ test:
 
 quality:
 	pep8 --config=.pep8 $(PACKAGE)
-	pylint --rcfile=.pylintrc $(PACKAGE)
+	pylint --rcfile=pylintrc $(PACKAGE)
