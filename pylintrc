@@ -124,7 +124,7 @@ ignore-imports = no
 
 [TYPECHECK]
 ignore-mixin-members = yes
-ignored-classes = SQLObject
+ignored-classes = SQLObject,responses
 unsafe-load-any-extension = yes
 generated-members = 
 	REQUEST,
@@ -180,4 +180,4 @@ int-import-graph =
 [EXCEPTIONS]
 overgeneral-exceptions = Exception
 
-# 302ed830aee36910fcaf0ddf90dc0d420bfa41c4
+# 722a1d326781da042ba36f3f55f9d3dfe65ee7c3
