@@ -1,18 +1,10 @@
-ROOT = $(shell echo "$$PWD")
-COVERAGE = $(ROOT)/build/coverage
-PACKAGE = edx_rest_api_client
-
-validate: requirements test quality
+quality:
+	tox -e quality
 
 requirements:
-	pip install -q -r requirements.txt
+	pip install -r test_requirements.txt
 
 test:
-	nosetests --with-coverage --cover-inclusive --cover-branches \
-		--cover-html --cover-html-dir=$(COVERAGE)/html/ \
-		--cover-xml --cover-xml-file=$(COVERAGE)/coverage.xml \
-		--cover-package=$(PACKAGE) $(PACKAGE)/
+	tox
 
-quality:
-	pep8 --config=.pep8 $(PACKAGE)
-	pylint --rcfile=.pylintrc $(PACKAGE)
+validate: test quality

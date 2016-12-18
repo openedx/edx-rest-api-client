@@ -3,10 +3,10 @@
 import datetime
 from unittest import TestCase
 
-import httpretty
 import jwt
 import mock
 import requests
+import responses
 
 from edx_rest_api_client import auth
 
@@ -29,10 +29,10 @@ class JwtAuthTests(TestCase):
             mock.Mock(wraps=datetime.datetime)
         )
         mocked_datetime = datetime_patcher.start()
-        mocked_datetime.utcnow.return_value = CURRENT_TIME
+        mocked_datetime.utcnow.return_value = CURRENT_TIME  # pylint: disable=no-member
         self.addCleanup(datetime_patcher.stop)
 
-        httpretty.register_uri(httpretty.GET, self.url)
+        responses.add(responses.GET, self.url)
 
     def assert_expected_token_value(self, tracking_context=None, issuer=None, expires_in=None):
         """ DRY helper. """
@@ -67,24 +67,24 @@ class JwtAuthTests(TestCase):
 
         # Verify the header was set as expected on the request
         token = jwt.encode(signing_data, self.signing_key)
-        self.assertEqual(httpretty.last_request().headers['Authorization'], 'JWT {}'.format(token))
+        self.assertEqual(responses.calls[0].request.headers['Authorization'], 'JWT {}'.format(token))
 
-    @httpretty.activate
+    @responses.activate
     def test_headers(self):
         """ Verify the class adds an Authorization header that includes the correct JWT. """
         self.assert_expected_token_value()
 
-    @httpretty.activate
+    @responses.activate
     def test_tracking_context(self):
         """ Verify the tracking context is enclosed in the token payload, when specified. """
         self.assert_expected_token_value(tracking_context={'foo': 'bar'})
 
-    @httpretty.activate
+    @responses.activate
     def test_issuer(self):
         """ Verify that the issuer is enclosed in the token payload, when specified. """
         self.assert_expected_token_value(issuer='http://example.com/oauth')
 
-    @httpretty.activate
+    @responses.activate
     def test_expires_in(self):
         """ Verify the expiration date is enclosed in the token payload, when specified. """
         self.assert_expected_token_value(expires_in=60)
@@ -94,14 +94,14 @@ class BearerAuthTests(TestCase):
     def setUp(self):
         super(BearerAuthTests, self).setUp()
         self.url = 'http://example.com/'
-        httpretty.register_uri(httpretty.GET, self.url)
+        responses.add(responses.GET, self.url)
 
-    @httpretty.activate
+    @responses.activate
     def test_headers(self):
         """ Verify the class adds an Authorization headers with the bearer token. """
         token = 'abc123'
         requests.get(self.url, auth=auth.BearerAuth(token))
-        self.assertEqual(httpretty.last_request().headers['Authorization'], 'Bearer {}'.format(token))
+        self.assertEqual(responses.calls[0].request.headers['Authorization'], 'Bearer {}'.format(token))
 
 
 class SuppliedJwtAuthTests(TestCase):
@@ -112,15 +112,15 @@ class SuppliedJwtAuthTests(TestCase):
     def setUp(self):
         """Set up tests."""
         super(SuppliedJwtAuthTests, self).setUp()
-        httpretty.register_uri(httpretty.GET, self.url)
+        responses.add(responses.GET, self.url)
 
-    @httpretty.activate
+    @responses.activate
     def test_headers(self):
         """Verify that the token is added to the Authorization headers."""
         payload = {
-            u'key1': u'value1',
-            u'key2': u'vαlue2'
+            'key1': 'value1',
+            'key2': 'vαlue2'
         }
         token = jwt.encode(payload, self.signing_key)
         requests.get(self.url, auth=auth.SuppliedJwtAuth(token))
-        self.assertEqual(httpretty.last_request().headers['Authorization'], 'JWT {}'.format(token))
+        self.assertEqual(responses.calls[0].request.headers['Authorization'], 'JWT {}'.format(token))

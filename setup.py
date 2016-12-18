@@ -6,7 +6,7 @@ with open('README.rst') as readme:
 
 setup(
     name='edx-rest-api-client',
-    version='1.6.0',
+    version='1.7.0',
     description='Slumber client used to access various edX Platform REST APIs.',
     long_description=long_description,
     classifiers=[
@@ -14,6 +14,7 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.5',
         'Topic :: Internet',
         'Intended Audience :: Developers',
         'Environment :: Web Environment',
@@ -24,5 +25,8 @@ setup(
     author_email='oscm@edx.org',
     license='Apache',
     packages=find_packages(exclude=['*.tests']),
-    install_requires=['slumber >= 0.7.1, < 1.0', 'PyJWT >= 1.1.0, < 2.0'],
+    install_requires=[
+        'slumber >= 0.7.1, < 1.0',
+        'PyJWT >= 1.1.0, < 2.0'
+    ],
 )

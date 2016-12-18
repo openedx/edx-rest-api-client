@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
 import datetime
-from types import NoneType
 from unittest import TestCase
 
 import ddt
-from freezegun import freeze_time
-import httpretty
 import mock
 import requests
+import responses
+from freezegun import freeze_time
 
 from edx_rest_api_client.auth import JwtAuth
 from edx_rest_api_client.client import EdxRestApiClient
 from edx_rest_api_client.tests.mixins import AuthenticationTestMixin
-
 
 URL = 'http://example.com/api/v2'
 SIGNING_KEY = 'edx'
@@ -37,9 +35,9 @@ class EdxRestApiClientTests(TestCase):
           'full_name': FULL_NAME, 'email': None}, JwtAuth),
         ({'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME, 'full_name': None, 'email': None}, JwtAuth),
         ({'url': URL, 'signing_key': SIGNING_KEY, 'username': USERNAME}, JwtAuth),
-        ({'url': URL, 'signing_key': None, 'username': USERNAME}, NoneType),
-        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': None}, NoneType),
-        ({'url': URL, 'signing_key': None, 'username': None, 'oauth_access_token': None}, NoneType)
+        ({'url': URL, 'signing_key': None, 'username': USERNAME}, type(None)),
+        ({'url': URL, 'signing_key': SIGNING_KEY, 'username': None}, type(None)),
+        ({'url': URL, 'signing_key': None, 'username': None, 'oauth_access_token': None}, type(None))
     )
     def test_valid_configuration(self, kwargs, auth_type):
         """
@@ -47,7 +45,7 @@ class EdxRestApiClientTests(TestCase):
         We also check that the auth type of the api is what we expect.
         """
         api = EdxRestApiClient(**kwargs)
-        self.assertEqual(auth_type, type(getattr(api._store["session"], "auth")))  # pylint: disable=protected-access
+        self.assertIsInstance(api._store['session'].auth, auth_type)  # pylint: disable=protected-access
 
     @ddt.data(
         {'url': None, 'signing_key': SIGNING_KEY, 'username': USERNAME},
@@ -77,13 +75,13 @@ class EdxRestApiClientTests(TestCase):
             mock_auth.assert_called_with(JWT)
 
 
-@httpretty.activate
 @ddt.ddt
-class ClientCredentialTests(TestCase, AuthenticationTestMixin):
+class ClientCredentialTests(AuthenticationTestMixin, TestCase):
     """ Test client credentials requests. """
 
     URL = "http://test-auth/access_token/"
 
+    @responses.activate
     def test_get_client_credential_access_token_success(self):
         """ Test that the get access token method handles 200 responses and returns the access token. """
         code = 200
@@ -104,6 +102,7 @@ class ClientCredentialTests(TestCase, AuthenticationTestMixin):
         (500, None)
     )
     @ddt.unpack
+    @responses.activate
     def test_get_client_credential_access_token_failure(self, code, body):
         """ Test that the get access token method handles failure responses. """
         with self.assertRaises(requests.RequestException):

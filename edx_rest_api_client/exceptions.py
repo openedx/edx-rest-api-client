@@ -1,7 +1,3 @@
-# noqa pylint: skip-file
-
 # noinspection PyUnresolvedReferences
-from slumber.exceptions import *
-
-# noinspection PyUnresolvedReferences
-from requests.exceptions import Timeout
+from requests.exceptions import Timeout  # pylint: disable=unused-import
+from slumber.exceptions import *  # pylint: disable=wildcard-import
