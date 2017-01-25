@@ -43,7 +43,8 @@ class JwtAuthTests(TestCase):
         signing_data = {
             'username': self.username,
             'full_name': self.full_name,
-            'email': self.email
+            'email': self.email,
+            'iat': CURRENT_TIME,
         }
 
         if issuer:

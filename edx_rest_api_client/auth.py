@@ -17,18 +17,19 @@ class JwtAuth(AuthBase):
         self.tracking_context = tracking_context
 
     def __call__(self, r):
-
+        now = datetime.datetime.utcnow()
         data = {
             'username': self.username,
             'full_name': self.full_name,
             'email': self.email,
+            'iat': now,
         }
 
         if self.issuer:
             data['iss'] = self.issuer
 
         if self.expires_in:
-            data['exp'] = datetime.datetime.utcnow() + datetime.timedelta(seconds=self.expires_in)
+            data['exp'] = now + datetime.timedelta(seconds=self.expires_in)
 
         if self.tracking_context is not None:
             data['tracking_context'] = self.tracking_context
