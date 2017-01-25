@@ -1,12 +1,13 @@
 from setuptools import setup, find_packages
 
+from edx_rest_api_client import __version__
 
 with open('README.rst') as readme:
     long_description = readme.read()
 
 setup(
     name='edx-rest-api-client',
-    version='1.7.0',
+    version=__version__,
     description='Slumber client used to access various edX Platform REST APIs.',
     long_description=long_description,
     classifiers=[
