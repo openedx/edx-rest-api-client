@@ -1,12 +1,33 @@
 import datetime
+import os
 
 import requests
+import requests.utils
 import slumber
 
 from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
+from edx_rest_api_client.__version__ import __version__
 
 
 class EdxRestApiClient(slumber.API):
+
+    @classmethod
+    def user_agent(cls):
+        """
+        Return a User-Agent that identifies this client.
+
+        Example:
+            python-requests/2.9.1 edx-rest-api-client/1.7.2 ecommerce
+
+        The last item in the list will be the application name, taken from the
+        OS environment variable EDX_REST_API_CLIENT_NAME. If that environment
+        variable is not set, it will default to "unknown_client_name".
+        """
+        return "{} edx-rest-api-client/{} {}".format(
+            requests.utils.default_user_agent(),  # e.g. "python-requests/2.9.1"
+            __version__,  # version of this client
+            os.environ.get("EDX_REST_API_CLIENT_NAME", "unknown_client_name")
+        )
 
     @classmethod
     def get_oauth_access_token(cls, url, client_id, client_secret, token_type='bearer'):
@@ -30,7 +51,10 @@ class EdxRestApiClient(slumber.API):
                 'client_id': client_id,
                 'client_secret': client_secret,
                 'token_type': token_type,
-            }
+            },
+            headers={
+                'User-Agent': cls.user_agent(),
+            },
         )
 
         data = response.json()
@@ -63,7 +87,7 @@ class EdxRestApiClient(slumber.API):
         if jwt:
             auth = SuppliedJwtAuth(jwt)
         elif oauth_access_token:
-            auth = BearerAuth(oauth_access_token)  # pylint: disable=redefined-variable-type
+            auth = BearerAuth(oauth_access_token)
         elif signing_key and username:
             auth = JwtAuth(username, full_name, email, signing_key,
                            issuer=issuer, expires_in=expires_in, tracking_context=tracking_context)
@@ -71,6 +95,8 @@ class EdxRestApiClient(slumber.API):
             auth = None
 
         session = session or requests.Session()
+        session.headers['User-Agent'] = self.user_agent()
+
         session.timeout = timeout
         super(EdxRestApiClient, self).__init__(
             url,

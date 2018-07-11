@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
+import os
 from unittest import TestCase
 
 import ddt
@@ -8,6 +9,7 @@ import requests
 import responses
 from freezegun import freeze_time
 
+from edx_rest_api_client import __version__
 from edx_rest_api_client.auth import JwtAuth
 from edx_rest_api_client.client import EdxRestApiClient
 from edx_rest_api_client.tests.mixins import AuthenticationTestMixin
@@ -73,6 +75,19 @@ class EdxRestApiClientTests(TestCase):
         with mock.patch('edx_rest_api_client.auth.SuppliedJwtAuth.__init__', return_value=None) as mock_auth:
             EdxRestApiClient(URL, jwt=JWT)
             mock_auth.assert_called_with(JWT)
+
+    def test_user_agent(self):
+        """Make sure our custom User-Agent is getting built correctly."""
+        default_user_agent = EdxRestApiClient.user_agent()
+        self.assertIn('python-requests', default_user_agent)
+        self.assertIn('edx-rest-api-client/{}'.format(__version__), default_user_agent)
+        self.assertIn('unknown', default_user_agent)
+
+        with mock.patch.dict(os.environ, {'EDX_REST_API_CLIENT_NAME': "awesome_app"}):
+            user_agent = EdxRestApiClient.user_agent()
+            self.assertIn('python-requests', default_user_agent)
+            self.assertIn('edx-rest-api-client/{}'.format(__version__), default_user_agent)
+            self.assertIn('awesome_app', user_agent)
 
 
 @ddt.ddt
