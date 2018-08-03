@@ -78,15 +78,19 @@ class EdxRestApiClientTests(TestCase):
 
     def test_user_agent(self):
         """Make sure our custom User-Agent is getting built correctly."""
-        default_user_agent = EdxRestApiClient.user_agent()
-        self.assertIn('python-requests', default_user_agent)
-        self.assertIn('edx-rest-api-client/{}'.format(__version__), default_user_agent)
-        self.assertIn('unknown', default_user_agent)
+        with mock.patch('socket.gethostbyname', return_value='test_hostname'):
+            default_user_agent = EdxRestApiClient.user_agent()
+            self.assertIn('python-requests', default_user_agent)
+            self.assertIn('edx-rest-api-client/{}'.format(__version__), default_user_agent)
+            self.assertIn('test_hostname', default_user_agent)
+
+        with mock.patch('socket.gethostbyname') as mock_gethostbyname:
+            mock_gethostbyname.side_effect = ValueError()
+            default_user_agent = EdxRestApiClient.user_agent()
+            self.assertIn('unknown_client_name', default_user_agent)
 
         with mock.patch.dict(os.environ, {'EDX_REST_API_CLIENT_NAME': "awesome_app"}):
             user_agent = EdxRestApiClient.user_agent()
-            self.assertIn('python-requests', default_user_agent)
-            self.assertIn('edx-rest-api-client/{}'.format(__version__), default_user_agent)
             self.assertIn('awesome_app', user_agent)
 
 

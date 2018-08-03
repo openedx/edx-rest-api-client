@@ -1,5 +1,6 @@
 import datetime
 import os
+import socket
 
 import requests
 import requests.utils
@@ -21,12 +22,17 @@ class EdxRestApiClient(slumber.API):
 
         The last item in the list will be the application name, taken from the
         OS environment variable EDX_REST_API_CLIENT_NAME. If that environment
-        variable is not set, it will default to "unknown_client_name".
+        variable is not set, it will default to the hostname.
         """
+        client_name = 'unknown_client_name'
+        try:
+            client_name = os.environ.get("EDX_REST_API_CLIENT_NAME") or socket.gethostbyname(socket.gethostname())
+        except:  # pylint: disable=bare-except
+            pass  # using 'unknown_client_name' is good enough.  no need to log.
         return "{} edx-rest-api-client/{} {}".format(
             requests.utils.default_user_agent(),  # e.g. "python-requests/2.9.1"
             __version__,  # version of this client
-            os.environ.get("EDX_REST_API_CLIENT_NAME", "unknown_client_name")
+            client_name
         )
 
     @classmethod
