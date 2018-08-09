@@ -34,5 +34,4 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     tags: true
-    python: 3.5
-    condition: '$TOX_ENV = py35'
+    condition: '$TOXENV = quality'
