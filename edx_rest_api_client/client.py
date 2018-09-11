@@ -107,9 +107,8 @@ class EdxRestApiClient(slumber.API):
 
         if retry_attempts:
             # Retries should only be attempted in the cases where it is okay for the caller to be able to blocking
-            # it's thread. For example, if a request is in an atomic transaction, we do not want to attempt a retry.
-            # In a case where the request is run in a celery task which isn't locking any database tables, we may want
-            # to retry.
+            # it's thread. For example, if a request is sycnhronous (such as an atomic transaction), we do not want to
+            # attempt a retry. In a case where the request is not time dependent and read-only, we may want to retry.
             retries = Retry(total=retry_attempts, backoff_factor=2)
             session.mount(url, HTTPAdapter(max_retries=retries))
 
