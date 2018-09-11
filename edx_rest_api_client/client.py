@@ -79,7 +79,7 @@ class EdxRestApiClient(slumber.API):
 
     def __init__(self, url, signing_key=None, username=None, full_name=None, email=None,
                  timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,
-                 session=None, jwt=None, retry_attempts=0, **kwargs):
+                 session=None, jwt=None, retry_attempts=None, **kwargs):
         """
         Instantiate a new client. You can pass extra kwargs to Slumber like
         'append_slash'.
@@ -105,7 +105,11 @@ class EdxRestApiClient(slumber.API):
         session = session or requests.Session()
         session.headers['User-Agent'] = self.user_agent()
 
-        if retry_attempts > 0:
+        if retry_attempts:
+            # Retries should only be attempted in the cases where it is okay for the caller to be able to blocking
+            # it's thread. For example, if a request is in an atomic transaction, we do not want to attempt a retry.
+            # In a case where the request is run in a celery task which isn't locking any database tables, we may want
+            # to retry.
             retries = Retry(total=retry_attempts, backoff_factor=2)
             session.mount(url, HTTPAdapter(max_retries=retries))
 
@@ -116,3 +120,5 @@ class EdxRestApiClient(slumber.API):
             auth=auth,
             **kwargs
         )
+
+
