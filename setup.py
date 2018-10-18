@@ -28,6 +28,7 @@ setup(
     license='Apache',
     packages=find_packages(exclude=['*.tests']),
     install_requires=[
+        'requests',
         'slumber >= 0.7.1, < 1.0',
         'PyJWT >= 1.1.0, < 2.0'
     ],

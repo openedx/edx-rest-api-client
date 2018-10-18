@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
+import json
 import os
 from unittest import TestCase
 
@@ -11,7 +12,7 @@ from freezegun import freeze_time
 
 from edx_rest_api_client import __version__
 from edx_rest_api_client.auth import JwtAuth
-from edx_rest_api_client.client import EdxRestApiClient
+from edx_rest_api_client.client import EdxRestApiClient, EdxSession, user_agent
 from edx_rest_api_client.tests.mixins import AuthenticationTestMixin
 
 URL = 'http://example.com/api/v2'
@@ -79,19 +80,21 @@ class EdxRestApiClientTests(TestCase):
     def test_user_agent(self):
         """Make sure our custom User-Agent is getting built correctly."""
         with mock.patch('socket.gethostbyname', return_value='test_hostname'):
-            default_user_agent = EdxRestApiClient.user_agent()
+            default_user_agent = user_agent()
             self.assertIn('python-requests', default_user_agent)
             self.assertIn('edx-rest-api-client/{}'.format(__version__), default_user_agent)
             self.assertIn('test_hostname', default_user_agent)
 
         with mock.patch('socket.gethostbyname') as mock_gethostbyname:
             mock_gethostbyname.side_effect = ValueError()
-            default_user_agent = EdxRestApiClient.user_agent()
+            default_user_agent = user_agent()
             self.assertIn('unknown_client_name', default_user_agent)
 
         with mock.patch.dict(os.environ, {'EDX_REST_API_CLIENT_NAME': "awesome_app"}):
-            user_agent = EdxRestApiClient.user_agent()
-            self.assertIn('awesome_app', user_agent)
+            uagent = user_agent()
+            self.assertIn('awesome_app', uagent)
+
+        self.assertEqual(user_agent(), EdxRestApiClient.user_agent())
 
 
 @ddt.ddt
@@ -127,3 +130,53 @@ class ClientCredentialTests(AuthenticationTestMixin, TestCase):
         with self.assertRaises(requests.RequestException):
             self._mock_auth_api(URL, code, body=body)
             EdxRestApiClient.get_oauth_access_token(URL, "client_id", "client_secret")
+
+
+class EdxSessionTests(AuthenticationTestMixin, TestCase):
+    """
+    Tests for EdxSession
+    """
+    base_url = 'http://testing.test'
+    client_id = 'test'
+    client_secret = 'secret'
+
+    @responses.activate
+    def test_automatic_auth(self):
+        """
+        Test that the JWT token is automatically set
+        """
+        session = EdxSession(self.base_url, self.client_id, self.client_secret)
+        self._mock_auth_api(self.base_url + '/oauth2/access_token', 200, {'access_token': 'abcd', 'expires_in': 60})
+        self._mock_auth_api(self.base_url + '/endpoint', 200, {'status': 'ok'})
+        response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
+        self.assertIn('client_id=%s' % self.client_id, responses.calls[0].request.body)
+        self.assertEqual(session.auth.token, 'abcd')
+        self.assertEqual(response.json()['status'], 'ok')
+
+    @responses.activate
+    def test_automatic_token_refresh(self):
+        """
+        Test that the JWT token is automatically refreshed
+        """
+        def auth_callback(request):
+            resp = {'expires_in': 60}
+            if 'grant_type=client_credentials' in request.body:
+                resp['access_token'] = 'cred'
+            elif 'grant_type=refresh_token' in request.body:
+                resp['access_token'] = 'refresh'
+            return (200, {}, json.dumps(resp))
+
+        responses.add_callback(
+            responses.POST, self.base_url + '/oauth2/access_token',
+            callback=auth_callback,
+            content_type='application/json',
+        )
+
+        session = EdxSession(self.base_url, self.client_id, self.client_secret)
+        self._mock_auth_api(self.base_url + '/endpoint', 200, {'status': 'ok'})
+        response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
+        self.assertEqual(session.auth.token, 'cred')
+        self.assertEqual(response.json()['status'], 'ok')
+        with freeze_time(datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)):
+            response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
+            self.assertEqual(session.auth.token, 'refresh')

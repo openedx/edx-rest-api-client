@@ -4,6 +4,6 @@ edx-lint
 freezegun
 mock
 nose
-pep8
+pycodestyle
 responses
 tox
