@@ -1,5 +1,3 @@
-import json
-
 import responses
 
 
@@ -12,6 +10,6 @@ class AuthenticationTestMixin(object):
             responses.POST,
             url,
             status=status,
-            body=json.dumps(body),
+            json=body,
             content_type='application/json'
         )
