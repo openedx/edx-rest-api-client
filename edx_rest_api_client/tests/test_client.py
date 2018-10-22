@@ -12,7 +12,7 @@ from freezegun import freeze_time
 
 from edx_rest_api_client import __version__
 from edx_rest_api_client.auth import JwtAuth
-from edx_rest_api_client.client import EdxRestApiClient, EdxSession, user_agent
+from edx_rest_api_client.client import EdxRestApiClient, OAuthAPIClient, user_agent
 from edx_rest_api_client.tests.mixins import AuthenticationTestMixin
 
 URL = 'http://example.com/api/v2'
@@ -132,9 +132,9 @@ class ClientCredentialTests(AuthenticationTestMixin, TestCase):
             EdxRestApiClient.get_oauth_access_token(URL, "client_id", "client_secret")
 
 
-class EdxSessionTests(AuthenticationTestMixin, TestCase):
+class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
     """
-    Tests for EdxSession
+    Tests for OAuthAPIClient
     """
     base_url = 'http://testing.test'
     client_id = 'test'
@@ -145,7 +145,7 @@ class EdxSessionTests(AuthenticationTestMixin, TestCase):
         """
         Test that the JWT token is automatically set
         """
-        session = EdxSession(self.base_url, self.client_id, self.client_secret)
+        session = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
         self._mock_auth_api(self.base_url + '/oauth2/access_token', 200, {'access_token': 'abcd', 'expires_in': 60})
         self._mock_auth_api(self.base_url + '/endpoint', 200, {'status': 'ok'})
         response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
@@ -172,7 +172,7 @@ class EdxSessionTests(AuthenticationTestMixin, TestCase):
             content_type='application/json',
         )
 
-        session = EdxSession(self.base_url, self.client_id, self.client_secret)
+        session = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
         self._mock_auth_api(self.base_url + '/endpoint', 200, {'status': 'ok'})
         response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
         self.assertEqual(session.auth.token, 'cred')
