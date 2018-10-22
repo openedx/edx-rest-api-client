@@ -77,7 +77,7 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
     return access_token, expires_at
 
 
-class EdxSession(requests.Session):
+class OAuthAPIClient(requests.Session):
     """
     A :class:`requests.Session` that automatically authenticates against edX's preferred
     authentication method, given a client id and client secret. The underlying implementation
@@ -92,7 +92,7 @@ class EdxSession(requests.Session):
             client_id (str): Client ID
             client_secret (str): Client secret
         """
-        super(EdxSession, self).__init__(**kwargs)
+        super(OAuthAPIClient, self).__init__(**kwargs)
         self.headers['user-agent'] = USER_AGENT
         self._base_url = base_url
         self._client_id = client_id
@@ -116,7 +116,7 @@ class EdxSession(requests.Session):
         Overrides Session.request to ensure that the session is authenticated
         """
         self._check_auth()
-        return super(EdxSession, self).request(method, url, **kwargs)
+        return super(OAuthAPIClient, self).request(method, url, **kwargs)
 
 
 class EdxRestApiClient(slumber.API):
@@ -149,7 +149,7 @@ class EdxRestApiClient(slumber.API):
         if not url:
             raise ValueError('An API url must be supplied!')
 
-        warnings.warn('EdxRestApiClient is deprecated. Use EdxSession instead.')
+        warnings.warn('EdxRestApiClient is deprecated. Use OAuthAPIClient instead.')
 
         if jwt:
             auth = SuppliedJwtAuth(jwt)
