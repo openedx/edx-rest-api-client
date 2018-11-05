@@ -37,28 +37,37 @@ def user_agent():
 USER_AGENT = user_agent()
 
 
-def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials'):
-    """ Retrieves OAuth 2.0 access token using the client credentials grant.
+def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials',
+                           refresh_token=None):
+    """ Retrieves OAuth 2.0 access token using the given grant type.
 
     Args:
         url (str): Oauth2 access token endpoint
         client_id (str): client ID
         client_secret (str): client secret
+    Kwargs:
         token_type (str): Type of token to return. Options include bearer and jwt.
+        grant_type (str): One of 'client_credentials' or 'refresh_token'
+        refresh_token (str): The previous access token (for grant_type=refresh_token)
 
     Returns:
         tuple: Tuple containing access token string and expiration datetime.
     """
     now = datetime.datetime.utcnow()
+    data = {
+        'grant_type': grant_type,
+        'client_id': client_id,
+        'client_secret': client_secret,
+        'token_type': token_type,
+    }
+    if refresh_token:
+        data['refresh_token'] = refresh_token
+    else:
+        assert grant_type != 'refresh_token', "refresh_token parameter required"
 
     response = requests.post(
         url,
-        data={
-            'grant_type': grant_type,
-            'client_id': client_id,
-            'client_secret': client_secret,
-            'token_type': token_type,
-        },
+        data=data,
         headers={
             'User-Agent': USER_AGENT,
         },
@@ -109,7 +118,8 @@ class OAuthAPIClient(requests.Session):
                 url,
                 self._client_id,
                 self._client_secret,
-                grant_type=grant_type)
+                grant_type=grant_type,
+                refresh_token=self.auth.token)
 
     def request(self, method, url, **kwargs):  # pylint: disable=arguments-differ
         """

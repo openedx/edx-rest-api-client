@@ -12,7 +12,7 @@ from freezegun import freeze_time
 
 from edx_rest_api_client import __version__
 from edx_rest_api_client.auth import JwtAuth
-from edx_rest_api_client.client import EdxRestApiClient, OAuthAPIClient, user_agent
+from edx_rest_api_client.client import EdxRestApiClient, OAuthAPIClient, get_oauth_access_token, user_agent
 from edx_rest_api_client.tests.mixins import AuthenticationTestMixin
 
 URL = 'http://example.com/api/v2'
@@ -131,6 +131,11 @@ class ClientCredentialTests(AuthenticationTestMixin, TestCase):
             self._mock_auth_api(URL, code, body=body)
             EdxRestApiClient.get_oauth_access_token(URL, "client_id", "client_secret")
 
+    def test_refresh_token_required(self):
+        self._mock_auth_api(URL, 200, body=None)
+        with self.assertRaises(AssertionError):
+            get_oauth_access_token(URL, 'client_id', 'client_secret', grant_type='refresh_token')
+
 
 class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
     """
@@ -162,7 +167,7 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
             resp = {'expires_in': 60}
             if 'grant_type=client_credentials' in request.body:
                 resp['access_token'] = 'cred'
-            elif 'grant_type=refresh_token' in request.body:
+            elif 'grant_type=refresh_token' in request.body and 'refresh_token=cred' in request.body:
                 resp['access_token'] = 'refresh'
             return (200, {}, json.dumps(resp))
 
