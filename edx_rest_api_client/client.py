@@ -74,7 +74,6 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
     )
 
     data = response.json()
-
     try:
         access_token = data['access_token']
         expires_in = data['expires_in']
@@ -112,14 +111,12 @@ class OAuthAPIClient(requests.Session):
     def _check_auth(self):
         if datetime.datetime.utcnow() > self._expiration:
             url = self._base_url + self.oauth_uri
-            has_token = self.auth.token is not None
-            grant_type = 'refresh_token' if has_token else 'client_credentials'
+            grant_type = 'client_credentials'
             self.auth.token, self._expiration = get_oauth_access_token(
                 url,
                 self._client_id,
                 self._client_secret,
-                grant_type=grant_type,
-                refresh_token=self.auth.token)
+                grant_type=grant_type)
 
     def request(self, method, url, **kwargs):  # pylint: disable=arguments-differ
         """

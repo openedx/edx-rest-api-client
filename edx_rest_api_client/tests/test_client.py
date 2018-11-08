@@ -163,12 +163,12 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
         """
         Test that the JWT token is automatically refreshed
         """
+        tokens = ['cred2', 'cred1']
+
         def auth_callback(request):
             resp = {'expires_in': 60}
             if 'grant_type=client_credentials' in request.body:
-                resp['access_token'] = 'cred'
-            elif 'grant_type=refresh_token' in request.body and 'refresh_token=cred' in request.body:
-                resp['access_token'] = 'refresh'
+                resp['access_token'] = tokens.pop()
             return (200, {}, json.dumps(resp))
 
         responses.add_callback(
@@ -180,8 +180,8 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
         session = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
         self._mock_auth_api(self.base_url + '/endpoint', 200, {'status': 'ok'})
         response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
-        self.assertEqual(session.auth.token, 'cred')
+        self.assertEqual(session.auth.token, 'cred1')
         self.assertEqual(response.json()['status'], 'ok')
         with freeze_time(datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)):
             response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
-            self.assertEqual(session.auth.token, 'refresh')
+            self.assertEqual(session.auth.token, 'cred2')
