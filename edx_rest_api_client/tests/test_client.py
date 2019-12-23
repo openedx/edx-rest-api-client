@@ -137,6 +137,7 @@ class ClientCredentialTests(AuthenticationTestMixin, TestCase):
             get_oauth_access_token(URL, 'client_id', 'client_secret', grant_type='refresh_token')
 
 
+@ddt.ddt
 class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
     """
     Tests for OAuthAPIClient
@@ -146,16 +147,20 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
     client_secret = 'secret'
 
     @responses.activate
-    def test_automatic_auth(self):
+    @ddt.data(
+        'http://testing.test',
+        'http://testing.test/oauth2',
+    )
+    def test_automatic_auth(self, client_base_url):
         """
         Test that the JWT token is automatically set
         """
-        session = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
+        client_session = OAuthAPIClient(client_base_url, self.client_id, self.client_secret)
         self._mock_auth_api(self.base_url + '/oauth2/access_token', 200, {'access_token': 'abcd', 'expires_in': 60})
         self._mock_auth_api(self.base_url + '/endpoint', 200, {'status': 'ok'})
-        response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
+        response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
         self.assertIn('client_id=%s' % self.client_id, responses.calls[0].request.body)
-        self.assertEqual(session.auth.token, 'abcd')
+        self.assertEqual(client_session.auth.token, 'abcd')
         self.assertEqual(response.json()['status'], 'ok')
 
     @responses.activate
@@ -177,11 +182,11 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
             content_type='application/json',
         )
 
-        session = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
+        client_session = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
         self._mock_auth_api(self.base_url + '/endpoint', 200, {'status': 'ok'})
-        response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
-        self.assertEqual(session.auth.token, 'cred1')
+        response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
+        self.assertEqual(client_session.auth.token, 'cred1')
         self.assertEqual(response.json()['status'], 'ok')
         with freeze_time(datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)):
-            response = session.post(self.base_url + '/endpoint', data={'test': 'ok'})
-            self.assertEqual(session.auth.token, 'cred2')
+            response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
+            self.assertEqual(client_session.auth.token, 'cred2')
