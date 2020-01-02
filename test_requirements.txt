@@ -1,9 +1,0 @@
-coverage
-ddt
-edx-lint
-freezegun
-mock
-nose
-pycodestyle
-responses
-tox
