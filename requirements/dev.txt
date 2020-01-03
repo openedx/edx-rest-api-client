@@ -5,6 +5,8 @@
 #    make upgrade
 #
 astroid==1.5.3
+atomicwrites==1.3.0       # via pytest
+attrs==19.3.0             # via pytest
 certifi==2019.11.28
 chardet==3.0.4
 click-log==0.3.2
@@ -22,7 +24,6 @@ lazy-object-proxy==1.4.3
 mccabe==0.6.1
 mock==3.0.5
 more-itertools==5.0.0
-nose==1.3.7
 packaging==20.0
 pip-tools==4.3.0
 pluggy==0.13.1
@@ -34,6 +35,8 @@ pylint-django==0.7.2
 pylint-plugin-utils==0.6
 pylint==1.7.6
 pyparsing==2.4.6
+pytest-cov==2.8.1
+pytest==4.6.9
 python-dateutil==2.8.1
 requests==2.22.0
 responses==0.10.9
@@ -44,5 +47,6 @@ tox-battery==0.5.1
 tox==3.14.3
 urllib3==1.25.7
 virtualenv==16.7.9
+wcwidth==0.1.8            # via pytest
 wrapt==1.11.2
 zipp==0.6.0

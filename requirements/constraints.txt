@@ -20,3 +20,6 @@ astroid<2.0.0
 
 # Constrained for Python 2 support
 edx-lint<1.4.0
+
+# Constrained for Python 2 support
+pytest<5.0.0

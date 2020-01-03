@@ -1,0 +1,10 @@
+[run]
+branch = True
+data_file = .coverage
+source=edx_rest_api_client
+
+[html]
+directory = build/coverage/html
+
+[xml]
+output = build/coverage/coverage.xml
