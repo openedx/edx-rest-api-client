@@ -6,8 +6,7 @@ edX REST API Client  |Travis|_ |Codecov|_
 .. |Codecov| image:: https://codecov.io/github/edx/edx-rest-api-client/coverage.svg?branch=master
 .. _Codecov: https://codecov.io/github/edx/edx-rest-api-client?branch=master
 
-The edX REST API Client (henceforth, client) allows users to communicate with various edX REST
-APIs, including the `E-Commerce Service`_ and the `Programs Service`_.
+The edX REST API Client (henceforth, client) allows users to communicate with various edX REST APIs, including the `E-Commerce Service`_ and the `Programs Service`_.
 
 .. _E-Commerce Service: https://github.com/edx/ecommerce
 .. _Programs Service: https://github.com/edx/programs
@@ -16,6 +15,12 @@ Testing
 -------
     $ make validate
 
+Additional Requirements
+-----------------------
+
+The OAuthAPIClient uses the TieredCache internally for caching.  Read more about the `requirements of TieredCache`_, which include Django caching and some custom middleware.
+
+.. _requirements of TieredCache: https://github.com/edx/edx-django-utils/blob/master/edx_django_utils/cache/README.rst#tieredcache
 
 How to Contribute
 -----------------
