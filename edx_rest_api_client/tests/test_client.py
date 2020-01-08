@@ -8,6 +8,7 @@ import ddt
 import mock
 import requests
 import responses
+from edx_django_utils.cache import TieredCache
 from freezegun import freeze_time
 
 from edx_rest_api_client import __version__
@@ -146,6 +147,10 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
     client_id = 'test'
     client_secret = 'secret'
 
+    def setUp(self):
+        super(OAuthAPIClientTests, self).setUp()
+        TieredCache.dangerous_clear_all_tiers()
+
     @responses.activate
     @ddt.data(
         'http://testing.test',
@@ -185,8 +190,14 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
         client_session = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
         self._mock_auth_api(self.base_url + '/endpoint', 200, {'status': 'ok'})
         response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
+        first_call_datetime = datetime.datetime.utcnow()
         self.assertEqual(client_session.auth.token, 'cred1')
         self.assertEqual(response.json()['status'], 'ok')
-        with freeze_time(datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)):
+        # after only 30 seconds should still use the cached token
+        with freeze_time(first_call_datetime + datetime.timedelta(seconds=30)):
+            response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
+            self.assertEqual(client_session.auth.token, 'cred1')
+        # after just under a minute, should request a new token (expires early due to ACCESS_TOKEN_EXPIRED_THRESHOLD)
+        with freeze_time(first_call_datetime + datetime.timedelta(seconds=56)):
             response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
             self.assertEqual(client_session.auth.token, 'cred2')
