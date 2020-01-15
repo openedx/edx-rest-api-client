@@ -1,7 +1,7 @@
 # Core requirements for using this package template
 -c constraints.txt
 
-edx-django-utils
+edx-django-utils>=1.0.0
 requests
 slumber>=0.7.1
 PyJWT>=1.1.0
