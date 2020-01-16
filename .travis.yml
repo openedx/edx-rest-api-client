@@ -2,16 +2,17 @@ sudo: false
 
 language: python
 
+python:
+  - 3.5
+  - 3.8
+
+env:
+  - TOXENV=django111
+
 matrix:
- include:
-  - python: 2.7
-    env: TOXENV=py27
-  - python: 3.5
-    env: TOXENV=py35
-  - python: 3.5
-    env: TOXENV=quality
-  - python: 3.6
-    env: TOXENV=py36
+  include:
+    - python: 3.5
+      env: TOXENV=quality
 
 cache:
   - pip
