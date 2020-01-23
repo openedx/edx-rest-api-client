@@ -24,6 +24,7 @@ from edx_rest_api_client.tests.mixins import AuthenticationTestMixin
 
 URL = 'http://example.com/api/v2'
 OAUTH_URL = "http://test-auth.com/oauth2/access_token"
+OAUTH_URL_2 = "http://test-auth.com/edx/oauth2/access_token"
 SIGNING_KEY = 'edx'
 USERNAME = 'edx'
 FULL_NAME = 'édx äpp'
@@ -180,18 +181,18 @@ class CachedClientCredentialTests(AuthenticationTestMixin, TestCase):
         """
         Test that tokens are cached based on client, token_type, and grant_type
         """
-        tokens = ['cred4', 'cred3', 'cred2', 'cred1']
+        tokens = [
+            'auth2-cred4', 'auth2-cred3', 'auth2-cred2', 'auth2-cred1',
+            'auth1-cred4', 'auth1-cred3', 'auth1-cred2', 'auth1-cred1',
+        ]
 
         def auth_callback(request):   # pylint: disable=unused-argument
             resp = {'expires_in': 60}
             resp['access_token'] = 'no-more-credentials' if not tokens else tokens.pop()
             return (200, {}, json.dumps(resp))
 
-        responses.add_callback(
-            responses.POST, OAUTH_URL,
-            callback=auth_callback,
-            content_type='application/json',
-        )
+        responses.add_callback(responses.POST, OAUTH_URL, callback=auth_callback, content_type='application/json')
+        responses.add_callback(responses.POST, OAUTH_URL_2, callback=auth_callback, content_type='application/json')
 
         kwargs_list = [
             {'client_id': 'test-id-1', 'token_type': "jwt", 'grant_type': 'client_credentials'},
@@ -200,24 +201,38 @@ class CachedClientCredentialTests(AuthenticationTestMixin, TestCase):
             {'client_id': 'test-id-1', 'token_type': "jwt", 'grant_type': 'refresh_token'},
         ]
 
-        # initial requests should call the mock client and get the correct credentials
+        # initial requests to OAUTH_URL should call the mock client and get the correct credentials
         for index, kwargs in enumerate(kwargs_list):
-            token_response = self._get_and_cache_oauth_access_token(**kwargs)
-            expected_token = 'cred{}'.format(index + 1)
+            token_response = self._get_and_cache_oauth_access_token(OAUTH_URL, **kwargs)
+            expected_token = 'auth1-cred{}'.format(index + 1)
             self.assertEqual(token_response[0], expected_token)
         self.assertEqual(len(responses.calls), 4)
 
-        # second set of requests should return the same credentials without making any new mock calls
+        # initial requests to OAUTH_URL_2 should call the mock client and get the correct credentials
         for index, kwargs in enumerate(kwargs_list):
-            token_response = self._get_and_cache_oauth_access_token(**kwargs)
-            expected_token = 'cred{}'.format(index + 1)
+            token_response = self._get_and_cache_oauth_access_token(OAUTH_URL_2, **kwargs)
+            expected_token = 'auth2-cred{}'.format(index + 1)
             self.assertEqual(token_response[0], expected_token)
-        self.assertEqual(len(responses.calls), 4)
+        self.assertEqual(len(responses.calls), 8)
 
-    def _get_and_cache_oauth_access_token(self, client_id, token_type, grant_type):
+        # second set of requests to OAUTH_URL should return the same credentials without making any new mock calls
+        for index, kwargs in enumerate(kwargs_list):
+            token_response = self._get_and_cache_oauth_access_token(OAUTH_URL, **kwargs)
+            expected_token = 'auth1-cred{}'.format(index + 1)
+            self.assertEqual(token_response[0], expected_token)
+        self.assertEqual(len(responses.calls), 8)
+
+        # second set of requests to OAUTH_URL_2 should return the same credentials without making any new mock calls
+        for index, kwargs in enumerate(kwargs_list):
+            token_response = self._get_and_cache_oauth_access_token(OAUTH_URL_2, **kwargs)
+            expected_token = 'auth2-cred{}'.format(index + 1)
+            self.assertEqual(token_response[0], expected_token)
+        self.assertEqual(len(responses.calls), 8)
+
+    def _get_and_cache_oauth_access_token(self, auth_url, client_id, token_type, grant_type):
         refresh_token = 'test-refresh-token' if grant_type == 'refresh_token' else None
         return get_and_cache_oauth_access_token(
-            OAUTH_URL, client_id, 'test-secret', token_type=token_type, grant_type=grant_type,
+            auth_url, client_id, 'test-secret', token_type=token_type, grant_type=grant_type,
             refresh_token=refresh_token,
         )
 
@@ -237,15 +252,22 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
 
     @responses.activate
     @ddt.data(
-        'http://testing.test',
-        'http://testing.test/oauth2',
+        ('http://testing.test', None, 'http://testing.test/oauth2/access_token'),
+        ('http://testing.test', '/edx', 'http://testing.test/edx/oauth2/access_token'),
+        ('http://testing.test', '/edx/oauth2', 'http://testing.test/edx/oauth2/access_token'),
+        ('http://testing.test', '/edx/oauth2/access_token', 'http://testing.test/edx/oauth2/access_token'),
+        ('http://testing.test/oauth2', None, 'http://testing.test/oauth2/access_token'),
+        ('http://testing.test/test', '/edx/oauth2/access_token', 'http://testing.test/test/edx/oauth2/access_token'),
     )
-    def test_automatic_auth(self, client_base_url):
+    @ddt.unpack
+    def test_automatic_auth(self, client_base_url, custom_oauth_uri, expected_oauth_url):
         """
         Test that the JWT token is automatically set
         """
         client_session = OAuthAPIClient(client_base_url, self.client_id, self.client_secret)
-        self._mock_auth_api(self.base_url + '/oauth2/access_token', 200, {'access_token': 'abcd', 'expires_in': 60})
+        client_session.oauth_uri = custom_oauth_uri
+
+        self._mock_auth_api(expected_oauth_url, 200, {'access_token': 'abcd', 'expires_in': 60})
         self._mock_auth_api(self.base_url + '/endpoint', 200, {'status': 'ok'})
         response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
         self.assertIn('client_id=%s' % self.client_id, responses.calls[0].request.body)

@@ -134,10 +134,12 @@ def get_and_cache_oauth_access_token(url, client_id, client_secret, token_type='
         tuple: Tuple containing (access token string, expiration datetime).
 
     """
-    cache_key = 'edx_rest_api_client.access_token.{}.{}.{}'.format(
+    oauth_url = _get_oauth_url(url)
+    cache_key = 'edx_rest_api_client.access_token.{}.{}.{}.{}'.format(
         token_type,
         grant_type,
         client_id,
+        oauth_url,
     )
     cached_response = TieredCache.get_cached_response(cache_key)
 
@@ -151,7 +153,7 @@ def get_and_cache_oauth_access_token(url, client_id, client_secret, token_type='
 
     # Get a new access token if no unexpired access token was found in the cache.
     oauth_access_token_response = get_oauth_access_token(
-        _get_oauth_url(url),
+        oauth_url,
         client_id,
         client_secret,
         grant_type=grant_type,
@@ -176,6 +178,11 @@ class OAuthAPIClient(requests.Session):
     See https://github.com/edx/edx-django-utils/blob/master/edx_django_utils/cache/README.rst#tieredcache
 
     """
+
+    # If the oauth_uri is set, it will be appended to the base_url.
+    # Also, if oauth_uri does not end with `/oauth2/access_token`, it will be adjusted as necessary to do so.
+    oauth_uri = None
+
     def __init__(self, base_url, client_id, client_secret, **kwargs):
         """
         Args:
@@ -189,11 +196,11 @@ class OAuthAPIClient(requests.Session):
         """
         super(OAuthAPIClient, self).__init__(**kwargs)
         self.headers['user-agent'] = USER_AGENT
+        self.auth = SuppliedJwtAuth(None)
+
         self._base_url = base_url.rstrip('/')
         self._client_id = client_id
         self._client_secret = client_secret
-
-        self.auth = SuppliedJwtAuth(None)
 
     def _ensure_authentication(self):
         """
@@ -203,8 +210,10 @@ class OAuthAPIClient(requests.Session):
             requests.RequestException if there is a problem retrieving the access token.
 
         """
+        oauth_url = self._base_url if not self.oauth_uri else self._base_url + self.oauth_uri
+
         oauth_access_token_response = get_and_cache_oauth_access_token(
-            self._base_url,
+            oauth_url,
             self._client_id,
             self._client_secret,
             grant_type='client_credentials'
