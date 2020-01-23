@@ -1,7 +1,7 @@
 import responses
 
 
-class AuthenticationTestMixin(object):  # pylint: disable=useless-object-inheritance
+class AuthenticationTestMixin(object):
     """ Mixin for testing authentication. """
 
     def _mock_auth_api(self, url, status, body=None):

@@ -91,47 +91,26 @@ class OAuthAPIClient(requests.Session):
     authentication method, given a client id and client secret. The underlying implementation
     is subject to change.
     """
+    oauth_uri = '/oauth2/access_token'
+
     def __init__(self, base_url, client_id, client_secret, **kwargs):
         """
         Args:
-            base_url (str): base url of the LMS instance, with or without including the path `/oauth2` (see note).
+            base_url (str): base url of LMS instance
             client_id (str): Client ID
             client_secret (str): Client secret
-
-        Note:
-            The example value of either of the following two commonly found settings would be acceptable as
-            the `base_url` argument.::
-
-                LMS_BASE_URL = 'http://edx.devstack.lms:18000'
-                BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL = 'http://edx.devstack.lms:18000/oauth2'
-
         """
         super(OAuthAPIClient, self).__init__(**kwargs)
         self.headers['user-agent'] = USER_AGENT
-        self._base_url = base_url.rstrip('/')
+        self._base_url = base_url
         self._client_id = client_id
         self._client_secret = client_secret
         self._expiration = datetime.datetime(1983, 4, 6, 7, 30, 0)
         self.auth = SuppliedJwtAuth(None)
 
-    def _get_oauth_url(self, base_url):
-        """
-        Returns the oauth2 url.
-
-        Note:
-            The resulting url will always be something like http://<LMS_BASE_URL>/oauth2/access_token,
-            regardless of whether the `base_url` already included the path `/oauth2`.
-
-        """
-        base_url = base_url.rstrip('/')
-        if base_url.endswith('/oauth2'):
-            return base_url + '/access_token'
-
-        return base_url + '/oauth2/access_token'
-
     def _check_auth(self):
         if datetime.datetime.utcnow() > self._expiration:
-            url = self._get_oauth_url(self._base_url)
+            url = self._base_url + self.oauth_uri
             grant_type = 'client_credentials'
             self.auth.token, self._expiration = get_oauth_access_token(
                 url,
