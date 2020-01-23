@@ -1,13 +1,12 @@
+import datetime
 import os
 import socket
 import warnings
-from datetime import datetime, timedelta
 
 import requests
 import requests.utils
 import slumber
 
-from edx_django_utils.cache import TieredCache
 from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
 from edx_rest_api_client.__version__ import __version__
 
@@ -54,7 +53,7 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
     Returns:
         tuple: Tuple containing access token string and expiration datetime.
     """
-    now = datetime.utcnow()
+    now = datetime.datetime.utcnow()
     data = {
         'grant_type': grant_type,
         'client_id': client_id,
@@ -81,7 +80,7 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
     except KeyError:
         raise requests.RequestException(response=response)
 
-    expires_at = now + timedelta(seconds=expires_in)
+    expires_at = now + datetime.timedelta(seconds=expires_in)
 
     return access_token, expires_at
 
@@ -91,14 +90,7 @@ class OAuthAPIClient(requests.Session):
     A :class:`requests.Session` that automatically authenticates against edX's preferred
     authentication method, given a client id and client secret. The underlying implementation
     is subject to change.
-
-    Note: Requires Django + Middleware for TieredCache, used for caching the access token.
-    See https://github.com/edx/edx-django-utils/blob/master/edx_django_utils/cache/README.rst#tieredcache
     """
-    # Consider tokens that expire in 5 seconds as already expired
-    ACCESS_TOKEN_EXPIRED_THRESHOLD = 5
-    ALREADY_EXPIRED_DATETIME = datetime(1983, 4, 6, 7, 30, 0)
-
     def __init__(self, base_url, client_id, client_secret, **kwargs):
         """
         Args:
@@ -119,7 +111,7 @@ class OAuthAPIClient(requests.Session):
         self._base_url = base_url.rstrip('/')
         self._client_id = client_id
         self._client_secret = client_secret
-
+        self._expiration = datetime.datetime(1983, 4, 6, 7, 30, 0)
         self.auth = SuppliedJwtAuth(None)
 
     def _get_oauth_url(self, base_url):
@@ -137,29 +129,15 @@ class OAuthAPIClient(requests.Session):
 
         return base_url + '/oauth2/access_token'
 
-    def _get_oauth_access_token_cache_key(self):
-        return 'edx_rest_api_client.oauth_access_token_response.{}'.format(self._client_id)
-
     def _check_auth(self):
-        oauth_access_token_cache_key = self._get_oauth_access_token_cache_key()
-        cached_response = TieredCache.get_cached_response(oauth_access_token_cache_key)
-
-        if cached_response.is_found:
-            _, expiration = cached_response.value
-            adjusted_expiration = expiration - timedelta(seconds=self.ACCESS_TOKEN_EXPIRED_THRESHOLD)
-        else:
-            adjusted_expiration = self.ALREADY_EXPIRED_DATETIME
-
-        if datetime.utcnow() > adjusted_expiration:
-            oauth_url = self._get_oauth_url(self._base_url)
+        if datetime.datetime.utcnow() > self._expiration:
+            url = self._get_oauth_url(self._base_url)
             grant_type = 'client_credentials'
-            oauth_access_token_response = get_oauth_access_token(
-                oauth_url,
+            self.auth.token, self._expiration = get_oauth_access_token(
+                url,
                 self._client_id,
                 self._client_secret,
                 grant_type=grant_type)
-            self.auth.token, _ = oauth_access_token_response
-            TieredCache.set_all_tiers(oauth_access_token_cache_key, oauth_access_token_response)
 
     def request(self, method, url, **kwargs):  # pylint: disable=arguments-differ
         """
