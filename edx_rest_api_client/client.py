@@ -1,21 +1,15 @@
-import datetime
 import os
 import socket
 import warnings
+from datetime import datetime, timedelta
 
 import requests
 import requests.utils
 import slumber
 
 from edx_django_utils.cache import TieredCache
-from edx_django_utils.monitoring import set_custom_metric
 from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
 from edx_rest_api_client.__version__ import __version__
-
-
-# When caching tokens, use this value to err on expiring tokens a little early so they are
-# sure to be valid at the time they are used.
-ACCESS_TOKEN_EXPIRED_THRESHOLD_SECONDS = 5
 
 
 def user_agent():
@@ -44,33 +38,12 @@ def user_agent():
 USER_AGENT = user_agent()
 
 
-def _get_oauth_url(url):
-    """
-    Returns the complete url for the oauth2 endpoint.
-
-    Args:
-        url (str): base url of the LMS oauth endpoint, which can optionally include some or all of the path
-            ``/oauth2/access_token``. Common example settings that would work for ``url`` would include:
-                LMS_BASE_URL = 'http://edx.devstack.lms:18000'
-                BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL = 'http://edx.devstack.lms:18000/oauth2'
-
-    """
-    stripped_url = url.rstrip('/')
-    if stripped_url.endswith('/access_token'):
-        return url
-
-    if stripped_url.endswith('/oauth2'):
-        return stripped_url + '/access_token'
-
-    return stripped_url + '/oauth2/access_token'
-
-
 def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials',
                            refresh_token=None):
     """ Retrieves OAuth 2.0 access token using the given grant type.
 
     Args:
-        url (str): Oauth2 access token endpoint, optionally including part of the path.
+        url (str): Oauth2 access token endpoint
         client_id (str): client ID
         client_secret (str): client secret
     Kwargs:
@@ -78,14 +51,10 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
         grant_type (str): One of 'client_credentials' or 'refresh_token'
         refresh_token (str): The previous access token (for grant_type=refresh_token)
 
-    Raises:
-        requests.RequestException if there is a problem retrieving the access token.
-
     Returns:
-        tuple: Tuple containing (access token string, expiration datetime).
-
+        tuple: Tuple containing access token string and expiration datetime.
     """
-    now = datetime.datetime.utcnow()
+    now = datetime.utcnow()
     data = {
         'grant_type': grant_type,
         'client_id': client_id,
@@ -98,7 +67,7 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
         assert grant_type != 'refresh_token', "refresh_token parameter required"
 
     response = requests.post(
-        _get_oauth_url(url),
+        url,
         data=data,
         headers={
             'User-Agent': USER_AGENT,
@@ -112,58 +81,9 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
     except KeyError:
         raise requests.RequestException(response=response)
 
-    expires_at = now + datetime.timedelta(seconds=expires_in)
+    expires_at = now + timedelta(seconds=expires_in)
 
     return access_token, expires_at
-
-
-def get_and_cache_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials',
-                                     refresh_token=None):
-    """ Retrieves a possibly cached OAuth 2.0 access token using the given grant type.
-
-    See ``get_oauth_access_token`` for usage details.
-
-    First retrieves the access token from the cache and ensures it has not expired. If
-    the access token either wasn't found in the cache, or was expired, retrieves a new
-    access token and caches it for the lifetime of the token.
-
-    Note: Consider tokens to be expired ACCESS_TOKEN_EXPIRED_THRESHOLD_SECONDS early
-    to ensure the token won't expire while it is in use.
-
-    Returns:
-        tuple: Tuple containing (access token string, expiration datetime).
-
-    """
-    cache_key = 'edx_rest_api_client.access_token.{}.{}.{}'.format(
-        token_type,
-        grant_type,
-        client_id,
-    )
-    cached_response = TieredCache.get_cached_response(cache_key)
-
-    # Attempt to get an unexpired cached access token
-    if cached_response.is_found:
-        _, expiration = cached_response.value
-        # Double-check the token hasn't already expired as a safety net.
-        adjusted_expiration = expiration - datetime.timedelta(seconds=ACCESS_TOKEN_EXPIRED_THRESHOLD_SECONDS)
-        if datetime.datetime.utcnow() < adjusted_expiration:
-            return cached_response.value
-
-    # Get a new access token if no unexpired access token was found in the cache.
-    oauth_access_token_response = get_oauth_access_token(
-        _get_oauth_url(url),
-        client_id,
-        client_secret,
-        grant_type=grant_type,
-        refresh_token=refresh_token
-    )
-
-    # Cache the new access token with an expiration matching the lifetime of the token.
-    _, expiration = oauth_access_token_response
-    expires_in = (expiration - datetime.datetime.utcnow()).seconds - ACCESS_TOKEN_EXPIRED_THRESHOLD_SECONDS
-    TieredCache.set_all_tiers(cache_key, oauth_access_token_response, expires_in)
-
-    return oauth_access_token_response
 
 
 class OAuthAPIClient(requests.Session):
@@ -174,17 +94,24 @@ class OAuthAPIClient(requests.Session):
 
     Note: Requires Django + Middleware for TieredCache, used for caching the access token.
     See https://github.com/edx/edx-django-utils/blob/master/edx_django_utils/cache/README.rst#tieredcache
-
     """
+    # Consider tokens that expire in 5 seconds as already expired
+    ACCESS_TOKEN_EXPIRED_THRESHOLD = 5
+    ALREADY_EXPIRED_DATETIME = datetime(1983, 4, 6, 7, 30, 0)
+
     def __init__(self, base_url, client_id, client_secret, **kwargs):
         """
         Args:
-            base_url (str): base url of the LMS oauth endpoint, which can optionally include the path `/oauth2`.
-                Commonly example settings that would work for `base_url` might include:
-                    LMS_BASE_URL = 'http://edx.devstack.lms:18000'
-                    BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL = 'http://edx.devstack.lms:18000/oauth2'
+            base_url (str): base url of the LMS instance, with or without including the path `/oauth2` (see note).
             client_id (str): Client ID
             client_secret (str): Client secret
+
+        Note:
+            The example value of either of the following two commonly found settings would be acceptable as
+            the `base_url` argument.::
+
+                LMS_BASE_URL = 'http://edx.devstack.lms:18000'
+                BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL = 'http://edx.devstack.lms:18000/oauth2'
 
         """
         super(OAuthAPIClient, self).__init__(**kwargs)
@@ -195,29 +122,50 @@ class OAuthAPIClient(requests.Session):
 
         self.auth = SuppliedJwtAuth(None)
 
-    def _ensure_authentication(self):
+    def _get_oauth_url(self, base_url):
         """
-        Ensures that the Session's auth.token is set with an unexpired token.
+        Returns the oauth2 url.
 
-        Raises:
-            requests.RequestException if there is a problem retrieving the access token.
+        Note:
+            The resulting url will always be something like http://<LMS_BASE_URL>/oauth2/access_token,
+            regardless of whether the `base_url` already included the path `/oauth2`.
 
         """
-        oauth_access_token_response = get_and_cache_oauth_access_token(
-            self._base_url,
-            self._client_id,
-            self._client_secret,
-            grant_type='client_credentials'
-        )
+        base_url = base_url.rstrip('/')
+        if base_url.endswith('/oauth2'):
+            return base_url + '/access_token'
 
-        self.auth.token, _ = oauth_access_token_response
+        return base_url + '/oauth2/access_token'
+
+    def _get_oauth_access_token_cache_key(self):
+        return 'edx_rest_api_client.oauth_access_token_response.{}'.format(self._client_id)
+
+    def _check_auth(self):
+        oauth_access_token_cache_key = self._get_oauth_access_token_cache_key()
+        cached_response = TieredCache.get_cached_response(oauth_access_token_cache_key)
+
+        if cached_response.is_found:
+            _, expiration = cached_response.value
+            adjusted_expiration = expiration - timedelta(seconds=self.ACCESS_TOKEN_EXPIRED_THRESHOLD)
+        else:
+            adjusted_expiration = self.ALREADY_EXPIRED_DATETIME
+
+        if datetime.utcnow() > adjusted_expiration:
+            oauth_url = self._get_oauth_url(self._base_url)
+            grant_type = 'client_credentials'
+            oauth_access_token_response = get_oauth_access_token(
+                oauth_url,
+                self._client_id,
+                self._client_secret,
+                grant_type=grant_type)
+            self.auth.token, _ = oauth_access_token_response
+            TieredCache.set_all_tiers(oauth_access_token_cache_key, oauth_access_token_response)
 
     def request(self, method, url, **kwargs):  # pylint: disable=arguments-differ
         """
         Overrides Session.request to ensure that the session is authenticated
         """
-        set_custom_metric('api_client', 'OAuthAPIClient')
-        self._ensure_authentication()
+        self._check_auth()
         return super(OAuthAPIClient, self).request(method, url, **kwargs)
 
 
@@ -234,15 +182,7 @@ class EdxRestApiClient(slumber.API):
 
     @classmethod
     def get_oauth_access_token(cls, url, client_id, client_secret, token_type='bearer'):
-        warnings.warn((
-            'To help transition to OAuthAPIClient, use EdxRestApiClient.get_and_cache_jwt_oauth_access_token instead'
-            'of EdxRestApiClient.get_oauth_access_token to share cached jwt token used by OAuthAPIClient.'
-        ))
         return get_oauth_access_token(url, client_id, client_secret, token_type=token_type)
-
-    @classmethod
-    def get_and_cache_jwt_oauth_access_token(cls, url, client_id, client_secret):
-        return get_and_cache_oauth_access_token(url, client_id, client_secret, token_type="jwt")
 
     def __init__(self, url, signing_key=None, username=None, full_name=None, email=None,
                  timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,
@@ -255,7 +195,7 @@ class EdxRestApiClient(slumber.API):
             ValueError: If a URL is not provided.
 
         """
-        set_custom_metric('api_client', 'EdxRestApiClient')
+
         if not url:
             raise ValueError('An API url must be supplied!')
 

@@ -13,17 +13,10 @@ from freezegun import freeze_time
 
 from edx_rest_api_client import __version__
 from edx_rest_api_client.auth import JwtAuth
-from edx_rest_api_client.client import (
-    EdxRestApiClient,
-    OAuthAPIClient,
-    get_and_cache_oauth_access_token,
-    get_oauth_access_token,
-    user_agent
-)
+from edx_rest_api_client.client import EdxRestApiClient, OAuthAPIClient, get_oauth_access_token, user_agent
 from edx_rest_api_client.tests.mixins import AuthenticationTestMixin
 
 URL = 'http://example.com/api/v2'
-OAUTH_URL = "http://test-auth.com/oauth2/access_token"
 SIGNING_KEY = 'edx'
 USERNAME = 'edx'
 FULL_NAME = 'édx äpp'
@@ -109,6 +102,8 @@ class EdxRestApiClientTests(TestCase):
 class ClientCredentialTests(AuthenticationTestMixin, TestCase):
     """ Test client credentials requests. """
 
+    URL = "http://test-auth/access_token/"
+
     @responses.activate
     def test_get_client_credential_access_token_success(self):
         """ Test that the get access token method handles 200 responses and returns the access token. """
@@ -119,9 +114,9 @@ class ClientCredentialTests(AuthenticationTestMixin, TestCase):
         expected_return = ("my-token", now + datetime.timedelta(seconds=1000))
 
         with freeze_time(now):
-            self._mock_auth_api(OAUTH_URL, code, body=body)
+            self._mock_auth_api(URL, code, body=body)
             self.assertEqual(
-                EdxRestApiClient.get_oauth_access_token(OAUTH_URL, "client_id", "client_secret"),
+                EdxRestApiClient.get_oauth_access_token(URL, "client_id", "client_secret"),
                 expected_return
             )
 
@@ -134,92 +129,13 @@ class ClientCredentialTests(AuthenticationTestMixin, TestCase):
     def test_get_client_credential_access_token_failure(self, code, body):
         """ Test that the get access token method handles failure responses. """
         with self.assertRaises(requests.RequestException):
-            self._mock_auth_api(OAUTH_URL, code, body=body)
-            EdxRestApiClient.get_oauth_access_token(OAUTH_URL, "client_id", "client_secret")
+            self._mock_auth_api(URL, code, body=body)
+            EdxRestApiClient.get_oauth_access_token(URL, "client_id", "client_secret")
 
     def test_refresh_token_required(self):
-        self._mock_auth_api(OAUTH_URL, 200, body=None)
+        self._mock_auth_api(URL, 200, body=None)
         with self.assertRaises(AssertionError):
-            get_oauth_access_token(OAUTH_URL, 'client_id', 'client_secret', grant_type='refresh_token')
-
-
-class CachedClientCredentialTests(AuthenticationTestMixin, TestCase):
-    """ Test cached client credentials requests. """
-
-    def setUp(self):
-        super(CachedClientCredentialTests, self).setUp()
-        TieredCache.dangerous_clear_all_tiers()
-
-    @responses.activate
-    def test_shared_client_credential_jwt_access_token(self):
-        """
-        Test that get_and_cache_jwt_oauth_access_token returns the same access token used by the OAuthAPIClient.
-        """
-        body = {'access_token': "my-token", 'expires_in': 1000}
-        now = datetime.datetime.utcnow()
-        expected_return = ('my-token', now + datetime.timedelta(seconds=1000))
-
-        with freeze_time(now):
-            self._mock_auth_api(OAUTH_URL, 200, body=body)
-            actual_return = EdxRestApiClient.get_and_cache_jwt_oauth_access_token(
-                OAUTH_URL, 'client_id', 'client_secret'
-            )
-        self.assertEqual(actual_return, expected_return)
-        self.assertEqual(len(responses.calls), 1)
-
-        # ensure OAuthAPIClient uses the same cached auth token without re-requesting the token from the server
-        oauth_client = OAuthAPIClient(OAUTH_URL, 'client_id', 'client_secret')
-        self._mock_auth_api(URL, 200, {'status': 'ok'})
-        oauth_client.post(URL, data={'test': 'ok'})
-        self.assertEqual(oauth_client.auth.token, actual_return[0])
-        self.assertEqual(len(responses.calls), 2)
-        self.assertEqual(URL, responses.calls[1][0].url)
-
-    @responses.activate
-    def test_token_caching(self):
-        """
-        Test that tokens are cached based on client, token_type, and grant_type
-        """
-        tokens = ['cred4', 'cred3', 'cred2', 'cred1']
-
-        def auth_callback(request):   # pylint: disable=unused-argument
-            resp = {'expires_in': 60}
-            resp['access_token'] = 'no-more-credentials' if not tokens else tokens.pop()
-            return (200, {}, json.dumps(resp))
-
-        responses.add_callback(
-            responses.POST, OAUTH_URL,
-            callback=auth_callback,
-            content_type='application/json',
-        )
-
-        kwargs_list = [
-            {'client_id': 'test-id-1', 'token_type': "jwt", 'grant_type': 'client_credentials'},
-            {'client_id': 'test-id-2', 'token_type': "jwt", 'grant_type': 'client_credentials'},
-            {'client_id': 'test-id-1', 'token_type': "bearer", 'grant_type': 'client_credentials'},
-            {'client_id': 'test-id-1', 'token_type': "jwt", 'grant_type': 'refresh_token'},
-        ]
-
-        # initial requests should call the mock client and get the correct credentials
-        for index, kwargs in enumerate(kwargs_list):
-            token_response = self._get_and_cache_oauth_access_token(**kwargs)
-            expected_token = 'cred{}'.format(index + 1)
-            self.assertEqual(token_response[0], expected_token)
-        self.assertEqual(len(responses.calls), 4)
-
-        # second set of requests should return the same credentials without making any new mock calls
-        for index, kwargs in enumerate(kwargs_list):
-            token_response = self._get_and_cache_oauth_access_token(**kwargs)
-            expected_token = 'cred{}'.format(index + 1)
-            self.assertEqual(token_response[0], expected_token)
-        self.assertEqual(len(responses.calls), 4)
-
-    def _get_and_cache_oauth_access_token(self, client_id, token_type, grant_type):
-        refresh_token = 'test-refresh-token' if grant_type == 'refresh_token' else None
-        return get_and_cache_oauth_access_token(
-            OAUTH_URL, client_id, 'test-secret', token_type=token_type, grant_type=grant_type,
-            refresh_token=refresh_token,
-        )
+            get_oauth_access_token(URL, 'client_id', 'client_secret', grant_type='refresh_token')
 
 
 @ddt.ddt
@@ -281,8 +197,7 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
         with freeze_time(first_call_datetime + datetime.timedelta(seconds=30)):
             response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
             self.assertEqual(client_session.auth.token, 'cred1')
-        # after just under a minute, should request a new token
-        # - expires early due to ACCESS_TOKEN_EXPIRED_THRESHOLD_SECONDS
+        # after just under a minute, should request a new token (expires early due to ACCESS_TOKEN_EXPIRED_THRESHOLD)
         with freeze_time(first_call_datetime + datetime.timedelta(seconds=56)):
             response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
             self.assertEqual(client_session.auth.token, 'cred2')
