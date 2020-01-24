@@ -18,7 +18,6 @@ cache:
   - pip
 
 install:
-  - pip install -U pip wheel codecov
   - pip install -r requirements/travis.txt
 
 script:
