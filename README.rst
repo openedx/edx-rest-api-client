@@ -15,6 +15,12 @@ Testing
 -------
     $ make validate
 
+
+Clients & REST API Clients code
+-------------------------------
+
+Open edX services, including LMS, should use the OAuthAPIClient class to make OAuth2 client requests and REST API calls.
+
 Additional Requirements
 -----------------------
 
