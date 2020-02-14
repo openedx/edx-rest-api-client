@@ -185,8 +185,8 @@ class OAuthAPIClient(requests.Session):
             settings.EXAMPLE_API_SERVICE_URL + 'example/',
             params={'username': user.username},
         )
+        response.raise_for_status()  # could be an error response
         response_data = response.json()
-        response.raise_for_status()  # response_data could be an error response
 
     For more usage details, see documentation of the :class:`requests.Session` object:
     - https://requests.readthedocs.io/en/master/user/advanced/#session-objects
