@@ -1,7 +1,7 @@
 import responses
 
 
-class AuthenticationTestMixin(object):
+class AuthenticationTestMixin:
     """ Mixin for testing authentication. """
     def setUp(self):
         super(AuthenticationTestMixin, self).setUp()
