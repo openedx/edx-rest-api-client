@@ -5,7 +5,6 @@
 #    make upgrade
 #
 appdirs==1.4.3
-asgiref==3.2.3
 astroid==2.3.3
 attrs==19.3.0
 certifi==2019.11.28
@@ -17,12 +16,12 @@ coverage==5.0.3
 ddt==1.2.2
 distlib==0.3.0
 django-waffle==0.20.0
-django==3.0.3
+django==2.2.10
 edx-django-utils==3.0
 edx-lint==1.4.1
 filelock==3.0.12
 freezegun==0.3.15
-idna==2.8
+idna==2.9
 importlib-metadata==1.5.0
 importlib-resources==1.0.2
 isort==4.3.21
@@ -32,6 +31,7 @@ mock==3.0.5
 more-itertools==8.2.0
 newrelic==5.6.0.135
 packaging==20.1
+pathlib2==2.3.5
 pip-tools==4.4.1
 pluggy==0.13.1
 psutil==1.2.1
@@ -48,7 +48,7 @@ pytest-django==3.8.0
 pytest==5.3.5
 python-dateutil==2.8.1
 pytz==2019.3
-requests==2.22.0
+requests==2.23.0
 responses==0.10.9
 six==1.14.0
 slumber==0.7.1
