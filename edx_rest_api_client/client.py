@@ -1,7 +1,6 @@
 import datetime
 import os
 import socket
-import warnings
 
 import requests
 import requests.utils
@@ -265,10 +264,8 @@ class EdxRestApiClient(slumber.API):
 
     @classmethod
     def get_oauth_access_token(cls, url, client_id, client_secret, token_type='bearer'):
-        warnings.warn((
-            'To help transition to OAuthAPIClient, use EdxRestApiClient.get_and_cache_jwt_oauth_access_token instead'
-            'of EdxRestApiClient.get_oauth_access_token to share cached jwt token used by OAuthAPIClient.'
-        ))
+        #     'To help transition to OAuthAPIClient, use EdxRestApiClient.get_and_cache_jwt_oauth_access_token instead'
+        #     'of EdxRestApiClient.get_oauth_access_token to share cached jwt token used by OAuthAPIClient.'
         return get_oauth_access_token(url, client_id, client_secret, token_type=token_type)
 
     @classmethod
@@ -279,6 +276,8 @@ class EdxRestApiClient(slumber.API):
                  timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,
                  session=None, jwt=None, **kwargs):
         """
+        EdxRestApiClient is deprecated. Use OAuthAPIClient instead.
+
         Instantiate a new client. You can pass extra kwargs to Slumber like
         'append_slash'.
 
@@ -289,8 +288,6 @@ class EdxRestApiClient(slumber.API):
         set_custom_metric('api_client', 'EdxRestApiClient')
         if not url:
             raise ValueError('An API url must be supplied!')
-
-        warnings.warn('EdxRestApiClient is deprecated. Use OAuthAPIClient instead.')
 
         if jwt:
             auth = SuppliedJwtAuth(jwt)
