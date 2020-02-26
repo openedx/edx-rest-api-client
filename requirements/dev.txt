@@ -11,7 +11,7 @@ certifi==2019.11.28
 chardet==3.0.4
 click-log==0.3.2
 click==7.0
-codecov==2.0.15
+codecov==2.0.16
 coverage==5.0.3
 ddt==1.2.2
 distlib==0.3.0
@@ -29,10 +29,10 @@ lazy-object-proxy==1.4.3
 mccabe==0.6.1
 mock==3.0.5
 more-itertools==8.2.0
-newrelic==5.6.0.135
+newrelic==5.8.0.136
 packaging==20.1
 pathlib2==2.3.5
-pip-tools==4.4.1
+pip-tools==4.5.0
 pluggy==0.13.1
 psutil==1.2.1
 py==1.8.1
@@ -49,7 +49,7 @@ pytest==5.3.5
 python-dateutil==2.8.1
 pytz==2019.3
 requests==2.23.0
-responses==0.10.9
+responses==0.10.11
 six==1.14.0
 slumber==0.7.1
 sqlparse==0.3.0
@@ -58,7 +58,7 @@ tox-battery==0.5.2
 tox==3.14.5
 typed-ast==1.4.1
 urllib3==1.25.8
-virtualenv==20.0.4
+virtualenv==20.0.7
 wcwidth==0.1.8
 wrapt==1.11.2
 zipp==1.2.0
