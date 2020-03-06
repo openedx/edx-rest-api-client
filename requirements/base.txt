@@ -7,15 +7,15 @@
 certifi==2019.11.28       # via requests
 chardet==3.0.4            # via requests
 django-waffle==0.20.0     # via edx-django-utils
-django==2.2.10            # via edx-django-utils
-edx-django-utils==3.0
+django==2.2.11            # via edx-django-utils
+edx-django-utils==3.0     # via -r requirements/base.in
 idna==2.9                 # via requests
 newrelic==5.8.0.136       # via edx-django-utils
 psutil==1.2.1             # via edx-django-utils
-pyjwt==1.7.1
+pyjwt==1.7.1              # via -r requirements/base.in
 pytz==2019.3              # via django
-requests==2.23.0
+requests==2.23.0          # via -r requirements/base.in, slumber
 six==1.14.0               # via django-waffle
-slumber==0.7.1
-sqlparse==0.3.0           # via django
+slumber==0.7.1            # via -r requirements/base.in
+sqlparse==0.3.1           # via django
 urllib3==1.25.8           # via requests
