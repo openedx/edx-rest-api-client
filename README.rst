@@ -21,6 +21,31 @@ Clients & REST API Clients code
 
 Open edX services, including LMS, should use the OAuthAPIClient class to make OAuth2 client requests and REST API calls.
 
+Usage
+~~~~~
+
+By default the ``OAuthAPIClient`` object can be used like any `requests.Session`_ object and you can follow the docs that the requests library provides.
+
+The ``OAuthAPIClient`` sessions makes some extra requests to get access tokens from the auth endpoints.  These requests have a default timeout that can be overridden by passing in a ``timeout`` parameter when instantiating the ``OAuthAPIClient`` object.
+
+.. code-block::
+    # create client with default timeouts for token retrieval
+    client = OAuthAPIClient('https://lms.root', 'client_id', 'client_secret')
+
+    # create client, overriding default timeouts for token retrieval
+    client = OAuthAPIClient('https://lms.root', 'client_id', 'client_secret', timeout=(6.1, 2))
+    client = OAuthAPIClient('https://lms.root', 'client_id', 'client_secret',
+         timeout=(REQUEST_CONNECT_TIMEOUT, 3)
+    )
+
+    # for a request to some.url, a separate timeout should always be set on your requests
+    client.get('https://some.url', timeout=(3.1, 0.5))
+
+The value of the ``timeout`` setting is the same as for any request made with the ``requests`` library.  See the `Requests timeouts documentation`_ for more details.
+
+.. _requests.Session: https://requests.readthedocs.io/en/master/user/advanced/#session-objects
+.. _Requests timeouts documentation: https://requests.readthedocs.io/en/master/user/advanced/#timeouts
+
 Additional Requirements
 -----------------------
 

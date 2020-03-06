@@ -16,6 +16,11 @@ from edx_rest_api_client.__version__ import __version__
 # sure to be valid at the time they are used.
 ACCESS_TOKEN_EXPIRED_THRESHOLD_SECONDS = 5
 
+# How long should we wait to connect to the auth service.
+# https://requests.readthedocs.io/en/master/user/advanced/#timeouts
+REQUEST_CONNECT_TIMEOUT = 3.05
+REQUEST_READ_TIMEOUT = 1
+
 
 def user_agent():
     """
@@ -65,7 +70,8 @@ def _get_oauth_url(url):
 
 
 def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials',
-                           refresh_token=None):
+                           refresh_token=None,
+                           timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT)):
     """ Retrieves OAuth 2.0 access token using the given grant type.
 
     Args:
@@ -102,6 +108,7 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
         headers={
             'User-Agent': USER_AGENT,
         },
+        timeout=timeout
     )
 
     data = response.json()
@@ -117,7 +124,8 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
 
 
 def get_and_cache_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials',
-                                     refresh_token=None):
+                                     refresh_token=None,
+                                     timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT)):
     """ Retrieves a possibly cached OAuth 2.0 access token using the given grant type.
 
     See ``get_oauth_access_token`` for usage details.
@@ -156,7 +164,8 @@ def get_and_cache_oauth_access_token(url, client_id, client_secret, token_type='
         client_id,
         client_secret,
         grant_type=grant_type,
-        refresh_token=refresh_token
+        refresh_token=refresh_token,
+        timeout=timeout,
     )
 
     # Cache the new access token with an expiration matching the lifetime of the token.
@@ -183,6 +192,7 @@ class OAuthAPIClient(requests.Session):
         response = client.get(
             settings.EXAMPLE_API_SERVICE_URL + 'example/',
             params={'username': user.username},
+            timeout=(3.1, 0.5), # Always set a timeout.
         )
         response.raise_for_status()  # could be an error response
         response_data = response.json()
@@ -200,7 +210,9 @@ class OAuthAPIClient(requests.Session):
     # This was needed when using the client to connect with a third-party (rather than LMS).
     oauth_uri = None
 
-    def __init__(self, base_url, client_id, client_secret, **kwargs):
+    def __init__(self, base_url, client_id, client_secret,
+                 timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT),
+                 **kwargs):
         """
         Args:
             base_url (str): base url of the LMS oauth endpoint, which can optionally include the path `/oauth2`.
@@ -209,6 +221,8 @@ class OAuthAPIClient(requests.Session):
                     BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL = 'http://edx.devstack.lms:18000/oauth2'
             client_id (str): Client ID
             client_secret (str): Client secret
+            timeout (tuple(float,float)): Requests timeout parameter for access token requests.
+                (https://requests.readthedocs.io/en/master/user/advanced/#timeouts)
 
         """
         super(OAuthAPIClient, self).__init__(**kwargs)
@@ -218,6 +232,7 @@ class OAuthAPIClient(requests.Session):
         self._base_url = base_url.rstrip('/')
         self._client_id = client_id
         self._client_secret = client_secret
+        self._timeout = timeout
 
     def _ensure_authentication(self):
         """
@@ -233,7 +248,8 @@ class OAuthAPIClient(requests.Session):
             oauth_url,
             self._client_id,
             self._client_secret,
-            grant_type='client_credentials'
+            grant_type='client_credentials',
+            timeout=self._timeout,
         )
 
         self.auth.token, _ = oauth_access_token_response
@@ -263,14 +279,16 @@ class EdxRestApiClient(slumber.API):
         return USER_AGENT
 
     @classmethod
-    def get_oauth_access_token(cls, url, client_id, client_secret, token_type='bearer'):
+    def get_oauth_access_token(cls, url, client_id, client_secret, token_type='bearer',
+                               timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT)):
         #     'To help transition to OAuthAPIClient, use EdxRestApiClient.get_and_cache_jwt_oauth_access_token instead'
         #     'of EdxRestApiClient.get_oauth_access_token to share cached jwt token used by OAuthAPIClient.'
-        return get_oauth_access_token(url, client_id, client_secret, token_type=token_type)
+        return get_oauth_access_token(url, client_id, client_secret, token_type=token_type, timeout=timeout)
 
     @classmethod
-    def get_and_cache_jwt_oauth_access_token(cls, url, client_id, client_secret):
-        return get_and_cache_oauth_access_token(url, client_id, client_secret, token_type="jwt")
+    def get_and_cache_jwt_oauth_access_token(cls, url, client_id, client_secret,
+                                             timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT)):
+        return get_and_cache_oauth_access_token(url, client_id, client_secret, token_type="jwt", timeout=timeout)
 
     def __init__(self, url, signing_key=None, username=None, full_name=None, email=None,
                  timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,

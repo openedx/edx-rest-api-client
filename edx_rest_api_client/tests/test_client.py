@@ -8,6 +8,7 @@ import ddt
 import mock
 import requests
 import responses
+
 from edx_django_utils.cache import TieredCache
 from freezegun import freeze_time
 
@@ -308,3 +309,13 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
         with freeze_time(first_call_datetime + datetime.timedelta(seconds=56)):
             response = client_session.post(self.base_url + '/endpoint', data={'test': 'ok'})
             self.assertEqual(client_session.auth.token, 'cred2')
+
+    @mock.patch('edx_rest_api_client.client.requests.post')
+    def test_access_token_request_timeout_wiring2(self, mock_access_token_post):
+        mock_access_token_post.return_value.json.return_value = {'access_token': 'token', 'expires_in': 1000}
+
+        timeout_override = (6.1, 2)
+        client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret, timeout=timeout_override)
+        client._ensure_authentication()  # pylint: disable=protected-access
+
+        assert mock_access_token_post.call_args.kwargs['timeout'] == timeout_override
