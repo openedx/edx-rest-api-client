@@ -35,6 +35,7 @@ setup(
     version=__version__,
     description='Slumber client used to access various edX Platform REST APIs.',
     long_description=long_description,
+    long_description_content_type="text/x-rst",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: Apache Software License',

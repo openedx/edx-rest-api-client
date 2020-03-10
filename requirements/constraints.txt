@@ -13,3 +13,9 @@ mock==3.0.5
 
 # Constrained for python 3.5 support
 zipp==1.2.0
+
+# constrain for python 3.5 support
+keyring<=20.0.1
+
+# constrain for python 3.5
+twine<=1.15.0
