@@ -28,7 +28,8 @@ By default the ``OAuthAPIClient`` object can be used like any `requests.Session`
 
 The ``OAuthAPIClient`` sessions makes some extra requests to get access tokens from the auth endpoints.  These requests have a default timeout that can be overridden by passing in a ``timeout`` parameter when instantiating the ``OAuthAPIClient`` object.
 
-.. code-block::
+.. code-block:: python
+
     # create client with default timeouts for token retrieval
     client = OAuthAPIClient('https://lms.root', 'client_id', 'client_secret')
 
