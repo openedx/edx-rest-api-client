@@ -4,7 +4,6 @@
 #
 #    make upgrade
 #
-asgiref==3.2.4            # via -r requirements/base.txt, django
 astroid==2.3.3            # via pylint, pylint-celery
 attrs==19.3.0             # via pytest
 bleach==3.1.1             # via readme-renderer
