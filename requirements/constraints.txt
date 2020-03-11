@@ -19,3 +19,6 @@ keyring<=20.0.1
 
 # constrain for python 3.5
 twine<=1.15.0
+
+# constrain django until we're ready for newer versions to be the default.
+django<3.0.0
