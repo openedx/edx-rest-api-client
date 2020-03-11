@@ -11,4 +11,5 @@ pycodestyle
 pytest-cov                # pytest extension for code coverage statistics
 pytest-django             # pytest extension for better Django support
 responses
-twine
+twine			  # to be able to run `twine check` as a part of
+			  # quality tests to detect packaging related issues
