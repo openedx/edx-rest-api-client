@@ -1,4 +1,5 @@
 import datetime
+import json
 import os
 import socket
 
@@ -111,11 +112,12 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
         timeout=timeout
     )
 
-    data = response.json()
+    response.raise_for_status()  # Raise an exception for bad status codes.
     try:
+        data = response.json()
         access_token = data['access_token']
         expires_in = data['expires_in']
-    except KeyError:
+    except (KeyError, json.decoder.JSONDecodeError):
         raise requests.RequestException(response=response)
 
     expires_at = now + datetime.timedelta(seconds=expires_in)
