@@ -37,7 +37,7 @@ JWT = 'abc.123.doremi'
 
 @ddt.ddt
 class EdxRestApiClientTests(TestCase):
-    """ Tests for the E-Commerce API client. """
+    """ Tests for the edX Rest API client. """
 
     @ddt.unpack
     @ddt.data(
@@ -319,3 +319,24 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
         client._ensure_authentication()  # pylint: disable=protected-access
 
         assert mock_access_token_post.call_args.kwargs['timeout'] == timeout_override
+
+    @responses.activate
+    def test_access_token_invalid_json_response(self):
+        responses.add(responses.POST,
+                      self.base_url + '/oauth2/access_token',
+                      status=200,
+                      body="Not JSON")
+        client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
+
+        with self.assertRaises(requests.RequestException):
+            client._ensure_authentication()  # pylint: disable=protected-access
+
+    @responses.activate
+    def test_access_token_bad_response_code(self):
+        responses.add(responses.POST,
+                      self.base_url + '/oauth2/access_token',
+                      status=500,
+                      json={})
+        client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
+        with self.assertRaises(requests.HTTPError):
+            client._ensure_authentication()  # pylint: disable=protected-access
