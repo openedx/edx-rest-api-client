@@ -340,3 +340,11 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
         client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
         with self.assertRaises(requests.HTTPError):
             client._ensure_authentication()  # pylint: disable=protected-access
+
+    @responses.activate
+    def test_get_jwt_access_token(self):
+        token = 'abcd'
+        self._mock_auth_api(self.base_url + '/oauth2/access_token', 200, {'access_token': token, 'expires_in': 60})
+        client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
+        access_token = client.get_jwt_access_token()
+        self.assertEqual(access_token, token)
