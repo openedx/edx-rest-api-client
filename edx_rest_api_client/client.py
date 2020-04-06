@@ -256,6 +256,20 @@ class OAuthAPIClient(requests.Session):
 
         self.auth.token, _ = oauth_access_token_response
 
+    def get_jwt_access_token(self):
+        """
+        Returns the JWT access token that will be used to make authenticated calls.
+
+        The intention of this method is only to allow you to decode the JWT if you require
+        any of its details, like the username. You should not use the JWT to make calls by
+        another client.
+
+        Here is example code that properly uses the configured JWT decoder:
+        https://github.com/edx/edx-drf-extensions/blob/master/edx_rest_framework_extensions/auth/jwt/authentication.py#L180-L190
+        """
+        self._ensure_authentication()
+        return self.auth.token
+
     def request(self, method, url, **kwargs):  # pylint: disable=arguments-differ
         """
         Overrides Session.request to ensure that the session is authenticated.
