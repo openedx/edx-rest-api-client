@@ -8,7 +8,7 @@ certifi==2020.4.5.1       # via requests
 chardet==3.0.4            # via requests
 django-waffle==0.20.0     # via edx-django-utils
 django==2.2.12            # via -c requirements/constraints.txt, edx-django-utils
-edx-django-utils==3.2.0   # via -r requirements/base.in
+edx-django-utils==3.2.1   # via -r requirements/base.in
 idna==2.9                 # via requests
 newrelic==5.12.0.140      # via edx-django-utils
 psutil==1.2.1             # via edx-django-utils
@@ -18,4 +18,4 @@ requests==2.23.0          # via -r requirements/base.in, slumber
 six==1.14.0               # via django-waffle
 slumber==0.7.1            # via -r requirements/base.in
 sqlparse==0.3.1           # via django
-urllib3==1.25.8           # via requests
+urllib3==1.25.9           # via requests
