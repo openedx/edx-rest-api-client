@@ -13,7 +13,7 @@ idna==2.9                 # via requests
 newrelic==5.12.0.140      # via edx-django-utils
 psutil==1.2.1             # via edx-django-utils
 pyjwt==1.7.1              # via -r requirements/base.in
-pytz==2019.3              # via django
+pytz==2020.1              # via django
 requests==2.23.0          # via -r requirements/base.in, slumber
 six==1.14.0               # via django-waffle
 slumber==0.7.1            # via -r requirements/base.in
