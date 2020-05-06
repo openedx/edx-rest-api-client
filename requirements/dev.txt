@@ -24,8 +24,6 @@ edx-lint==1.4.1           # via -r requirements/test.txt
 filelock==3.0.12          # via -r requirements/travis.txt, tox, virtualenv
 freezegun==0.3.15         # via -r requirements/test.txt
 idna==2.9                 # via -r requirements/test.txt, -r requirements/travis.txt, requests
-importlib-metadata==1.6.0  # via -r requirements/test.txt, -r requirements/travis.txt, importlib-resources, pluggy, pytest, tox, virtualenv
-importlib-resources==1.5.0  # via -r requirements/travis.txt, virtualenv
 isort==4.3.21             # via -r requirements/test.txt, pylint
 lazy-object-proxy==1.4.3  # via -r requirements/test.txt, astroid
 mccabe==0.6.1             # via -r requirements/test.txt, pylint
@@ -33,7 +31,6 @@ mock==3.0.5               # via -c requirements/constraints.txt, -r requirements
 more-itertools==8.2.0     # via -r requirements/test.txt, pytest
 newrelic==5.12.1.141      # via -r requirements/test.txt, edx-django-utils
 packaging==20.3           # via -r requirements/test.txt, -r requirements/travis.txt, bleach, pytest, tox
-pathlib2==2.3.5           # via -r requirements/test.txt, pytest
 pip-tools==5.1.2          # via -r requirements/pip-tools.txt
 pkginfo==1.5.0.1          # via -r requirements/test.txt, twine
 pluggy==0.13.1            # via -r requirements/test.txt, -r requirements/travis.txt, pytest, tox
@@ -56,7 +53,7 @@ readme-renderer==26.0     # via -r requirements/test.txt, twine
 requests-toolbelt==0.9.1  # via -r requirements/test.txt, twine
 requests==2.23.0          # via -r requirements/test.txt, -r requirements/travis.txt, codecov, requests-toolbelt, responses, slumber, twine
 responses==0.10.14        # via -r requirements/test.txt
-six==1.14.0               # via -r requirements/pip-tools.txt, -r requirements/test.txt, -r requirements/travis.txt, astroid, bleach, django-waffle, edx-lint, freezegun, mock, packaging, pathlib2, pip-tools, python-dateutil, readme-renderer, responses, tox, virtualenv
+six==1.14.0               # via -r requirements/pip-tools.txt, -r requirements/test.txt, -r requirements/travis.txt, astroid, bleach, django-waffle, edx-lint, freezegun, mock, packaging, pip-tools, python-dateutil, readme-renderer, responses, tox, virtualenv
 slumber==0.7.1            # via -r requirements/test.txt
 sqlparse==0.3.1           # via -r requirements/test.txt, django
 toml==0.10.0              # via -r requirements/travis.txt, tox
@@ -64,13 +61,11 @@ tox-battery==0.5.2        # via -r requirements/travis.txt
 tox==3.15.0               # via -r requirements/travis.txt, tox-battery
 tqdm==4.46.0              # via -r requirements/test.txt, twine
 twine==1.15.0             # via -c requirements/constraints.txt, -r requirements/test.txt
-typed-ast==1.4.1          # via -r requirements/test.txt, astroid
 urllib3==1.25.9           # via -r requirements/test.txt, -r requirements/travis.txt, requests
 virtualenv==20.0.20       # via -r requirements/travis.txt, tox
 wcwidth==0.1.9            # via -r requirements/test.txt, pytest
 webencodings==0.5.1       # via -r requirements/test.txt, bleach
 wrapt==1.11.2             # via -r requirements/test.txt, astroid
-zipp==1.2.0               # via -c requirements/constraints.txt, -r requirements/test.txt, -r requirements/travis.txt, importlib-metadata, importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
