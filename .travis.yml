@@ -7,12 +7,8 @@ python:
   - 3.8
 
 env:
-  - TOXENV=django111
-
-matrix:
-  include:
-    - python: 3.5
-      env: TOXENV=quality
+  - TOXENV=django22
+  - TOXENV=quality
 
 cache:
   - pip
@@ -34,4 +30,5 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     tags: true
+    python: 3.5
     condition: '$TOXENV = quality'

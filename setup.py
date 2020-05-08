@@ -8,6 +8,7 @@ from edx_rest_api_client import __version__
 with open('README.rst') as readme:
     long_description = readme.read()
 
+
 def load_requirements(*requirements_paths):
     """
     Load all requirements from the specified requirements files.
@@ -30,6 +31,7 @@ def is_requirement(line):
     """
     return line and not line.startswith(('-r', '#', '-e', 'git+', '-c'))
 
+
 setup(
     name='edx-rest-api-client',
     version=__version__,
@@ -41,7 +43,7 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Internet',
         'Intended Audience :: Developers',
         'Environment :: Web Environment',
