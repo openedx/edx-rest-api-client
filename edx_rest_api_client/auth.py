@@ -45,7 +45,7 @@ class JwtAuth(AuthBase):
             data['tracking_context'] = self.tracking_context
 
         set_custom_metric('deprecated_jwt_signing', 'JwtAuth')
-        r.headers['Authorization'] = 'JWT {jwt}'.format(jwt=jwt.encode(data, self.signing_key))
+        r.headers['Authorization'] = 'JWT {jwt}'.format(jwt=jwt.encode(data, self.signing_key).decode("UTF-8"))
         return r
 
 
