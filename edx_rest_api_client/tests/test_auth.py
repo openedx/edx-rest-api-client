@@ -67,7 +67,7 @@ class JwtAuthTests(TestCase):
         )
 
         # Verify the header was set as expected on the request
-        token = jwt.encode(signing_data, self.signing_key)
+        token = jwt.encode(signing_data, self.signing_key).decode("UTF-8")
         self.assertEqual(responses.calls[0].request.headers['Authorization'], 'JWT {}'.format(token))
 
     @responses.activate
