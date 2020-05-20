@@ -17,6 +17,10 @@ zipp==1.2.0
 # constrain for python 3.5 support
 keyring<=20.0.1
 
+# tox-battery 0.6.0 throws when installing dependencies
+# Maybe from https://github.com/signalpillar/tox-battery/pull/24
+tox-battery<0.6.0
+
 # constrain for python 3.5
 twine<=1.15.0
 
