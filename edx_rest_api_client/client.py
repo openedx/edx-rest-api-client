@@ -20,7 +20,7 @@ ACCESS_TOKEN_EXPIRED_THRESHOLD_SECONDS = 5
 # How long should we wait to connect to the auth service.
 # https://requests.readthedocs.io/en/master/user/advanced/#timeouts
 REQUEST_CONNECT_TIMEOUT = 3.05
-REQUEST_READ_TIMEOUT = 1
+REQUEST_READ_TIMEOUT = 5
 
 
 def user_agent():
