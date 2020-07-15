@@ -61,7 +61,7 @@ slumber==0.7.1            # via -r requirements/test.txt
 sqlparse==0.3.1           # via -r requirements/test.txt, django
 toml==0.10.1              # via -r requirements/travis.txt, tox
 tox-battery==0.6.1        # via -r requirements/travis.txt
-tox==3.16.1               # via -r requirements/travis.txt, tox-battery
+tox==3.17.0               # via -r requirements/travis.txt, tox-battery
 tqdm==4.47.0              # via -r requirements/test.txt, twine
 twine==1.15.0             # via -c requirements/constraints.txt, -r requirements/test.txt
 typed-ast==1.4.1          # via -r requirements/test.txt, astroid
