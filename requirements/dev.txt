@@ -19,7 +19,7 @@ distlib==0.3.1            # via -r requirements/travis.txt, virtualenv
 django-waffle==1.0.0      # via -r requirements/test.txt, edx-django-utils
 django==2.2.15            # via -c requirements/constraints.txt, -r requirements/test.txt, edx-django-utils
 docutils==0.16            # via -r requirements/test.txt, readme-renderer
-edx-django-utils==3.5.0   # via -r requirements/test.txt
+edx-django-utils==3.7.2   # via -r requirements/test.txt
 edx-lint==1.5.0           # via -r requirements/test.txt
 filelock==3.0.12          # via -r requirements/travis.txt, tox, virtualenv
 freezegun==0.3.15         # via -r requirements/test.txt
@@ -32,9 +32,10 @@ lazy-object-proxy==1.4.3  # via -r requirements/test.txt, astroid
 mccabe==0.6.1             # via -r requirements/test.txt, pylint
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.txt
 more-itertools==8.4.0     # via -r requirements/test.txt, pytest
-newrelic==5.14.1.144      # via -r requirements/test.txt, edx-django-utils
+newrelic==5.16.0.145      # via -r requirements/test.txt, edx-django-utils
 packaging==20.4           # via -r requirements/test.txt, -r requirements/travis.txt, bleach, pytest, tox
 pathlib2==2.3.5           # via -r requirements/test.txt, pytest
+pbr==5.4.5                # via -r requirements/test.txt, stevedore
 pip-tools==5.3.1          # via -r requirements/pip-tools.txt
 pkginfo==1.5.0.1          # via -r requirements/test.txt, twine
 pluggy==0.13.1            # via -r requirements/test.txt, -r requirements/travis.txt, pytest, tox
@@ -56,17 +57,18 @@ pytz==2020.1              # via -r requirements/test.txt, django
 readme-renderer==26.0     # via -r requirements/test.txt, twine
 requests-toolbelt==0.9.1  # via -r requirements/test.txt, twine
 requests==2.24.0          # via -r requirements/test.txt, -r requirements/travis.txt, codecov, requests-toolbelt, responses, slumber, twine
-responses==0.10.15        # via -r requirements/test.txt
-six==1.15.0               # via -r requirements/pip-tools.txt, -r requirements/test.txt, -r requirements/travis.txt, astroid, bleach, edx-lint, freezegun, mock, packaging, pathlib2, pip-tools, python-dateutil, readme-renderer, responses, tox, virtualenv
+responses==0.10.16        # via -r requirements/test.txt
+six==1.15.0               # via -r requirements/pip-tools.txt, -r requirements/test.txt, -r requirements/travis.txt, astroid, bleach, edx-lint, freezegun, mock, packaging, pathlib2, pip-tools, python-dateutil, readme-renderer, responses, stevedore, tox, virtualenv
 slumber==0.7.1            # via -r requirements/test.txt
 sqlparse==0.3.1           # via -r requirements/test.txt, django
+stevedore==1.32.0         # via -r requirements/test.txt, edx-django-utils
 toml==0.10.1              # via -r requirements/test.txt, -r requirements/travis.txt, pytest, tox
 tox-battery==0.6.1        # via -r requirements/travis.txt
-tox==3.18.1               # via -r requirements/travis.txt, tox-battery
+tox==3.19.0               # via -r requirements/travis.txt, tox-battery
 tqdm==4.48.2              # via -r requirements/test.txt, twine
 twine==1.15.0             # via -c requirements/constraints.txt, -r requirements/test.txt
 typed-ast==1.4.1          # via -r requirements/test.txt, astroid
-urllib3==1.25.10          # via -r requirements/test.txt, -r requirements/travis.txt, requests
+urllib3==1.25.10          # via -r requirements/test.txt, -r requirements/travis.txt, requests, responses
 virtualenv==20.0.30       # via -r requirements/travis.txt, tox
 webencodings==0.5.1       # via -r requirements/test.txt, bleach
 wrapt==1.11.2             # via -r requirements/test.txt, astroid
