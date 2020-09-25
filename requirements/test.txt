@@ -6,7 +6,7 @@
 #
 astroid==2.3.3            # via pylint, pylint-celery
 attrs==20.2.0             # via pytest
-bleach==3.1.5             # via readme-renderer
+bleach==3.2.1             # via readme-renderer
 certifi==2020.6.20        # via -r requirements/base.txt, requests
 chardet==3.0.4            # via -r requirements/base.txt, requests
 click-log==0.3.2          # via edx-lint
@@ -19,14 +19,14 @@ edx-django-utils==3.8.0   # via -r requirements/base.txt
 edx-lint==1.5.2           # via -r requirements/test.in
 freezegun==1.0.0          # via -r requirements/test.in
 idna==2.10                # via -r requirements/base.txt, requests
-importlib-metadata==1.7.0  # via pluggy, pytest
+importlib-metadata==1.7.0  # via -c requirements/constraints.txt, pluggy, pytest
 iniconfig==1.0.1          # via pytest
 isort==4.3.21             # via pylint
 lazy-object-proxy==1.4.3  # via astroid
 mccabe==0.6.1             # via pylint
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.in
 more-itertools==8.5.0     # via pytest
-newrelic==5.18.0.148      # via -r requirements/base.txt, edx-django-utils
+newrelic==5.20.0.149      # via -r requirements/base.txt, edx-django-utils
 packaging==20.4           # via bleach, pytest
 pathlib2==2.3.5           # via pytest
 pbr==5.5.0                # via -r requirements/base.txt, stevedore
@@ -35,7 +35,7 @@ pluggy==0.13.1            # via pytest
 psutil==5.7.2             # via -r requirements/base.txt, edx-django-utils
 py==1.9.0                 # via pytest
 pycodestyle==2.6.0        # via -r requirements/test.in
-pygments==2.7.0           # via readme-renderer
+pygments==2.7.1           # via readme-renderer
 pyjwt==1.7.1              # via -r requirements/base.txt
 pylint-celery==0.3        # via edx-lint
 pylint-django==2.0.11     # via edx-lint

@@ -10,7 +10,7 @@ django-waffle==2.0.0      # via edx-django-utils
 django==2.2.16            # via -c requirements/constraints.txt, edx-django-utils
 edx-django-utils==3.8.0   # via -r requirements/base.in
 idna==2.10                # via requests
-newrelic==5.18.0.148      # via edx-django-utils
+newrelic==5.20.0.149      # via edx-django-utils
 pbr==5.5.0                # via stevedore
 psutil==5.7.2             # via edx-django-utils
 pyjwt==1.7.1              # via -r requirements/base.in
