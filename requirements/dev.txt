@@ -68,7 +68,7 @@ tqdm==4.50.2              # via -r requirements/test.txt, twine
 twine==1.15.0             # via -c requirements/constraints.txt, -r requirements/test.txt
 typed-ast==1.4.1          # via -r requirements/test.txt, astroid
 urllib3==1.25.10          # via -r requirements/test.txt, -r requirements/travis.txt, requests, responses
-virtualenv==20.0.33       # via -r requirements/travis.txt, tox
+virtualenv==20.0.34       # via -r requirements/travis.txt, tox
 webencodings==0.5.1       # via -r requirements/test.txt, bleach
 wrapt==1.11.2             # via -r requirements/test.txt, astroid
 zipp==1.2.0               # via -c requirements/constraints.txt, -r requirements/test.txt, -r requirements/travis.txt, importlib-metadata, importlib-resources
