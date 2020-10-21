@@ -11,7 +11,7 @@ django==2.2.16            # via -c requirements/constraints.txt, edx-django-util
 edx-django-utils==3.8.0   # via -r requirements/base.in
 idna==2.10                # via requests
 newrelic==5.20.1.150      # via edx-django-utils
-pbr==5.5.0                # via stevedore
+pbr==5.5.1                # via stevedore
 psutil==5.7.2             # via edx-django-utils
 pyjwt==1.7.1              # via -r requirements/base.in
 pytz==2020.1              # via django
@@ -20,4 +20,4 @@ six==1.15.0               # via stevedore
 slumber==0.7.1            # via -r requirements/base.in
 sqlparse==0.4.1           # via django
 stevedore==1.32.0         # via edx-django-utils
-urllib3==1.25.10          # via requests
+urllib3==1.25.11          # via requests
