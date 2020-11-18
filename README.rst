@@ -1,7 +1,7 @@
 edX REST API Client  |Travis|_ |Codecov|_
 =========================================
-.. |Travis| image:: https://travis-ci.org/edx/edx-rest-api-client.svg?branch=master
-.. _Travis: https://travis-ci.org/edx/edx-rest-api-client
+.. |Travis| image:: https://travis-ci.com/edx/edx-rest-api-client.svg?branch=master
+.. _Travis: https://travis-ci.com/edx/edx-rest-api-client
 
 .. |Codecov| image:: https://codecov.io/github/edx/edx-rest-api-client/coverage.svg?branch=master
 .. _Codecov: https://codecov.io/github/edx/edx-rest-api-client?branch=master
