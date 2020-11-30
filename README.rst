@@ -1,7 +1,7 @@
-edX REST API Client  |Travis|_ |Codecov|_
+edX REST API Client  |CI|_ |Codecov|_
 =========================================
-.. |Travis| image:: https://travis-ci.org/edx/edx-rest-api-client.svg?branch=master
-.. _Travis: https://travis-ci.org/edx/edx-rest-api-client
+.. |CI| image:: https://github.com/edx/edx-rest-api-client/workflows/Python%20CI/badge.svg?branch=master
+.. _CI: https://github.com/edx/edx-rest-api-client/actions?query=workflow%3A%22Python+CI%22
 
 .. |Codecov| image:: https://codecov.io/github/edx/edx-rest-api-client/coverage.svg?branch=master
 .. _Codecov: https://codecov.io/github/edx/edx-rest-api-client?branch=master
