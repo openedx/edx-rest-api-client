@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-certifi==2020.11.8        # via requests
+certifi==2020.12.5        # via requests
 chardet==3.0.4            # via requests
 django-crum==0.7.9        # via edx-django-utils
 django-waffle==2.0.0      # via edx-django-utils
