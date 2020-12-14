@@ -8,7 +8,7 @@ import requests.utils
 import slumber
 
 from edx_django_utils.cache import TieredCache
-from edx_django_utils.monitoring import set_custom_metric
+from edx_django_utils.monitoring import set_custom_attribute
 from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
 from edx_rest_api_client.__version__ import __version__
 
@@ -278,7 +278,7 @@ class OAuthAPIClient(requests.Session):
         instead use Session.get or Session.post.
 
         """
-        set_custom_metric('api_client', 'OAuthAPIClient')
+        set_custom_attribute('api_client', 'OAuthAPIClient')
         self._ensure_authentication()
         return super(OAuthAPIClient, self).request(method, url, **kwargs)
 
@@ -319,7 +319,7 @@ class EdxRestApiClient(slumber.API):
             ValueError: If a URL is not provided.
 
         """
-        set_custom_metric('api_client', 'EdxRestApiClient')
+        set_custom_attribute('api_client', 'EdxRestApiClient')
         if not url:
             raise ValueError('An API url must be supplied!')
 

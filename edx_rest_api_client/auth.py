@@ -1,7 +1,7 @@
 import datetime
 
 import jwt
-from edx_django_utils.monitoring import set_custom_metric
+from edx_django_utils.monitoring import set_custom_attribute
 from requests.auth import AuthBase
 
 
@@ -44,7 +44,7 @@ class JwtAuth(AuthBase):
         if self.tracking_context is not None:
             data['tracking_context'] = self.tracking_context
 
-        set_custom_metric('deprecated_jwt_signing', 'JwtAuth')
+        set_custom_attribute('deprecated_jwt_signing', 'JwtAuth')
         r.headers['Authorization'] = 'JWT {jwt}'.format(jwt=jwt.encode(data, self.signing_key).decode("UTF-8"))
         return r
 
