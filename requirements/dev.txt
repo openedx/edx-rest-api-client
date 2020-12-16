@@ -33,14 +33,14 @@ lazy-object-proxy==1.4.3  # via -r requirements/test.txt, astroid
 mccabe==0.6.1             # via -r requirements/test.txt, pylint
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.txt
 newrelic==5.22.1.152      # via -r requirements/test.txt, edx-django-utils
-packaging==20.7           # via -r requirements/test.txt, -r requirements/travis.txt, bleach, pytest, tox
+packaging==20.8           # via -r requirements/test.txt, -r requirements/travis.txt, bleach, pytest, tox
 pathlib2==2.3.5           # via -r requirements/test.txt, pytest
 pbr==5.5.1                # via -r requirements/test.txt, stevedore
 pip-tools==5.4.0          # via -r requirements/pip-tools.txt
 pkginfo==1.6.1            # via -r requirements/test.txt, twine
 pluggy==0.13.1            # via -r requirements/test.txt, -r requirements/travis.txt, pytest, tox
 psutil==5.7.3             # via -r requirements/test.txt, edx-django-utils
-py==1.9.0                 # via -r requirements/test.txt, -r requirements/travis.txt, pytest, tox
+py==1.10.0                # via -r requirements/test.txt, -r requirements/travis.txt, pytest, tox
 pycodestyle==2.6.0        # via -r requirements/test.txt
 pygments==2.7.3           # via -r requirements/test.txt, readme-renderer
 pyjwt==1.7.1              # via -r requirements/test.txt

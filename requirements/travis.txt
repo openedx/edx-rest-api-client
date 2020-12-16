@@ -14,9 +14,9 @@ filelock==3.0.12          # via tox, virtualenv
 idna==2.10                # via requests
 importlib-metadata==2.1.1  # via pluggy, tox, virtualenv
 importlib-resources==3.2.1  # via virtualenv
-packaging==20.7           # via tox
+packaging==20.8           # via tox
 pluggy==0.13.1            # via tox
-py==1.9.0                 # via tox
+py==1.10.0                # via tox
 pyparsing==2.4.7          # via packaging
 requests==2.25.0          # via codecov
 six==1.15.0               # via tox, virtualenv
