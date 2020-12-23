@@ -117,8 +117,8 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
         data = response.json()
         access_token = data['access_token']
         expires_in = data['expires_in']
-    except (KeyError, json.decoder.JSONDecodeError):
-        raise requests.RequestException(response=response)
+    except (KeyError, json.decoder.JSONDecodeError) as json_error:
+        raise requests.RequestException(response=response) from json_error
 
     expires_at = now + datetime.timedelta(seconds=expires_in)
 
@@ -227,7 +227,7 @@ class OAuthAPIClient(requests.Session):
                 (https://requests.readthedocs.io/en/master/user/advanced/#timeouts)
 
         """
-        super(OAuthAPIClient, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.headers['user-agent'] = USER_AGENT
         self.auth = SuppliedJwtAuth(None)
 
@@ -280,7 +280,7 @@ class OAuthAPIClient(requests.Session):
         """
         set_custom_attribute('api_client', 'OAuthAPIClient')
         self._ensure_authentication()
-        return super(OAuthAPIClient, self).request(method, url, **kwargs)
+        return super().request(method, url, **kwargs)
 
 
 class EdxRestApiClient(slumber.API):
@@ -337,7 +337,7 @@ class EdxRestApiClient(slumber.API):
         session.headers['User-Agent'] = self.user_agent()
 
         session.timeout = timeout
-        super(EdxRestApiClient, self).__init__(
+        super().__init__(
             url,
             session=session,
             auth=auth,
