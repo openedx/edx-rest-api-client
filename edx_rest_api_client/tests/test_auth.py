@@ -16,7 +16,7 @@ CURRENT_TIME = datetime.datetime(2015, 7, 2, 10, 10, 10)
 class JwtAuthTests(TestCase):
 
     def setUp(self):
-        super(JwtAuthTests, self).setUp()
+        super().setUp()
 
         self.url = 'http://example.com/'
         self.username = 'alice'
@@ -93,7 +93,7 @@ class JwtAuthTests(TestCase):
 
 class BearerAuthTests(TestCase):
     def setUp(self):
-        super(BearerAuthTests, self).setUp()
+        super().setUp()
         self.url = 'http://example.com/'
         responses.add(responses.GET, self.url)
 
@@ -112,7 +112,7 @@ class SuppliedJwtAuthTests(TestCase):
 
     def setUp(self):
         """Set up tests."""
-        super(SuppliedJwtAuthTests, self).setUp()
+        super().setUp()
         responses.add(responses.GET, self.url)
 
     @responses.activate

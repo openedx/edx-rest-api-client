@@ -4,7 +4,7 @@ import responses
 class AuthenticationTestMixin:
     """ Mixin for testing authentication. """
     def setUp(self):
-        super(AuthenticationTestMixin, self).setUp()
+        super().setUp()
         responses.reset()
 
     def _mock_auth_api(self, url, status, body=None):

@@ -149,7 +149,7 @@ class CachedClientCredentialTests(AuthenticationTestMixin, TestCase):
     """ Test cached client credentials requests. """
 
     def setUp(self):
-        super(CachedClientCredentialTests, self).setUp()
+        super().setUp()
         TieredCache.dangerous_clear_all_tiers()
 
     @responses.activate
@@ -248,7 +248,7 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
     client_secret = 'secret'
 
     def setUp(self):
-        super(OAuthAPIClientTests, self).setUp()
+        super().setUp()
         TieredCache.dangerous_clear_all_tiers()
 
     @responses.activate
