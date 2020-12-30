@@ -15,7 +15,7 @@ newrelic==5.24.0.153      # via edx-django-utils
 pbr==5.5.1                # via stevedore
 psutil==5.8.0             # via edx-django-utils
 pyjwt==1.7.1              # via -r requirements/base.in
-pytz==2020.4              # via django
+pytz==2020.5              # via django
 requests==2.25.1          # via -r requirements/base.in, slumber
 six==1.15.0               # via stevedore
 slumber==0.7.1            # via -r requirements/base.in
