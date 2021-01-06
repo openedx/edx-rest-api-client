@@ -56,9 +56,9 @@ slumber==0.7.1            # via -r requirements/base.txt
 sqlparse==0.4.1           # via -r requirements/base.txt, django
 stevedore==1.32.0         # via -r requirements/base.txt, edx-django-utils
 toml==0.10.2              # via pylint, pytest
-tqdm==4.55.0              # via twine
+tqdm==4.55.1              # via twine
 twine==1.15.0             # via -c requirements/constraints.txt, -r requirements/test.in
-typed-ast==1.4.1          # via astroid
+typed-ast==1.4.2          # via astroid
 urllib3==1.26.2           # via -r requirements/base.txt, requests, responses
 webencodings==0.5.1       # via bleach
 wrapt==1.12.1             # via astroid
