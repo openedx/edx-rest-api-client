@@ -58,7 +58,7 @@ class SuppliedJwtAuth(AuthBase):
 
     def __call__(self, r):
         """Update the request headers."""
-        r.headers['Authorization'] = 'JWT {jwt}'.format(jwt=self.token)
+        r.headers['Authorization'] = f'JWT {self.token}'
         return r
 
 
@@ -71,5 +71,5 @@ class BearerAuth(AuthBase):
 
     def __call__(self, r):
         """ Update the request headers. """
-        r.headers['Authorization'] = 'Bearer {}'.format(self.token)
+        r.headers['Authorization'] = f'Bearer {self.token}'
         return r

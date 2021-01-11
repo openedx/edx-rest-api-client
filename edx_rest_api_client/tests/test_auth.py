@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
 import datetime
 from unittest import TestCase
 
 import jwt
-import mock
+from unittest import mock
 import requests
 import responses
 
@@ -68,7 +66,7 @@ class JwtAuthTests(TestCase):
 
         # Verify the header was set as expected on the request
         token = jwt.encode(signing_data, self.signing_key).decode("UTF-8")
-        self.assertEqual(responses.calls[0].request.headers['Authorization'], 'JWT {}'.format(token))
+        self.assertEqual(responses.calls[0].request.headers['Authorization'], f'JWT {token}')
 
     @responses.activate
     def test_headers(self):
@@ -102,7 +100,7 @@ class BearerAuthTests(TestCase):
         """ Verify the class adds an Authorization headers with the bearer token. """
         token = 'abc123'
         requests.get(self.url, auth=auth.BearerAuth(token))
-        self.assertEqual(responses.calls[0].request.headers['Authorization'], 'Bearer {}'.format(token))
+        self.assertEqual(responses.calls[0].request.headers['Authorization'], f'Bearer {token}')
 
 
 class SuppliedJwtAuthTests(TestCase):
@@ -124,4 +122,4 @@ class SuppliedJwtAuthTests(TestCase):
         }
         token = jwt.encode(payload, self.signing_key)
         requests.get(self.url, auth=auth.SuppliedJwtAuth(token))
-        self.assertEqual(responses.calls[0].request.headers['Authorization'], 'JWT {}'.format(token))
+        self.assertEqual(responses.calls[0].request.headers['Authorization'], f'JWT {token}')

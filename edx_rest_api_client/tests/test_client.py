@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 import datetime
 import json
 import os
 from unittest import TestCase
 
 import ddt
-import mock
+from unittest import mock
 import requests
 import responses
 
@@ -92,7 +91,7 @@ class EdxRestApiClientTests(TestCase):
         with mock.patch('socket.gethostbyname', return_value='test_hostname'):
             default_user_agent = user_agent()
             self.assertIn('python-requests', default_user_agent)
-            self.assertIn('edx-rest-api-client/{}'.format(__version__), default_user_agent)
+            self.assertIn(f'edx-rest-api-client/{__version__}', default_user_agent)
             self.assertIn('test_hostname', default_user_agent)
 
         with mock.patch('socket.gethostbyname') as mock_gethostbyname:
