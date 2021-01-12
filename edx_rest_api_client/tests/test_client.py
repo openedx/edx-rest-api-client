@@ -1,10 +1,9 @@
 import datetime
 import json
 import os
-from unittest import TestCase
+from unittest import mock, TestCase
 
 import ddt
-from unittest import mock
 import requests
 import responses
 

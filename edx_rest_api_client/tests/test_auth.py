@@ -1,8 +1,7 @@
 import datetime
-from unittest import TestCase
+from unittest import mock, TestCase
 
 import jwt
-from unittest import mock
 import requests
 import responses
 
@@ -65,7 +64,7 @@ class JwtAuthTests(TestCase):
         )
 
         # Verify the header was set as expected on the request
-        token = jwt.encode(signing_data, self.signing_key).decode("UTF-8")
+        token = jwt.encode(signing_data, self.signing_key)
         self.assertEqual(responses.calls[0].request.headers['Authorization'], f'JWT {token}')
 
     @responses.activate

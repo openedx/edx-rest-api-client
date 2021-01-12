@@ -8,17 +8,5 @@
 # pin when possible.  Writing an issue against the offending project and
 # linking to it here is good.
 
-# Constrained for Python 3.5 support
-mock==3.0.5
-
-# Constrained for python 3.5 support
-zipp==1.2.0
-
-# constrain for python 3.5 support
-keyring<=20.0.1
-
-# constrain for python 3.5
-twine<=1.15.0
-
 # constrain django to stay on LTS
 django<2.3

@@ -26,6 +26,8 @@ click==7.1.2
     # via
     #   click-log
     #   edx-lint
+colorama==0.4.4
+    # via twine
 coverage==5.3.1
     # via pytest-cov
 ddt==1.4.1
@@ -59,14 +61,12 @@ iniconfig==1.1.1
     # via pytest
 isort==5.7.0
     # via pylint
+keyring==21.8.0
+    # via twine
 lazy-object-proxy==1.4.3
     # via astroid
 mccabe==0.6.1
     # via pylint
-mock==3.0.5
-    # via
-    #   -c requirements/constraints.txt
-    #   -r requirements/test.in
 newrelic==5.24.0.153
     # via
     #   -r requirements/base.txt
@@ -91,7 +91,7 @@ py==1.10.0
     # via pytest
 pycodestyle==2.6.0
     # via -r requirements/test.in
-pygments==2.7.3
+pygments==2.7.4
     # via readme-renderer
 pyjwt==2.0.0
     # via -r requirements/base.txt
@@ -138,12 +138,13 @@ requests==2.25.1
     #   twine
 responses==0.12.1
     # via -r requirements/test.in
+rfc3986==1.4.0
+    # via twine
 six==1.15.0
     # via
     #   astroid
     #   bleach
     #   edx-lint
-    #   mock
     #   python-dateutil
     #   readme-renderer
     #   responses
@@ -163,10 +164,8 @@ toml==0.10.2
     #   pytest
 tqdm==4.56.0
     # via twine
-twine==1.15.0
-    # via
-    #   -c requirements/constraints.txt
-    #   -r requirements/test.in
+twine==3.3.0
+    # via -r requirements/test.in
 urllib3==1.26.2
     # via
     #   -r requirements/base.txt
