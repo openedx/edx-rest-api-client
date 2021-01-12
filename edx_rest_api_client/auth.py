@@ -45,7 +45,7 @@ class JwtAuth(AuthBase):
             data['tracking_context'] = self.tracking_context
 
         set_custom_attribute('deprecated_jwt_signing', 'JwtAuth')
-        r.headers['Authorization'] = 'JWT {jwt}'.format(jwt=jwt.encode(data, self.signing_key).decode("UTF-8"))
+        r.headers['Authorization'] = 'JWT {jwt}'.format(jwt=jwt.encode(data, self.signing_key))
         return r
 
 
@@ -58,7 +58,7 @@ class SuppliedJwtAuth(AuthBase):
 
     def __call__(self, r):
         """Update the request headers."""
-        r.headers['Authorization'] = 'JWT {jwt}'.format(jwt=self.token)
+        r.headers['Authorization'] = f'JWT {self.token}'
         return r
 
 
@@ -71,5 +71,5 @@ class BearerAuth(AuthBase):
 
     def __call__(self, r):
         """ Update the request headers. """
-        r.headers['Authorization'] = 'Bearer {}'.format(self.token)
+        r.headers['Authorization'] = f'Bearer {self.token}'
         return r
