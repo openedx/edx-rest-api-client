@@ -44,10 +44,6 @@ click==7.1.2
     #   pip-tools
 codecov==2.1.11
     # via -r requirements/ci.txt
-colorama==0.4.4
-    # via
-    #   -r requirements/test.txt
-    #   twine
 coverage==5.3.1
     # via
     #   -r requirements/ci.txt
@@ -94,18 +90,26 @@ idna==2.10
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
+importlib-metadata==2.1.1
+    # via
+    #   -r requirements/ci.txt
+    #   -r requirements/test.txt
+    #   pluggy
+    #   pytest
+    #   tox
+    #   virtualenv
+importlib-resources==3.2.1
+    # via
+    #   -r requirements/ci.txt
+    #   virtualenv
 iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.7.0
+isort==4.3.21
     # via
     #   -r requirements/test.txt
     #   pylint
-keyring==21.8.0
-    # via
-    #   -r requirements/test.txt
-    #   twine
 lazy-object-proxy==1.4.3
     # via
     #   -r requirements/test.txt
@@ -125,6 +129,10 @@ packaging==20.8
     #   bleach
     #   pytest
     #   tox
+pathlib2==2.3.5
+    # via
+    #   -r requirements/test.txt
+    #   pytest
 pbr==5.5.1
     # via
     #   -r requirements/test.txt
@@ -157,7 +165,7 @@ pygments==2.7.4
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-pyjwt==2.0.0
+pyjwt==1.7.1
     # via -r requirements/test.txt
 pylint-celery==0.3
     # via
@@ -188,7 +196,7 @@ pytest-cov==2.10.1
     # via -r requirements/test.txt
 pytest-django==4.1.0
     # via -r requirements/test.txt
-pytest==6.2.1
+pytest==6.1.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -220,10 +228,6 @@ requests==2.25.1
     #   twine
 responses==0.12.1
     # via -r requirements/test.txt
-rfc3986==1.4.0
-    # via
-    #   -r requirements/test.txt
-    #   twine
 six==1.15.0
     # via
     #   -r requirements/ci.txt
@@ -231,9 +235,11 @@ six==1.15.0
     #   astroid
     #   bleach
     #   edx-lint
+    #   pathlib2
     #   python-dateutil
     #   readme-renderer
     #   responses
+    #   stevedore
     #   tox
     #   virtualenv
 slumber==0.7.1
@@ -242,7 +248,7 @@ sqlparse==0.4.1
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==3.3.0
+stevedore==1.32.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -263,8 +269,12 @@ tqdm==4.56.0
     # via
     #   -r requirements/test.txt
     #   twine
-twine==3.3.0
+twine==1.15.0
     # via -r requirements/test.txt
+typed-ast==1.4.2
+    # via
+    #   -r requirements/test.txt
+    #   astroid
 urllib3==1.26.2
     # via
     #   -r requirements/ci.txt
@@ -283,6 +293,12 @@ wrapt==1.12.1
     # via
     #   -r requirements/test.txt
     #   astroid
+zipp==1.2.0
+    # via
+    #   -r requirements/ci.txt
+    #   -r requirements/test.txt
+    #   importlib-metadata
+    #   importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

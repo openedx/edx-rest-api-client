@@ -27,7 +27,7 @@ pbr==5.5.1
     # via stevedore
 psutil==5.8.0
     # via edx-django-utils
-pyjwt==2.0.0
+pyjwt==1.7.1
     # via -r requirements/base.in
 pytz==2020.5
     # via django
@@ -35,11 +35,13 @@ requests==2.25.1
     # via
     #   -r requirements/base.in
     #   slumber
+six==1.15.0
+    # via stevedore
 slumber==0.7.1
     # via -r requirements/base.in
 sqlparse==0.4.1
     # via django
-stevedore==3.3.0
+stevedore==1.32.0
     # via edx-django-utils
 urllib3==1.26.2
     # via requests
