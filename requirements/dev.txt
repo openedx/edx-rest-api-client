@@ -63,7 +63,7 @@ coverage==5.4
     #   -r requirements/test.txt
     #   codecov
     #   pytest-cov
-cryptography==3.3.1
+cryptography==3.4.4
     # via
     #   -r requirements/test.txt
     #   secretstorage
@@ -95,7 +95,7 @@ docutils==0.16
     #   readme-renderer
 edx-django-utils==3.13.0
     # via -r requirements/test.txt
-edx-lint==4.0.0
+edx-lint==4.0.1
     # via -r requirements/test.txt
 filelock==3.0.12
     # via
@@ -264,7 +264,7 @@ rfc3986==1.4.0
     # via
     #   -r requirements/test.txt
     #   twine
-secretstorage==3.3.0
+secretstorage==3.3.1
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -274,7 +274,6 @@ six==1.15.0
     #   -r requirements/test.txt
     #   astroid
     #   bleach
-    #   cryptography
     #   edx-lint
     #   python-dateutil
     #   readme-renderer
@@ -309,7 +308,7 @@ tox==3.21.4
     # via
     #   -r requirements/ci.txt
     #   tox-battery
-tqdm==4.56.0
+tqdm==4.56.1
     # via
     #   -r requirements/test.txt
     #   twine

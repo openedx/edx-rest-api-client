@@ -35,7 +35,7 @@ colorama==0.4.4
     # via twine
 coverage==5.4
     # via pytest-cov
-cryptography==3.3.1
+cryptography==3.4.4
     # via secretstorage
 ddt==1.4.1
     # via -r requirements/test.in
@@ -58,7 +58,7 @@ docutils==0.16
     # via readme-renderer
 edx-django-utils==3.13.0
     # via -r requirements/base.txt
-edx-lint==4.0.0
+edx-lint==4.0.1
     # via -r requirements/test.in
 freezegun==1.1.0
     # via -r requirements/test.in
@@ -163,13 +163,12 @@ responses==0.12.1
     # via -r requirements/test.in
 rfc3986==1.4.0
     # via twine
-secretstorage==3.3.0
+secretstorage==3.3.1
     # via keyring
 six==1.15.0
     # via
     #   astroid
     #   bleach
-    #   cryptography
     #   edx-lint
     #   python-dateutil
     #   readme-renderer
@@ -191,7 +190,7 @@ toml==0.10.2
     # via
     #   pylint
     #   pytest
-tqdm==4.56.0
+tqdm==4.56.1
     # via twine
 twine==3.3.0
     # via -r requirements/test.in
