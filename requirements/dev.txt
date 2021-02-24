@@ -8,7 +8,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-astroid==2.4.2
+astroid==2.5
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -81,7 +81,7 @@ django-waffle==2.1.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django==2.2.18
+django==2.2.19
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -130,7 +130,7 @@ keyring==22.0.1
     # via
     #   -r requirements/test.txt
     #   twine
-lazy-object-proxy==1.4.3
+lazy-object-proxy==1.5.2
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -204,7 +204,7 @@ pylint-plugin-utils==0.6
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pylint==2.6.2
+pylint==2.7.1
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -241,7 +241,7 @@ pyyaml==5.4.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
-readme-renderer==28.0
+readme-renderer==29.0
     # via
     #   -r requirements/test.txt
     #   twine
@@ -272,7 +272,6 @@ six==1.15.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
-    #   astroid
     #   bleach
     #   edx-lint
     #   python-dateutil
@@ -308,7 +307,7 @@ tox==3.22.0
     # via
     #   -r requirements/ci.txt
     #   tox-battery
-tqdm==4.56.2
+tqdm==4.57.0
     # via
     #   -r requirements/test.txt
     #   twine

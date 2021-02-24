@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.4.2
+astroid==2.5
     # via
     #   pylint
     #   pylint-celery
@@ -78,7 +78,7 @@ jinja2==2.11.3
     # via code-annotations
 keyring==22.0.1
     # via twine
-lazy-object-proxy==1.4.3
+lazy-object-proxy==1.5.2
     # via astroid
 markupsafe==1.1.1
     # via jinja2
@@ -122,7 +122,7 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pylint==2.6.2
+pylint==2.7.1
     # via
     #   edx-lint
     #   pylint-celery
@@ -148,7 +148,7 @@ pytz==2021.1
     #   django
 pyyaml==5.4.1
     # via code-annotations
-readme-renderer==28.0
+readme-renderer==29.0
     # via twine
 requests-toolbelt==0.9.1
     # via twine
@@ -167,7 +167,6 @@ secretstorage==3.3.1
     # via keyring
 six==1.15.0
     # via
-    #   astroid
     #   bleach
     #   edx-lint
     #   python-dateutil
@@ -190,7 +189,7 @@ toml==0.10.2
     # via
     #   pylint
     #   pytest
-tqdm==4.56.2
+tqdm==4.57.0
     # via twine
 twine==3.3.0
     # via -r requirements/test.in
