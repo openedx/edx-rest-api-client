@@ -37,7 +37,7 @@ coverage==5.5
     # via pytest-cov
 cryptography==3.4.6
     # via secretstorage
-ddt==1.4.1
+ddt==1.4.2
     # via -r requirements/test.in
 django-crum==0.7.9
     # via
@@ -58,7 +58,7 @@ docutils==0.16
     # via readme-renderer
 edx-django-utils==3.15.0
     # via -r requirements/base.txt
-edx-lint==4.1.0
+edx-lint==4.1.1
     # via -r requirements/test.in
 freezegun==1.1.0
     # via -r requirements/test.in
@@ -66,8 +66,10 @@ idna==2.10
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==3.7.2
-    # via keyring
+importlib-metadata==3.7.3
+    # via
+    #   keyring
+    #   twine
 iniconfig==1.1.1
     # via pytest
 isort==5.7.0
@@ -108,7 +110,7 @@ psutil==5.8.0
     #   edx-django-utils
 py==1.10.0
     # via pytest
-pycodestyle==2.6.0
+pycodestyle==2.7.0
     # via -r requirements/test.in
 pycparser==2.20
     # via cffi
@@ -161,7 +163,7 @@ requests==2.25.1
     #   responses
     #   slumber
     #   twine
-responses==0.12.1
+responses==0.13.0
     # via -r requirements/test.in
 rfc3986==1.4.0
     # via twine
@@ -193,9 +195,9 @@ toml==0.10.2
     #   pytest
 tqdm==4.59.0
     # via twine
-twine==3.3.0
+twine==3.4.1
     # via -r requirements/test.in
-urllib3==1.26.3
+urllib3==1.26.4
     # via
     #   -r requirements/base.txt
     #   requests
@@ -206,6 +208,3 @@ wrapt==1.12.1
     # via astroid
 zipp==3.4.1
     # via importlib-metadata
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
