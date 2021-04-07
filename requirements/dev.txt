@@ -81,7 +81,7 @@ django-waffle==2.1.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django==2.2.19
+django==2.2.20
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -89,11 +89,11 @@ django==2.2.19
     #   django-crum
     #   edx-django-utils
     #   edx-lint
-docutils==0.16
+docutils==0.17
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-edx-django-utils==3.15.0
+edx-django-utils==3.16.0
     # via -r requirements/test.txt
 edx-lint==5.0.0
     # via -r requirements/test.txt
@@ -229,7 +229,7 @@ pytest-cov==2.11.1
     # via -r requirements/test.txt
 pytest-django==4.1.0
     # via -r requirements/test.txt
-pytest==6.2.2
+pytest==6.2.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -318,7 +318,7 @@ tox==3.23.0
     # via
     #   -r requirements/ci.txt
     #   tox-battery
-tqdm==4.59.0
+tqdm==4.60.0
     # via
     #   -r requirements/test.txt
     #   twine
