@@ -54,9 +54,9 @@ django-waffle==2.1.0
     #   django-crum
     #   edx-django-utils
     #   edx-lint
-docutils==0.16
+docutils==0.17
     # via readme-renderer
-edx-django-utils==3.15.0
+edx-django-utils==3.16.0
     # via -r requirements/base.txt
 edx-lint==5.0.0
     # via -r requirements/test.in
@@ -138,7 +138,7 @@ pytest-cov==2.11.1
     # via -r requirements/test.in
 pytest-django==4.1.0
     # via -r requirements/test.in
-pytest==6.2.2
+pytest==6.2.3
     # via
     #   pytest-cov
     #   pytest-django
@@ -193,7 +193,7 @@ toml==0.10.2
     # via
     #   pylint
     #   pytest
-tqdm==4.59.0
+tqdm==4.60.0
     # via twine
 twine==3.4.1
     # via -r requirements/test.in
