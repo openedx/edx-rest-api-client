@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.5.2
+astroid==2.5.3
     # via
     #   pylint
     #   pylint-celery
@@ -54,8 +54,10 @@ django-waffle==2.1.0
     #   django-crum
     #   edx-django-utils
     #   edx-lint
-docutils==0.17
-    # via readme-renderer
+docutils==0.16
+    # via
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
+    #   readme-renderer
 edx-django-utils==3.16.0
     # via -r requirements/base.txt
 edx-lint==5.0.0
@@ -66,7 +68,7 @@ idna==2.10
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==3.10.0
+importlib-metadata==3.10.1
     # via
     #   keyring
     #   twine
@@ -120,7 +122,7 @@ pyjwt==2.0.1
     # via -r requirements/base.txt
 pylint-celery==0.3
     # via edx-lint
-pylint-django==2.4.2
+pylint-django==2.4.3
     # via edx-lint
 pylint-plugin-utils==0.6
     # via
@@ -136,7 +138,7 @@ pyparsing==2.4.7
     # via packaging
 pytest-cov==2.11.1
     # via -r requirements/test.in
-pytest-django==4.1.0
+pytest-django==4.2.0
     # via -r requirements/test.in
 pytest==6.2.3
     # via
