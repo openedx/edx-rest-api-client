@@ -58,7 +58,7 @@ docutils==0.16
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   readme-renderer
-edx-django-utils==3.16.0
+edx-django-utils==4.0.0
     # via -r requirements/base.txt
 edx-lint==5.0.0
     # via -r requirements/test.in
@@ -116,9 +116,9 @@ pycodestyle==2.7.0
     # via -r requirements/test.in
 pycparser==2.20
     # via cffi
-pygments==2.8.1
+pygments==2.9.0
     # via readme-renderer
-pyjwt==2.0.1
+pyjwt==2.1.0
     # via -r requirements/base.txt
 pylint-celery==0.3
     # via edx-lint
@@ -128,9 +128,8 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pylint==2.7.4
+pylint==2.8.2
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   edx-lint
     #   pylint-celery
     #   pylint-django
@@ -141,13 +140,13 @@ pytest-cov==2.11.1
     # via -r requirements/test.in
 pytest-django==4.2.0
     # via -r requirements/test.in
-pytest==6.2.3
+pytest==6.2.4
     # via
     #   pytest-cov
     #   pytest-django
 python-dateutil==2.8.1
     # via freezegun
-python-slugify==4.0.1
+python-slugify==5.0.0
     # via code-annotations
 pytz==2021.1
     # via
