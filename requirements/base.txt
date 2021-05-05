@@ -12,12 +12,12 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==2.1.0
     # via edx-django-utils
-django==2.2.20
+django==2.2.21
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   django-crum
     #   edx-django-utils
-edx-django-utils==3.16.0
+edx-django-utils==4.0.0
     # via -r requirements/base.in
 idna==2.10
     # via requests
@@ -27,7 +27,7 @@ pbr==5.6.0
     # via stevedore
 psutil==5.8.0
     # via edx-django-utils
-pyjwt==2.0.1
+pyjwt==2.1.0
     # via -r requirements/base.in
 pytz==2021.1
     # via django
