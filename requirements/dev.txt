@@ -13,7 +13,7 @@ astroid==2.5.6
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-attrs==20.3.0
+attrs==21.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -81,7 +81,7 @@ django-waffle==2.1.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django==2.2.21
+django==2.2.20
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -239,7 +239,7 @@ python-dateutil==2.8.1
     # via
     #   -r requirements/test.txt
     #   freezegun
-python-slugify==5.0.0
+python-slugify==5.0.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -270,7 +270,7 @@ requests==2.25.1
     #   twine
 responses==0.13.3
     # via -r requirements/test.txt
-rfc3986==1.4.0
+rfc3986==1.5.0
     # via
     #   -r requirements/test.txt
     #   twine
@@ -278,7 +278,7 @@ secretstorage==3.3.1
     # via
     #   -r requirements/test.txt
     #   keyring
-six==1.15.0
+six==1.16.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -315,7 +315,7 @@ toml==0.10.2
     #   tox
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-tox==3.23.0
+tox==3.23.1
     # via
     #   -r requirements/ci.txt
     #   tox-battery
@@ -331,7 +331,7 @@ urllib3==1.26.4
     #   -r requirements/test.txt
     #   requests
     #   responses
-virtualenv==20.4.4
+virtualenv==20.4.6
     # via
     #   -r requirements/ci.txt
     #   tox

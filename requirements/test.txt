@@ -8,7 +8,7 @@ astroid==2.5.6
     # via
     #   pylint
     #   pylint-celery
-attrs==20.3.0
+attrs==21.2.0
     # via pytest
 bleach==3.3.0
     # via readme-renderer
@@ -146,7 +146,7 @@ pytest==6.2.4
     #   pytest-django
 python-dateutil==2.8.1
     # via freezegun
-python-slugify==5.0.0
+python-slugify==5.0.2
     # via code-annotations
 pytz==2021.1
     # via
@@ -167,11 +167,11 @@ requests==2.25.1
     #   twine
 responses==0.13.3
     # via -r requirements/test.in
-rfc3986==1.4.0
+rfc3986==1.5.0
     # via twine
 secretstorage==3.3.1
     # via keyring
-six==1.15.0
+six==1.16.0
     # via
     #   bleach
     #   edx-lint
