@@ -130,8 +130,9 @@ jeepney==0.6.0
     #   -r requirements/test.txt
     #   keyring
     #   secretstorage
-jinja2==3.0.0
+jinja2==2.11.3
     # via
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   code-annotations
 keyring==23.0.1
@@ -142,8 +143,9 @@ lazy-object-proxy==1.6.0
     # via
     #   -r requirements/test.txt
     #   astroid
-markupsafe==2.0.0
+markupsafe==1.1.1
     # via
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   jinja2
 mccabe==0.6.1
@@ -201,7 +203,7 @@ pygments==2.9.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-pyjwt[crypto]==1.7.1
+pyjwt==1.7.1
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
