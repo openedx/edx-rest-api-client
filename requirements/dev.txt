@@ -39,16 +39,15 @@ click-log==0.3.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
-click==7.1.2
+click==8.0.1
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
     #   click-log
     #   code-annotations
     #   edx-lint
     #   pip-tools
-code-annotations==1.1.1
+code-annotations==1.1.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -79,7 +78,7 @@ django-crum==0.7.9
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django-waffle==2.1.0
+django-waffle==2.2.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -87,7 +86,6 @@ django==2.2.23
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
-    #   code-annotations
     #   django-crum
     #   edx-django-utils
     #   edx-lint
@@ -130,9 +128,8 @@ jeepney==0.6.0
     #   -r requirements/test.txt
     #   keyring
     #   secretstorage
-jinja2==2.11.3
+jinja2==3.0.1
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   code-annotations
 keyring==23.0.1
@@ -143,9 +140,8 @@ lazy-object-proxy==1.6.0
     # via
     #   -r requirements/test.txt
     #   astroid
-markupsafe==1.1.1
+markupsafe==2.0.1
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   jinja2
 mccabe==0.6.1
@@ -326,7 +322,7 @@ tox==3.23.1
     # via
     #   -r requirements/ci.txt
     #   tox-battery
-tqdm==4.60.0
+tqdm==4.61.0
     # via
     #   -r requirements/test.txt
     #   twine
@@ -338,7 +334,7 @@ urllib3==1.26.4
     #   -r requirements/test.txt
     #   requests
     #   responses
-virtualenv==20.4.6
+virtualenv==20.4.7
     # via
     #   -r requirements/ci.txt
     #   tox
