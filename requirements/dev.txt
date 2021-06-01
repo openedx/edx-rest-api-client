@@ -21,7 +21,7 @@ bleach==3.3.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-certifi==2020.12.5
+certifi==2021.5.30
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -70,7 +70,7 @@ cryptography==3.4.7
     #   secretstorage
 ddt==1.4.2
     # via -r requirements/test.txt
-distlib==0.3.1
+distlib==0.3.2
     # via
     #   -r requirements/ci.txt
     #   virtualenv
@@ -110,7 +110,7 @@ idna==2.10
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==4.0.1
+importlib-metadata==4.4.0
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -216,7 +216,7 @@ pylint-plugin-utils==0.6
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pylint==2.8.2
+pylint==2.8.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -328,7 +328,7 @@ tqdm==4.61.0
     #   twine
 twine==3.4.1
     # via -r requirements/test.txt
-urllib3==1.26.4
+urllib3==1.26.5
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
