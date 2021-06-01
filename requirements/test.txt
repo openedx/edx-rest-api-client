@@ -12,7 +12,7 @@ attrs==21.2.0
     # via pytest
 bleach==3.3.0
     # via readme-renderer
-certifi==2020.12.5
+certifi==2021.5.30
     # via
     #   -r requirements/base.txt
     #   requests
@@ -72,7 +72,7 @@ idna==2.10
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==4.0.1
+importlib-metadata==4.4.0
     # via
     #   keyring
     #   twine
@@ -136,7 +136,7 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pylint==2.8.2
+pylint==2.8.3
     # via
     #   edx-lint
     #   pylint-celery
@@ -208,7 +208,7 @@ tqdm==4.61.0
     # via twine
 twine==3.4.1
     # via -r requirements/test.in
-urllib3==1.26.4
+urllib3==1.26.5
     # via
     #   -r requirements/base.txt
     #   requests
