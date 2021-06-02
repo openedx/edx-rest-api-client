@@ -21,7 +21,7 @@ django==2.2.23
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   django-crum
     #   edx-django-utils
-edx-django-utils==4.0.0
+edx-django-utils==4.1.0
     # via -r requirements/base.in
 idna==2.10
     # via requests
