@@ -72,7 +72,7 @@ idna==2.10
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==4.4.0
+importlib-metadata==4.5.0
     # via
     #   keyring
     #   twine
@@ -94,7 +94,7 @@ markupsafe==2.0.1
     # via jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==6.4.0.157
+newrelic==6.4.1.158
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -146,7 +146,7 @@ pyparsing==2.4.7
     # via packaging
 pytest-cov==2.12.1
     # via -r requirements/test.in
-pytest-django==4.3.0
+pytest-django==4.4.0
     # via -r requirements/test.in
 pytest==6.2.4
     # via
