@@ -82,7 +82,7 @@ django-waffle==2.2.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django==2.2.23
+django==2.2.24
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -110,7 +110,7 @@ idna==2.10
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==4.4.0
+importlib-metadata==4.5.0
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -148,7 +148,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==6.4.0.157
+newrelic==6.4.1.158
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -230,7 +230,7 @@ pyparsing==2.4.7
     #   packaging
 pytest-cov==2.12.1
     # via -r requirements/test.txt
-pytest-django==4.3.0
+pytest-django==4.4.0
     # via -r requirements/test.txt
 pytest==6.2.4
     # via
