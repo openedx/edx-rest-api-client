@@ -72,7 +72,7 @@ idna==2.10
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==4.5.0
+importlib-metadata==4.6.0
     # via
     #   keyring
     #   twine
@@ -94,7 +94,7 @@ markupsafe==2.0.1
     # via jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==6.4.1.158
+newrelic==6.4.3.160
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -208,7 +208,7 @@ tqdm==4.61.1
     # via twine
 twine==3.4.1
     # via -r requirements/test.in
-urllib3==1.26.5
+urllib3==1.26.6
     # via
     #   -r requirements/base.txt
     #   requests

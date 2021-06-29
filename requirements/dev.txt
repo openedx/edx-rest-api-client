@@ -110,7 +110,7 @@ idna==2.10
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==4.5.0
+importlib-metadata==4.6.0
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -148,7 +148,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==6.4.1.158
+newrelic==6.4.3.160
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -167,7 +167,7 @@ pep517==0.10.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-pip-tools==6.1.0
+pip-tools==6.2.0
     # via -r requirements/pip-tools.txt
 pkginfo==1.7.0
     # via
@@ -328,7 +328,7 @@ tqdm==4.61.1
     #   twine
 twine==3.4.1
     # via -r requirements/test.txt
-urllib3==1.26.5
+urllib3==1.26.6
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -342,6 +342,10 @@ webencodings==0.5.1
     # via
     #   -r requirements/test.txt
     #   bleach
+wheel==0.36.2
+    # via
+    #   -r requirements/pip-tools.txt
+    #   pip-tools
 wrapt==1.12.1
     # via
     #   -r requirements/test.txt
@@ -353,3 +357,4 @@ zipp==3.4.1
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
+# setuptools
