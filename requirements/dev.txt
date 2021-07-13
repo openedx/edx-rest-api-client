@@ -26,7 +26,7 @@ certifi==2021.5.30
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-cffi==1.14.5
+cffi==1.14.6
     # via
     #   -r requirements/test.txt
     #   cryptography
@@ -118,11 +118,11 @@ iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.9.1
+isort==5.9.2
     # via
     #   -r requirements/test.txt
     #   pylint
-jeepney==0.6.0
+jeepney==0.7.0
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -147,7 +147,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==6.4.3.160
+newrelic==6.4.4.161
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -168,7 +168,7 @@ pep517==0.10.0
     #   pip-tools
 pip-tools==6.2.0
     # via -r requirements/pip-tools.txt
-pkginfo==1.7.0
+pkginfo==1.7.1
     # via
     #   -r requirements/test.txt
     #   twine
@@ -321,7 +321,7 @@ tox==3.23.1
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-tqdm==4.61.1
+tqdm==4.61.2
     # via
     #   -r requirements/test.txt
     #   twine
