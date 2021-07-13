@@ -16,7 +16,7 @@ certifi==2021.5.30
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.14.5
+cffi==1.14.6
     # via
     #   -r requirements/base.txt
     #   cryptography
@@ -76,9 +76,9 @@ importlib-metadata==4.6.1
     #   twine
 iniconfig==1.1.1
     # via pytest
-isort==5.9.1
+isort==5.9.2
     # via pylint
-jeepney==0.6.0
+jeepney==0.7.0
     # via
     #   keyring
     #   secretstorage
@@ -92,7 +92,7 @@ markupsafe==2.0.1
     # via jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==6.4.3.160
+newrelic==6.4.4.161
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -104,7 +104,7 @@ pbr==5.6.0
     # via
     #   -r requirements/base.txt
     #   stevedore
-pkginfo==1.7.0
+pkginfo==1.7.1
     # via twine
 pluggy==0.13.1
     # via pytest
@@ -202,7 +202,7 @@ toml==0.10.2
     #   pylint
     #   pytest
     #   pytest-cov
-tqdm==4.61.1
+tqdm==4.61.2
     # via twine
 twine==3.4.1
     # via -r requirements/test.in
