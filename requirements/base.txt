@@ -8,7 +8,7 @@ certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-chardet==4.0.0
+charset-normalizer==2.0.3
     # via requests
 cryptography==3.4.7
     # via pyjwt
@@ -19,11 +19,11 @@ django==2.2.24
     #   edx-django-utils
 django-crum==0.7.9
     # via edx-django-utils
-django-waffle==2.2.0
+django-waffle==2.2.1
     # via edx-django-utils
-edx-django-utils==4.1.0
+edx-django-utils==4.2.0
     # via -r requirements/base.in
-idna==2.10
+idna==3.2
     # via requests
 newrelic==6.4.4.161
     # via edx-django-utils
@@ -39,7 +39,7 @@ pyjwt==1.7.1
     #   -r requirements/base.in
 pytz==2021.1
     # via django
-requests==2.25.1
+requests==2.26.0
     # via
     #   -r requirements/base.in
     #   slumber

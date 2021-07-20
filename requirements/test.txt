@@ -4,13 +4,13 @@
 #
 #    make upgrade
 #
-astroid==2.6.2
+astroid==2.6.4
     # via
     #   pylint
     #   pylint-celery
 attrs==21.2.0
     # via pytest
-bleach==3.3.0
+bleach==3.3.1
     # via readme-renderer
 certifi==2021.5.30
     # via
@@ -20,7 +20,7 @@ cffi==1.14.6
     # via
     #   -r requirements/base.txt
     #   cryptography
-chardet==4.0.0
+charset-normalizer==2.0.3
     # via
     #   -r requirements/base.txt
     #   requests
@@ -54,19 +54,19 @@ django-crum==0.7.9
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-django-waffle==2.2.0
+django-waffle==2.2.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
 docutils==0.17.1
     # via readme-renderer
-edx-django-utils==4.1.0
+edx-django-utils==4.2.0
     # via -r requirements/base.txt
 edx-lint==5.0.0
     # via -r requirements/test.in
 freezegun==1.1.0
     # via -r requirements/test.in
-idna==2.10
+idna==3.2
     # via
     #   -r requirements/base.txt
     #   requests
@@ -150,7 +150,7 @@ pytest-cov==2.12.1
     # via -r requirements/test.in
 pytest-django==4.4.0
     # via -r requirements/test.in
-python-dateutil==2.8.1
+python-dateutil==2.8.2
     # via freezegun
 python-slugify==5.0.2
     # via code-annotations
@@ -162,7 +162,7 @@ pyyaml==5.4.1
     # via code-annotations
 readme-renderer==29.0
     # via twine
-requests==2.25.1
+requests==2.26.0
     # via
     #   -r requirements/base.txt
     #   requests-toolbelt
@@ -217,3 +217,6 @@ wrapt==1.12.1
     # via astroid
 zipp==3.5.0
     # via importlib-metadata
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools
