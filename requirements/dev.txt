@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.6.4
+astroid==2.6.5
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -172,7 +172,7 @@ pkginfo==1.7.1
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==2.0.2
+platformdirs==2.1.0
     # via
     #   -r requirements/ci.txt
     #   virtualenv
@@ -202,11 +202,11 @@ pygments==2.9.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-pyjwt==1.7.1
+pyjwt[crypto]==1.7.1
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
-pylint==2.9.3
+pylint==2.9.5
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -317,7 +317,7 @@ toml==0.10.2
     #   pytest
     #   pytest-cov
     #   tox
-tomli==1.0.4
+tomli==1.1.0
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
@@ -331,7 +331,7 @@ tqdm==4.61.2
     # via
     #   -r requirements/test.txt
     #   twine
-twine==3.4.1
+twine==3.4.2
     # via -r requirements/test.txt
 urllib3==1.26.6
     # via
