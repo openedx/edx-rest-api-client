@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.6.4
+astroid==2.6.5
     # via
     #   pylint
     #   pylint-celery
@@ -126,7 +126,7 @@ pyjwt==1.7.1
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.txt
-pylint==2.9.3
+pylint==2.9.5
     # via
     #   edx-lint
     #   pylint-celery
@@ -204,7 +204,7 @@ toml==0.10.2
     #   pytest-cov
 tqdm==4.61.2
     # via twine
-twine==3.4.1
+twine==3.4.2
     # via -r requirements/test.in
 urllib3==1.26.6
     # via
