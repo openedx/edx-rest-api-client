@@ -8,7 +8,7 @@ certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-charset-normalizer==2.0.3
+charset-normalizer==2.0.4
     # via requests
 cryptography==3.4.7
     # via pyjwt
@@ -25,7 +25,7 @@ edx-django-utils==4.2.0
     # via -r requirements/base.in
 idna==3.2
     # via requests
-newrelic==6.4.4.161
+newrelic==6.6.0.162
     # via edx-django-utils
 pbr==5.6.0
     # via stevedore
@@ -33,7 +33,7 @@ psutil==5.8.0
     # via edx-django-utils
 pycparser==2.20
     # via cffi
-pyjwt==1.7.1
+pyjwt[crypto]==1.7.1
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
