@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.6.5
+astroid==2.6.6
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -17,7 +17,7 @@ backports.entry-points-selectable==1.1.0
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-bleach==3.3.1
+bleach==4.0.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
@@ -147,7 +147,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==6.6.0.162
+newrelic==6.8.0.163
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -273,7 +273,7 @@ requests-toolbelt==0.9.1
     # via
     #   -r requirements/test.txt
     #   twine
-responses==0.13.3
+responses==0.13.4
     # via -r requirements/test.txt
 rfc3986==1.5.0
     # via
@@ -317,7 +317,7 @@ toml==0.10.2
     #   pytest
     #   pytest-cov
     #   tox
-tomli==1.2.0
+tomli==1.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
@@ -339,7 +339,7 @@ urllib3==1.26.6
     #   -r requirements/test.txt
     #   requests
     #   responses
-virtualenv==20.7.0
+virtualenv==20.7.1
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -347,7 +347,7 @@ webencodings==0.5.1
     # via
     #   -r requirements/test.txt
     #   bleach
-wheel==0.36.2
+wheel==0.37.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
