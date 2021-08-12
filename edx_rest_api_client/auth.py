@@ -13,7 +13,15 @@ class JwtAuth(AuthBase):
     Deprecated:
         See https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst
 
-    Note: Remove pyjwt dependency when this class is removed.
+    Todos:
+        * Remove pyjwt dependency from edx-rest-api-client when this class is
+            removed.
+        * This class is only used by ecomworker according to data supplied by
+            the `deprecated_jwt_signing` custom attribute. This class should be
+            moved to ecomworker and out of the shared library until it can be
+            removed completely. The new class should rename
+            `deprecated_jwt_signing` to `deprecated_ecomworker_jwt_signing`
+            to ensure the transition.
 
     """
 
