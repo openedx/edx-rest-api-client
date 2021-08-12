@@ -16,10 +16,6 @@ certifi==2021.5.30
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.14.6
-    # via
-    #   -r requirements/base.txt
-    #   cryptography
 charset-normalizer==2.0.4
     # via
     #   -r requirements/base.txt
@@ -37,15 +33,10 @@ colorama==0.4.4
     # via twine
 coverage==5.5
     # via pytest-cov
-cryptography==3.4.7
-    # via
-    #   -r requirements/base.txt
-    #   pyjwt
-    #   secretstorage
 ddt==1.4.2
     # via -r requirements/test.in
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
+    #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
     #   django-crum
     #   edx-django-utils
@@ -78,10 +69,6 @@ iniconfig==1.1.1
     # via pytest
 isort==5.9.3
     # via pylint
-jeepney==0.7.1
-    # via
-    #   keyring
-    #   secretstorage
 jinja2==3.0.1
     # via code-annotations
 keyring==23.0.1
@@ -116,16 +103,10 @@ py==1.10.0
     # via pytest
 pycodestyle==2.7.0
     # via -r requirements/test.in
-pycparser==2.20
-    # via
-    #   -r requirements/base.txt
-    #   cffi
 pygments==2.9.0
     # via readme-renderer
-pyjwt[crypto]==1.7.1
-    # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
-    #   -r requirements/base.txt
+pyjwt==2.1.0
+    # via -r requirements/base.txt
 pylint==2.9.6
     # via
     #   edx-lint
@@ -175,8 +156,6 @@ responses==0.13.4
     # via -r requirements/test.in
 rfc3986==1.5.0
     # via twine
-secretstorage==3.3.1
-    # via keyring
 six==1.16.0
     # via
     #   bleach

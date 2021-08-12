@@ -26,10 +26,6 @@ certifi==2021.5.30
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-cffi==1.14.6
-    # via
-    #   -r requirements/test.txt
-    #   cryptography
 charset-normalizer==2.0.4
     # via
     #   -r requirements/ci.txt
@@ -63,11 +59,6 @@ coverage==5.5
     #   -r requirements/test.txt
     #   codecov
     #   pytest-cov
-cryptography==3.4.7
-    # via
-    #   -r requirements/test.txt
-    #   pyjwt
-    #   secretstorage
 ddt==1.4.2
     # via -r requirements/test.txt
 distlib==0.3.2
@@ -76,7 +67,7 @@ distlib==0.3.2
     #   virtualenv
 django==2.2.24
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
+    #   -c requirements/common_constraints.txt
     #   -r requirements/test.txt
     #   django-crum
     #   edx-django-utils
@@ -122,11 +113,6 @@ isort==5.9.3
     # via
     #   -r requirements/test.txt
     #   pylint
-jeepney==0.7.1
-    # via
-    #   -r requirements/test.txt
-    #   keyring
-    #   secretstorage
 jinja2==3.0.1
     # via
     #   -r requirements/test.txt
@@ -194,18 +180,12 @@ py==1.10.0
     #   tox
 pycodestyle==2.7.0
     # via -r requirements/test.txt
-pycparser==2.20
-    # via
-    #   -r requirements/test.txt
-    #   cffi
 pygments==2.9.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-pyjwt[crypto]==1.7.1
-    # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
-    #   -r requirements/test.txt
+pyjwt==2.1.0
+    # via -r requirements/test.txt
 pylint==2.9.6
     # via
     #   -r requirements/test.txt
@@ -279,10 +259,6 @@ rfc3986==1.5.0
     # via
     #   -r requirements/test.txt
     #   twine
-secretstorage==3.3.1
-    # via
-    #   -r requirements/test.txt
-    #   keyring
 six==1.16.0
     # via
     #   -r requirements/ci.txt
@@ -339,7 +315,7 @@ urllib3==1.26.6
     #   -r requirements/test.txt
     #   requests
     #   responses
-virtualenv==20.7.1
+virtualenv==20.7.2
     # via
     #   -r requirements/ci.txt
     #   tox
