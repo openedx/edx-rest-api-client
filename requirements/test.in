@@ -4,8 +4,10 @@
 -r base.txt                # Core dependencies
 
 ddt
+edx-drf-extensions
 edx-lint
 freezegun
+factory_boy>=2.6.1,<3.0.0
 pycodestyle
 pytest-cov                # pytest extension for code coverage statistics
 pytest-django             # pytest extension for better Django support

@@ -1,9 +1,15 @@
 import datetime
+from time import time
 from unittest import mock, TestCase
 
 import jwt
+import pytest
 import requests
 import responses
+from django.conf import settings
+from django.test import RequestFactory
+from edx_rest_framework_extensions.auth.jwt.authentication import JwtAuthentication
+from edx_rest_framework_extensions.tests import factories
 
 from edx_rest_api_client import auth
 
@@ -86,6 +92,28 @@ class JwtAuthTests(TestCase):
     def test_expires_in(self):
         """ Verify the expiration date is enclosed in the token payload, when specified. """
         self.assert_expected_token_value(expires_in=60)
+
+    @pytest.mark.django_db
+    def test_authenticate_with_correct_jwt_authorization(self):
+        """
+        With JWT header it continues and validates the credentials and throws error.
+
+        Note: CSRF protection should be skipped for this case, with no PermissionDenied.
+        """
+        now = int(time())
+        # user = factories.UserFactory()
+        payload = {
+            "iss": settings.JWT_AUTH['JWT_ISSUERS'][0]['ISSUER'],
+            "aud": settings.JWT_AUTH['JWT_AUDIENCE'],
+            "iat": now,
+            "exp": now + 60,
+            "username": 'user.username',
+            "email": 'user.email',
+        }
+        token = jwt.encode(payload, settings.JWT_AUTH['JWT_ISSUERS'][0]['SECRET_KEY'])
+        request = RequestFactory().get('/', HTTP_AUTHORIZATION=f'JWT {token}')
+        import pdb;pdb.set_trace()
+        JwtAuthentication().authenticate(request)
 
 
 class BearerAuthTests(TestCase):
