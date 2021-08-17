@@ -70,7 +70,7 @@ idna==3.2
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==4.6.3
+importlib-metadata==4.6.4
     # via
     #   keyring
     #   twine
@@ -84,7 +84,7 @@ jeepney==0.7.1
     #   secretstorage
 jinja2==3.0.1
     # via code-annotations
-keyring==23.0.1
+keyring==23.1.0
     # via twine
 lazy-object-proxy==1.6.0
     # via astroid
@@ -120,7 +120,7 @@ pycparser==2.20
     # via
     #   -r requirements/base.txt
     #   cffi
-pygments==2.9.0
+pygments==2.10.0
     # via readme-renderer
 pyjwt[crypto]==1.7.1
     # via
@@ -202,7 +202,7 @@ toml==0.10.2
     #   pylint
     #   pytest
     #   pytest-cov
-tqdm==4.62.0
+tqdm==4.62.1
     # via twine
 twine==3.4.2
     # via -r requirements/test.in

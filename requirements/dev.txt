@@ -109,7 +109,7 @@ idna==3.2
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==4.6.3
+importlib-metadata==4.6.4
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -131,7 +131,7 @@ jinja2==3.0.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
-keyring==23.0.1
+keyring==23.1.0
     # via
     #   -r requirements/test.txt
     #   twine
@@ -198,7 +198,7 @@ pycparser==2.20
     # via
     #   -r requirements/test.txt
     #   cffi
-pygments==2.9.0
+pygments==2.10.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
@@ -327,7 +327,7 @@ tox==3.24.1
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-tqdm==4.62.0
+tqdm==4.62.1
     # via
     #   -r requirements/test.txt
     #   twine
@@ -339,7 +339,7 @@ urllib3==1.26.6
     #   -r requirements/test.txt
     #   requests
     #   responses
-virtualenv==20.7.1
+virtualenv==20.7.2
     # via
     #   -r requirements/ci.txt
     #   tox
