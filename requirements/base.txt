@@ -21,7 +21,7 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==2.2.1
     # via edx-django-utils
-edx-django-utils==4.2.0
+edx-django-utils==4.3.0
     # via -r requirements/base.in
 idna==3.2
     # via requests
@@ -47,7 +47,7 @@ slumber==0.7.1
     # via -r requirements/base.in
 sqlparse==0.4.1
     # via django
-stevedore==3.3.0
+stevedore==3.4.0
     # via edx-django-utils
 urllib3==1.26.6
     # via requests

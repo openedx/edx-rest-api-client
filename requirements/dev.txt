@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.6.6
+astroid==2.7.2
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -93,7 +93,7 @@ docutils==0.17.1
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-edx-django-utils==4.2.0
+edx-django-utils==4.3.0
     # via -r requirements/test.txt
 edx-lint==5.0.0
     # via -r requirements/test.txt
@@ -175,6 +175,8 @@ pkginfo==1.7.1
 platformdirs==2.2.0
     # via
     #   -r requirements/ci.txt
+    #   -r requirements/test.txt
+    #   pylint
     #   virtualenv
 pluggy==0.13.1
     # via
@@ -206,7 +208,7 @@ pyjwt[crypto]==1.7.1
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
-pylint==2.9.6
+pylint==2.10.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -300,7 +302,7 @@ sqlparse==0.4.1
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==3.3.0
+stevedore==3.4.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -321,13 +323,13 @@ tomli==1.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
-tox==3.24.1
+tox==3.24.3
     # via
     #   -r requirements/ci.txt
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-tqdm==4.62.1
+tqdm==4.62.2
     # via
     #   -r requirements/test.txt
     #   twine
