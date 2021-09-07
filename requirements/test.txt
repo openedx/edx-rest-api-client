@@ -49,7 +49,6 @@ ddt==1.4.2
     #   -r requirements/base.txt
     #   django-crum
     #   edx-django-utils
-    #   edx-lint
 django-crum==0.7.9
     # via
     #   -r requirements/base.txt
@@ -60,9 +59,9 @@ django-waffle==2.2.1
     #   edx-django-utils
 docutils==0.17.1
     # via readme-renderer
-edx-django-utils==4.3.0
+edx-django-utils==4.4.0
     # via -r requirements/base.txt
-edx-lint==5.0.0
+edx-lint==5.1.0
     # via -r requirements/test.in
 freezegun==1.1.0
     # via -r requirements/test.in
@@ -108,10 +107,8 @@ pkginfo==1.7.1
     # via twine
 platformdirs==2.3.0
     # via pylint
-pluggy==0.13.1
-    # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
-    #   pytest
+pluggy==1.0.0
+    # via pytest
 psutil==5.8.0
     # via
     #   -r requirements/base.txt

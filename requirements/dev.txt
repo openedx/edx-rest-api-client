@@ -80,7 +80,6 @@ django==2.2.24
     #   -r requirements/test.txt
     #   django-crum
     #   edx-django-utils
-    #   edx-lint
 django-crum==0.7.9
     # via
     #   -r requirements/test.txt
@@ -93,9 +92,9 @@ docutils==0.17.1
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-edx-django-utils==4.3.0
+edx-django-utils==4.4.0
     # via -r requirements/test.txt
-edx-lint==5.0.0
+edx-lint==5.1.0
     # via -r requirements/test.txt
 filelock==3.0.12
     # via
@@ -178,9 +177,8 @@ platformdirs==2.3.0
     #   -r requirements/test.txt
     #   pylint
     #   virtualenv
-pluggy==0.13.1
+pluggy==1.0.0
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   pytest
