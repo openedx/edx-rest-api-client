@@ -45,7 +45,7 @@ requests==2.26.0
     #   slumber
 slumber==0.7.1
     # via -r requirements/base.in
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via django
 stevedore==3.4.0
     # via edx-django-utils
