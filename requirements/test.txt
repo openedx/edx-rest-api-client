@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.7.3
+astroid==2.8.0
     # via
     #   pylint
     #   pylint-celery
@@ -20,7 +20,7 @@ cffi==1.14.6
     # via
     #   -r requirements/base.txt
     #   cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.6
     # via
     #   -r requirements/base.txt
     #   requests
@@ -91,7 +91,7 @@ markupsafe==2.0.1
     # via jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==6.8.1.164
+newrelic==6.10.0.165
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -127,7 +127,7 @@ pyjwt[crypto]==1.7.1
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.txt
-pylint==2.10.2
+pylint==2.11.1
     # via
     #   edx-lint
     #   pylint-celery
@@ -203,10 +203,14 @@ toml==0.10.2
     #   pylint
     #   pytest
     #   pytest-cov
-tqdm==4.62.2
+tqdm==4.62.3
     # via twine
 twine==3.4.2
     # via -r requirements/test.in
+typing-extensions==3.10.0.2
+    # via
+    #   astroid
+    #   pylint
 urllib3==1.26.6
     # via
     #   -r requirements/base.txt
