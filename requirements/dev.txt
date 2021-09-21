@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.7.3
+astroid==2.8.0
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -30,7 +30,7 @@ cffi==1.14.6
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.6
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -146,7 +146,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==6.8.1.164
+newrelic==6.10.0.165
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -207,7 +207,7 @@ pyjwt[crypto]==1.7.1
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
-pylint==2.10.2
+pylint==2.11.1
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -322,25 +322,30 @@ tomli==1.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
-tox==3.24.3
+tox==3.24.4
     # via
     #   -r requirements/ci.txt
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-tqdm==4.62.2
+tqdm==4.62.3
     # via
     #   -r requirements/test.txt
     #   twine
 twine==3.4.2
     # via -r requirements/test.txt
+typing-extensions==3.10.0.2
+    # via
+    #   -r requirements/test.txt
+    #   astroid
+    #   pylint
 urllib3==1.26.6
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
     #   responses
-virtualenv==20.7.2
+virtualenv==20.8.0
     # via
     #   -r requirements/ci.txt
     #   tox

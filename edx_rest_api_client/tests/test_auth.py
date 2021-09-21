@@ -26,7 +26,7 @@ class JwtAuthTests(TestCase):
             mock.Mock(wraps=datetime.datetime)
         )
         mocked_datetime = datetime_patcher.start()
-        mocked_datetime.utcnow.return_value = CURRENT_TIME  # pylint: disable=no-member
+        mocked_datetime.utcnow.return_value = CURRENT_TIME
         self.addCleanup(datetime_patcher.stop)
 
         responses.add(responses.GET, self.url)

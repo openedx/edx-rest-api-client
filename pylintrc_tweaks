@@ -2,7 +2,9 @@
 load-plugins = edx_lint.pylint
 
 [MESSAGES CONTROL]
-DISABLE+= ,missing-docstring
+DISABLE+=
+    missing-docstring,
+    consider-using-f-string
 
 [TYPECHECK]
 ignored-classes+= ,responses
