@@ -66,11 +66,10 @@ coverage==5.5
 cryptography==3.4.8
     # via
     #   -r requirements/test.txt
-    #   pyjwt
     #   secretstorage
-ddt==1.4.2
+ddt==1.4.3
     # via -r requirements/test.txt
-distlib==0.3.2
+distlib==0.3.3
     # via
     #   -r requirements/ci.txt
     #   virtualenv
@@ -94,9 +93,9 @@ docutils==0.17.1
     #   readme-renderer
 edx-django-utils==4.4.0
     # via -r requirements/test.txt
-edx-lint==5.1.0
+edx-lint==5.2.0
     # via -r requirements/test.txt
-filelock==3.0.12
+filelock==3.1.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -146,7 +145,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==6.10.0.165
+newrelic==7.0.0.166
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -165,13 +164,13 @@ pep517==0.11.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-pip-tools==6.2.0
+pip-tools==6.3.0
     # via -r requirements/pip-tools.txt
 pkginfo==1.7.1
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==2.3.0
+platformdirs==2.4.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -203,10 +202,8 @@ pygments==2.10.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-pyjwt[crypto]==1.7.1
-    # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
-    #   -r requirements/test.txt
+pyjwt==2.1.0
+    # via -r requirements/test.txt
 pylint==2.11.1
     # via
     #   -r requirements/test.txt
@@ -339,13 +336,13 @@ typing-extensions==3.10.0.2
     #   -r requirements/test.txt
     #   astroid
     #   pylint
-urllib3==1.26.6
+urllib3==1.26.7
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
     #   responses
-virtualenv==20.8.0
+virtualenv==20.8.1
     # via
     #   -r requirements/ci.txt
     #   tox
