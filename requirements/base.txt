@@ -19,15 +19,15 @@ django-waffle==2.2.1
     # via edx-django-utils
 edx-django-utils==4.4.0
     # via -r requirements/base.in
-idna==3.2
+idna==3.3
     # via requests
-newrelic==7.0.0.166
+newrelic==7.2.2.169
     # via edx-django-utils
 pbr==5.6.0
     # via stevedore
 psutil==5.8.0
     # via edx-django-utils
-pyjwt==2.2.0
+pyjwt==2.3.0
     # via -r requirements/base.in
 pytz==2021.3
     # via django
@@ -39,7 +39,7 @@ slumber==0.7.1
     # via -r requirements/base.in
 sqlparse==0.4.2
     # via django
-stevedore==3.4.0
+stevedore==3.5.0
     # via edx-django-utils
 urllib3==1.26.7
     # via requests

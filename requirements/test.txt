@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.8.2
+astroid==2.8.3
     # via
     #   pylint
     #   pylint-celery
@@ -16,7 +16,7 @@ certifi==2021.10.8
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.14.6
+cffi==1.15.0
     # via cryptography
 charset-normalizer==2.0.7
     # via
@@ -60,7 +60,7 @@ edx-lint==5.2.0
     # via -r requirements/test.in
 freezegun==1.1.0
     # via -r requirements/test.in
-idna==3.2
+idna==3.3
     # via
     #   -r requirements/base.txt
     #   requests
@@ -86,7 +86,7 @@ markupsafe==2.0.1
     # via jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==7.0.0.166
+newrelic==7.2.2.169
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -116,7 +116,7 @@ pycparser==2.20
     # via cffi
 pygments==2.10.0
     # via readme-renderer
-pyjwt==2.2.0
+pyjwt==2.3.0
     # via -r requirements/base.txt
 pylint==2.11.1
     # via
@@ -150,7 +150,7 @@ pytz==2021.3
     # via
     #   -r requirements/base.txt
     #   django
-pyyaml==5.4.1
+pyyaml==6.0
     # via code-annotations
 readme-renderer==30.0
     # via twine
@@ -181,7 +181,7 @@ sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==3.4.0
+stevedore==3.5.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -209,7 +209,7 @@ urllib3==1.26.7
     #   responses
 webencodings==0.5.1
     # via bleach
-wrapt==1.12.1
+wrapt==1.13.2
     # via astroid
 zipp==3.6.0
     # via importlib-metadata

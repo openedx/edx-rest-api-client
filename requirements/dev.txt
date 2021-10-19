@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.8.2
+astroid==2.8.3
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -26,7 +26,7 @@ certifi==2021.10.8
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-cffi==1.14.6
+cffi==1.15.0
     # via
     #   -r requirements/test.txt
     #   cryptography
@@ -95,14 +95,14 @@ edx-django-utils==4.4.0
     # via -r requirements/test.txt
 edx-lint==5.2.0
     # via -r requirements/test.txt
-filelock==3.3.0
+filelock==3.3.1
     # via
     #   -r requirements/ci.txt
     #   tox
     #   virtualenv
 freezegun==1.1.0
     # via -r requirements/test.txt
-idna==3.2
+idna==3.3
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -145,7 +145,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==7.0.0.166
+newrelic==7.2.2.169
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -160,11 +160,11 @@ pbr==5.6.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-pep517==0.11.0
+pep517==0.12.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-pip-tools==6.3.1
+pip-tools==6.4.0
     # via -r requirements/pip-tools.txt
 pkginfo==1.7.1
     # via
@@ -202,7 +202,7 @@ pygments==2.10.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-pyjwt==2.2.0
+pyjwt==2.3.0
     # via -r requirements/test.txt
 pylint==2.11.1
     # via
@@ -250,7 +250,7 @@ pytz==2021.3
     # via
     #   -r requirements/test.txt
     #   django
-pyyaml==5.4.1
+pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -297,7 +297,7 @@ sqlparse==0.4.2
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==3.4.0
+stevedore==3.5.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -354,7 +354,7 @@ wheel==0.37.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-wrapt==1.12.1
+wrapt==1.13.2
     # via
     #   -r requirements/test.txt
     #   astroid
