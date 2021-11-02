@@ -33,7 +33,7 @@ code-annotations==1.2.0
     # via edx-lint
 colorama==0.4.4
     # via twine
-coverage[toml]==6.0.2
+coverage[toml]==6.1.1
     # via pytest-cov
 cryptography==35.0.0
     # via secretstorage
@@ -52,11 +52,11 @@ django-waffle==2.2.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-docutils==0.17.1
+docutils==0.18
     # via readme-renderer
 edx-django-utils==4.4.0
     # via -r requirements/base.txt
-edx-lint==5.2.0
+edx-lint==5.2.1
     # via -r requirements/test.in
 freezegun==1.1.0
     # via -r requirements/test.in
@@ -90,7 +90,7 @@ newrelic==7.2.2.169
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-packaging==21.0
+packaging==21.2
     # via
     #   bleach
     #   pytest
@@ -132,7 +132,7 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pyparsing==3.0.1
+pyparsing==2.4.7
     # via packaging
 pytest==6.2.5
     # via
@@ -163,7 +163,7 @@ requests==2.26.0
     #   twine
 requests-toolbelt==0.9.1
     # via twine
-responses==0.14.0
+responses==0.15.0
     # via -r requirements/test.in
 rfc3986==1.5.0
     # via twine
@@ -209,7 +209,7 @@ urllib3==1.26.7
     #   responses
 webencodings==0.5.1
     # via bleach
-wrapt==1.13.2
+wrapt==1.13.3
     # via astroid
 zipp==3.6.0
     # via importlib-metadata
