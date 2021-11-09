@@ -64,13 +64,13 @@ idna==3.3
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==4.8.1
+importlib-metadata==4.8.2
     # via
     #   keyring
     #   twine
 iniconfig==1.1.1
     # via pytest
-isort==5.9.3
+isort==5.10.0
     # via pylint
 jeepney==0.7.1
     # via
@@ -86,7 +86,7 @@ markupsafe==2.0.1
     # via jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==7.2.2.169
+newrelic==7.2.3.170
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -94,7 +94,7 @@ packaging==21.2
     # via
     #   bleach
     #   pytest
-pbr==5.6.0
+pbr==5.7.0
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -108,11 +108,11 @@ psutil==5.8.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-py==1.10.0
+py==1.11.0
     # via pytest
 pycodestyle==2.8.0
     # via -r requirements/test.in
-pycparser==2.20
+pycparser==2.21
     # via cffi
 pygments==2.10.0
     # via readme-renderer
@@ -196,7 +196,7 @@ tomli==1.2.2
     # via coverage
 tqdm==4.62.3
     # via twine
-twine==3.4.2
+twine==3.5.0
     # via -r requirements/test.in
 typing-extensions==3.10.0.2
     # via

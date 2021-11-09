@@ -13,7 +13,7 @@ attrs==21.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
-backports.entry-points-selectable==1.1.0
+backports.entry-points-selectable==1.1.1
     # via
     #   -r requirements/ci.txt
     #   virtualenv
@@ -107,7 +107,7 @@ idna==3.3
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==4.8.1
+importlib-metadata==4.8.2
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -116,7 +116,7 @@ iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.9.3
+isort==5.10.0
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -145,7 +145,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==7.2.2.169
+newrelic==7.2.3.170
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -156,7 +156,7 @@ packaging==21.2
     #   bleach
     #   pytest
     #   tox
-pbr==5.6.0
+pbr==5.7.0
     # via
     #   -r requirements/test.txt
     #   stevedore
@@ -186,7 +186,7 @@ psutil==5.8.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-py==1.10.0
+py==1.11.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -194,7 +194,7 @@ py==1.10.0
     #   tox
 pycodestyle==2.8.0
     # via -r requirements/test.txt
-pycparser==2.20
+pycparser==2.21
     # via
     #   -r requirements/test.txt
     #   cffi
@@ -329,7 +329,7 @@ tqdm==4.62.3
     # via
     #   -r requirements/test.txt
     #   twine
-twine==3.4.2
+twine==3.5.0
     # via -r requirements/test.txt
 typing-extensions==3.10.0.2
     # via
