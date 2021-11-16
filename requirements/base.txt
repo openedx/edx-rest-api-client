@@ -4,11 +4,13 @@
 #
 #    make upgrade
 #
+asgiref==3.4.1
+    # via django
 certifi==2021.10.8
     # via requests
 charset-normalizer==2.0.7
     # via requests
-django==2.2.24
+django==3.2.9
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   django-crum
@@ -21,7 +23,7 @@ edx-django-utils==4.4.0
     # via -r requirements/base.in
 idna==3.3
     # via requests
-newrelic==7.2.3.170
+newrelic==7.2.4.171
     # via edx-django-utils
 pbr==5.7.0
     # via stevedore
