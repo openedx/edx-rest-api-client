@@ -8,7 +8,7 @@ asgiref==3.4.1
     # via django
 certifi==2021.10.8
     # via requests
-charset-normalizer==2.0.8
+charset-normalizer==2.0.9
     # via requests
 django==3.2.9
     # via
