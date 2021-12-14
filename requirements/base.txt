@@ -10,7 +10,7 @@ certifi==2021.10.8
     # via requests
 charset-normalizer==2.0.9
     # via requests
-django==3.2.9
+django==3.2.10
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   django-crum
