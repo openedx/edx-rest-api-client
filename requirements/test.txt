@@ -144,7 +144,7 @@ pytest==6.2.5
     #   pytest-django
 pytest-cov==3.0.0
     # via -r requirements/test.in
-pytest-django==4.5.1
+pytest-django==4.5.2
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via freezegun
@@ -156,7 +156,7 @@ pytz==2021.3
     #   django
 pyyaml==6.0
     # via code-annotations
-readme-renderer==30.0
+readme-renderer==32.0
     # via twine
 requests==2.26.0
     # via
@@ -196,11 +196,11 @@ toml==0.10.2
     # via
     #   pylint
     #   pytest
-tomli==1.2.2
+tomli==2.0.0
     # via coverage
 tqdm==4.62.3
     # via twine
-twine==3.7.0
+twine==3.7.1
     # via -r requirements/test.in
 typing-extensions==4.0.1
     # via
