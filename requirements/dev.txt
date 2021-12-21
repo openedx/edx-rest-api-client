@@ -67,7 +67,7 @@ coverage[toml]==6.2
     #   -r requirements/test.txt
     #   codecov
     #   pytest-cov
-cryptography==36.0.0
+cryptography==36.0.1
     # via
     #   -r requirements/test.txt
     #   secretstorage
@@ -95,7 +95,7 @@ docutils==0.18.1
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via -r requirements/test.txt
 edx-lint==5.2.1
     # via -r requirements/test.txt
@@ -111,7 +111,7 @@ idna==3.3
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==4.8.2
+importlib-metadata==4.10.0
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -137,7 +137,7 @@ keyring==23.4.0
     # via
     #   -r requirements/test.txt
     #   twine
-lazy-object-proxy==1.6.0
+lazy-object-proxy==1.7.1
     # via
     #   -r requirements/test.txt
     #   astroid
