@@ -13,7 +13,7 @@ astroid==2.9.0
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-attrs==21.2.0
+attrs==21.3.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -30,10 +30,6 @@ certifi==2021.10.8
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-cffi==1.15.0
-    # via
-    #   -r requirements/test.txt
-    #   cryptography
 charset-normalizer==2.0.9
     # via
     #   -r requirements/ci.txt
@@ -67,10 +63,6 @@ coverage[toml]==6.2
     #   -r requirements/test.txt
     #   codecov
     #   pytest-cov
-cryptography==36.0.0
-    # via
-    #   -r requirements/test.txt
-    #   secretstorage
 ddt==1.4.4
     # via -r requirements/test.txt
 distlib==0.3.4
@@ -95,11 +87,11 @@ docutils==0.18.1
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via -r requirements/test.txt
 edx-lint==5.2.1
     # via -r requirements/test.txt
-filelock==3.4.0
+filelock==3.4.2
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -111,7 +103,7 @@ idna==3.3
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==4.8.2
+importlib-metadata==4.10.0
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -124,11 +116,6 @@ isort==5.10.1
     # via
     #   -r requirements/test.txt
     #   pylint
-jeepney==0.7.1
-    # via
-    #   -r requirements/test.txt
-    #   keyring
-    #   secretstorage
 jinja2==3.0.3
     # via
     #   -r requirements/test.txt
@@ -137,7 +124,7 @@ keyring==23.4.0
     # via
     #   -r requirements/test.txt
     #   twine
-lazy-object-proxy==1.6.0
+lazy-object-proxy==1.7.1
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -174,7 +161,7 @@ pkginfo==1.8.2
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==2.4.0
+platformdirs==2.4.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -198,10 +185,6 @@ py==1.11.0
     #   tox
 pycodestyle==2.8.0
     # via -r requirements/test.txt
-pycparser==2.21
-    # via
-    #   -r requirements/test.txt
-    #   cffi
 pygments==2.10.0
     # via
     #   -r requirements/test.txt
@@ -281,10 +264,6 @@ rfc3986==1.5.0
     # via
     #   -r requirements/test.txt
     #   twine
-secretstorage==3.3.1
-    # via
-    #   -r requirements/test.txt
-    #   keyring
 six==1.16.0
     # via
     #   -r requirements/ci.txt
@@ -354,7 +333,7 @@ webencodings==0.5.1
     # via
     #   -r requirements/test.txt
     #   bleach
-wheel==0.37.0
+wheel==0.37.1
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
