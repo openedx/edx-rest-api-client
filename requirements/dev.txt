@@ -107,7 +107,7 @@ idna==3.3
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==4.10.0
+importlib-metadata==4.10.1
     # via
     #   -r requirements/test.txt
     #   keyring
