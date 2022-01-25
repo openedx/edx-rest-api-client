@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-asgiref==3.4.1
+asgiref==3.5.0
     # via
     #   -r requirements/base.txt
     #   django
@@ -58,7 +58,7 @@ django-waffle==2.3.0
     #   edx-django-utils
 docutils==0.18.1
     # via readme-renderer
-edx-django-utils==4.4.1
+edx-django-utils==4.4.2
     # via -r requirements/base.txt
 edx-lint==5.2.1
     # via -r requirements/test.in
@@ -90,7 +90,7 @@ markupsafe==2.0.1
     # via jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==7.2.4.171
+newrelic==7.4.0.172
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -136,7 +136,7 @@ pylint-plugin-utils==0.7
     # via
     #   pylint-celery
     #   pylint-django
-pyparsing==3.0.6
+pyparsing==3.0.7
     # via packaging
 pytest==6.2.5
     # via
