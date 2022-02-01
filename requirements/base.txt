@@ -8,7 +8,7 @@ asgiref==3.5.0
     # via django
 certifi==2021.10.8
     # via requests
-charset-normalizer==2.0.10
+charset-normalizer==2.0.11
     # via requests
 django==3.2.11
     # via
@@ -19,7 +19,7 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==2.3.0
     # via edx-django-utils
-edx-django-utils==4.4.2
+edx-django-utils==4.5.0
     # via -r requirements/base.in
 idna==3.3
     # via requests
