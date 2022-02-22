@@ -35,7 +35,7 @@ charset-normalizer==2.0.12
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-click==8.0.3
+click==8.0.4
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
@@ -57,7 +57,7 @@ colorama==0.4.4
     # via
     #   -r requirements/test.txt
     #   twine
-coverage[toml]==6.3.1
+coverage[toml]==6.3.2
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -95,7 +95,7 @@ edx-django-utils==4.5.0
     # via -r requirements/test.txt
 edx-lint==5.2.1
     # via -r requirements/test.txt
-filelock==3.4.2
+filelock==3.6.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -137,7 +137,7 @@ lazy-object-proxy==1.7.1
     # via
     #   -r requirements/test.txt
     #   astroid
-markupsafe==2.0.1
+markupsafe==2.1.0
     # via
     #   -r requirements/test.txt
     #   jinja2
@@ -170,7 +170,7 @@ pkginfo==1.8.2
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==2.5.0
+platformdirs==2.5.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -215,7 +215,7 @@ pylint-celery==0.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
-pylint-django==2.5.0
+pylint-django==2.5.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -242,7 +242,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/test.txt
     #   freezegun
-python-slugify==5.0.2
+python-slugify==6.0.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
