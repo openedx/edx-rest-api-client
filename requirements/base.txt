@@ -17,7 +17,7 @@ django==3.2.12
     #   edx-django-utils
 django-crum==0.7.9
     # via edx-django-utils
-django-waffle==2.3.0
+django-waffle==2.4.1
     # via edx-django-utils
 edx-django-utils==4.6.0
     # via -r requirements/base.in
