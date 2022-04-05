@@ -23,7 +23,7 @@ edx-django-utils==4.6.0
     # via -r requirements/base.in
 idna==3.3
     # via requests
-newrelic==7.6.0.173
+newrelic==7.8.0.174
     # via edx-django-utils
 pbr==5.8.1
     # via stevedore
