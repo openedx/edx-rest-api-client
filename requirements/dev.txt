@@ -173,7 +173,7 @@ pkginfo==1.8.2
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==2.5.1
+platformdirs==2.5.2
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -333,7 +333,7 @@ tox-battery==0.6.1
     # via -r requirements/ci.txt
 twine==4.0.0
     # via -r requirements/test.txt
-typing-extensions==4.1.1
+typing-extensions==4.2.0
     # via
     #   -r requirements/test.txt
     #   astroid
