@@ -8,7 +8,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.11.5
+astroid==2.11.6
     # via
     #   pylint
     #   pylint-celery
@@ -67,7 +67,7 @@ docutils==0.18.1
     # via readme-renderer
 edx-django-utils==5.0.0
     # via -r requirements/base.txt
-edx-lint==5.2.2
+edx-lint==5.2.4
     # via -r requirements/test.in
 freezegun==1.2.1
     # via -r requirements/test.in
@@ -89,7 +89,7 @@ jeepney==0.8.0
     #   secretstorage
 jinja2==3.1.2
     # via code-annotations
-keyring==23.5.1
+keyring==23.6.0
     # via twine
 lazy-object-proxy==1.7.1
     # via astroid
@@ -97,7 +97,7 @@ markupsafe==2.1.1
     # via jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==7.10.0.175
+newrelic==7.12.0.176
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -107,7 +107,7 @@ pbr==5.9.0
     # via
     #   -r requirements/base.txt
     #   stevedore
-pkginfo==1.8.2
+pkginfo==1.8.3
     # via twine
 platformdirs==2.5.2
     # via pylint
@@ -171,7 +171,7 @@ pyyaml==6.0
     # via code-annotations
 readme-renderer==35.0
     # via twine
-requests==2.27.1
+requests==2.28.0
     # via
     #   -r requirements/base.txt
     #   requests-toolbelt
