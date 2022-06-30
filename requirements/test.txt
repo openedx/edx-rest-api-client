@@ -14,7 +14,7 @@ astroid==2.11.6
     #   pylint-celery
 attrs==21.4.0
     # via pytest
-bleach==5.0.0
+bleach==5.0.1
     # via readme-renderer
 certifi==2022.6.15
     # via
@@ -75,7 +75,7 @@ idna==3.3
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==4.11.4
+importlib-metadata==4.12.0
     # via
     #   keyring
     #   twine
