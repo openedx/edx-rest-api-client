@@ -21,17 +21,21 @@ bleach==5.0.1
     # via
     #   -r requirements/test.txt
     #   readme-renderer
+build==0.8.0
+    # via
+    #   -r requirements/pip-tools.txt
+    #   pip-tools
 certifi==2022.6.15
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-cffi==1.15.0
+cffi==1.15.1
     # via
     #   -r requirements/test.txt
     #   cryptography
     #   pynacl
-charset-normalizer==2.0.12
+charset-normalizer==2.1.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -79,7 +83,7 @@ distlib==0.3.4
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.13
+django==3.2.14
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -151,14 +155,16 @@ mccabe==0.7.0
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==7.12.0.176
+newrelic==7.14.0.177
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
 packaging==21.3
     # via
     #   -r requirements/ci.txt
+    #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
+    #   build
     #   pytest
     #   tox
 pbr==5.9.0
@@ -168,8 +174,8 @@ pbr==5.9.0
 pep517==0.12.0
     # via
     #   -r requirements/pip-tools.txt
-    #   pip-tools
-pip-tools==6.6.2
+    #   build
+pip-tools==6.8.0
     # via -r requirements/pip-tools.txt
 pkginfo==1.8.3
     # via
@@ -210,7 +216,7 @@ pygments==2.12.0
     #   rich
 pyjwt==2.4.0
     # via -r requirements/test.txt
-pylint==2.14.3
+pylint==2.14.4
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -237,6 +243,7 @@ pynacl==1.5.0
 pyparsing==3.0.9
     # via
     #   -r requirements/ci.txt
+    #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
     #   packaging
 pytest==7.1.2
@@ -268,7 +275,7 @@ readme-renderer==35.0
     # via
     #   -r requirements/test.txt
     #   twine
-requests==2.28.0
+requests==2.28.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -327,6 +334,7 @@ tomli==2.0.1
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
+    #   build
     #   coverage
     #   pep517
     #   pylint
@@ -335,7 +343,7 @@ tomlkit==0.11.0
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==3.25.0
+tox==3.25.1
     # via
     #   -r requirements/ci.txt
     #   tox-battery
@@ -343,7 +351,7 @@ tox-battery==0.6.1
     # via -r requirements/ci.txt
 twine==4.0.1
     # via -r requirements/test.txt
-typing-extensions==4.2.0
+typing-extensions==4.3.0
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -356,7 +364,7 @@ urllib3==1.26.9
     #   requests
     #   responses
     #   twine
-virtualenv==20.15.0
+virtualenv==20.15.1
     # via
     #   -r requirements/ci.txt
     #   tox
