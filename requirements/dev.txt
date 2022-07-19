@@ -63,7 +63,7 @@ commonmark==0.9.1
     # via
     #   -r requirements/test.txt
     #   rich
-coverage[toml]==6.4.1
+coverage[toml]==6.4.2
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -79,7 +79,7 @@ dill==0.3.5.1
     # via
     #   -r requirements/test.txt
     #   pylint
-distlib==0.3.4
+distlib==0.3.5
     # via
     #   -r requirements/ci.txt
     #   virtualenv
@@ -139,7 +139,7 @@ jinja2==3.1.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
-keyring==23.6.0
+keyring==23.7.0
     # via
     #   -r requirements/test.txt
     #   twine
@@ -216,7 +216,7 @@ pygments==2.12.0
     #   rich
 pyjwt==2.4.0
     # via -r requirements/test.txt
-pylint==2.14.4
+pylint==2.14.5
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -317,7 +317,7 @@ sqlparse==0.4.2
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==3.5.0
+stevedore==4.0.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -380,7 +380,7 @@ wrapt==1.14.1
     # via
     #   -r requirements/test.txt
     #   astroid
-zipp==3.8.0
+zipp==3.8.1
     # via
     #   -r requirements/test.txt
     #   importlib-metadata
