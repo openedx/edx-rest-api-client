@@ -59,7 +59,7 @@ django-crum==0.7.9
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-django-waffle==2.5.0
+django-waffle==2.6.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -97,7 +97,7 @@ markupsafe==2.1.1
     # via jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==7.14.0.177
+newrelic==7.16.0.178
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -220,7 +220,7 @@ typing-extensions==4.3.0
     #   astroid
     #   pylint
     #   rich
-urllib3==1.26.10
+urllib3==1.26.11
     # via
     #   -r requirements/base.txt
     #   requests
