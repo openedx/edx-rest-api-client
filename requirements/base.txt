@@ -21,13 +21,13 @@ django==3.2.14
     #   edx-django-utils
 django-crum==0.7.9
     # via edx-django-utils
-django-waffle==2.5.0
+django-waffle==2.6.0
     # via edx-django-utils
 edx-django-utils==5.0.0
     # via -r requirements/base.in
 idna==3.3
     # via requests
-newrelic==7.14.0.177
+newrelic==7.16.0.178
     # via edx-django-utils
 pbr==5.9.0
     # via stevedore
@@ -51,5 +51,5 @@ sqlparse==0.4.2
     # via django
 stevedore==4.0.0
     # via edx-django-utils
-urllib3==1.26.10
+urllib3==1.26.11
     # via requests
