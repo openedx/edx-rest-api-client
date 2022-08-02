@@ -13,7 +13,7 @@ astroid==2.11.7
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-attrs==21.4.0
+attrs==22.1.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -171,7 +171,7 @@ pbr==5.9.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-pep517==0.12.0
+pep517==0.13.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
@@ -203,7 +203,7 @@ py==1.11.0
     #   -r requirements/test.txt
     #   pytest
     #   tox
-pycodestyle==2.8.0
+pycodestyle==2.9.0
     # via -r requirements/test.txt
 pycparser==2.21
     # via
@@ -363,7 +363,7 @@ urllib3==1.26.11
     #   requests
     #   responses
     #   twine
-virtualenv==20.16.0
+virtualenv==20.16.2
     # via
     #   -r requirements/ci.txt
     #   tox
