@@ -73,7 +73,7 @@ cryptography==37.0.4
     # via
     #   -r requirements/test.txt
     #   secretstorage
-ddt==1.5.0
+ddt==1.6.0
     # via -r requirements/test.txt
 dill==0.3.5.1
     # via
@@ -105,12 +105,12 @@ edx-django-utils==5.0.0
     # via -r requirements/test.txt
 edx-lint==5.2.4
     # via -r requirements/test.txt
-filelock==3.7.1
+filelock==3.8.0
     # via
     #   -r requirements/ci.txt
     #   tox
     #   virtualenv
-freezegun==1.2.1
+freezegun==1.2.2
     # via -r requirements/test.txt
 idna==3.3
     # via
@@ -155,7 +155,7 @@ mccabe==0.7.0
     # via
     #   -r requirements/test.txt
     #   pylint
-newrelic==7.16.0.178
+newrelic==8.0.0.179
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -167,7 +167,7 @@ packaging==21.3
     #   build
     #   pytest
     #   tox
-pbr==5.9.0
+pbr==5.10.0
     # via
     #   -r requirements/test.txt
     #   stevedore
@@ -209,7 +209,7 @@ pycparser==2.21
     # via
     #   -r requirements/test.txt
     #   cffi
-pygments==2.12.0
+pygments==2.13.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
@@ -263,7 +263,7 @@ python-slugify==6.1.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2022.1
+pytz==2022.2.1
     # via
     #   -r requirements/test.txt
     #   django
@@ -298,7 +298,7 @@ rich==12.5.1
     # via
     #   -r requirements/test.txt
     #   twine
-secretstorage==3.3.2
+secretstorage==3.3.3
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -338,7 +338,7 @@ tomli==2.0.1
     #   pep517
     #   pylint
     #   pytest
-tomlkit==0.11.2
+tomlkit==0.11.4
     # via
     #   -r requirements/test.txt
     #   pylint

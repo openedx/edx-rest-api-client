@@ -46,7 +46,7 @@ coverage[toml]==6.4.3
     # via pytest-cov
 cryptography==37.0.4
     # via secretstorage
-ddt==1.5.0
+ddt==1.6.0
     # via -r requirements/test.in
 dill==0.3.5.1
     # via pylint
@@ -69,7 +69,7 @@ edx-django-utils==5.0.0
     # via -r requirements/base.txt
 edx-lint==5.2.4
     # via -r requirements/test.in
-freezegun==1.2.1
+freezegun==1.2.2
     # via -r requirements/test.in
 idna==3.3
     # via
@@ -97,13 +97,13 @@ markupsafe==2.1.1
     # via jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==7.16.0.178
+newrelic==8.0.0.179
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
 packaging==21.3
     # via pytest
-pbr==5.9.0
+pbr==5.10.0
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -125,7 +125,7 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pygments==2.12.0
+pygments==2.13.0
     # via
     #   readme-renderer
     #   rich
@@ -163,7 +163,7 @@ python-dateutil==2.8.2
     # via freezegun
 python-slugify==6.1.2
     # via code-annotations
-pytz==2022.1
+pytz==2022.2.1
     # via
     #   -r requirements/base.txt
     #   django
@@ -186,7 +186,7 @@ rfc3986==2.0.0
     # via twine
 rich==12.5.1
     # via twine
-secretstorage==3.3.2
+secretstorage==3.3.3
     # via keyring
 six==1.16.0
     # via
@@ -211,7 +211,7 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
-tomlkit==0.11.2
+tomlkit==0.11.4
     # via pylint
 twine==4.0.1
     # via -r requirements/test.in
