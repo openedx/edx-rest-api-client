@@ -287,7 +287,8 @@ disable =
 	
 	logging-fstring-interpolation,
 	missing-docstring,
-	consider-using-f-string
+	consider-using-f-string,
+	missing-timeout
 
 [REPORTS]
 output-format = text
@@ -384,4 +385,4 @@ int-import-graph =
 [EXCEPTIONS]
 overgeneral-exceptions = Exception
 
-# 75f933a5fbd10399d0dd6e1f285bddfaa2fca76d
+# f564724fc8c7c5d6866ac73d2844e2c951d11ab3
