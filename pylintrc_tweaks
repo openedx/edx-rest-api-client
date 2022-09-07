@@ -4,7 +4,8 @@ load-plugins = edx_lint.pylint
 [MESSAGES CONTROL]
 DISABLE+=
     missing-docstring,
-    consider-using-f-string
+    consider-using-f-string,
+    missing-timeout
 
 [TYPECHECK]
 ignored-classes+= ,responses
