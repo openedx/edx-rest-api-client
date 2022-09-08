@@ -73,7 +73,8 @@ def _get_oauth_url(url):
 def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials',
                            refresh_token=None,
                            timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT)):
-    """ Retrieves OAuth 2.0 access token using the given grant type.
+    """
+    Retrieves OAuth 2.0 access token using the given grant type.
 
     Args:
         url (str): Oauth2 access token endpoint, optionally including part of the path.
@@ -128,7 +129,8 @@ def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', gran
 def get_and_cache_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials',
                                      refresh_token=None,
                                      timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT)):
-    """ Retrieves a possibly cached OAuth 2.0 access token using the given grant type.
+    """
+    Retrieves a possibly cached OAuth 2.0 access token using the given grant type.
 
     See ``get_oauth_access_token`` for usage details.
 

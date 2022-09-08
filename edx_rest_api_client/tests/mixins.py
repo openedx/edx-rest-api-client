@@ -2,7 +2,9 @@ import responses
 
 
 class AuthenticationTestMixin:
-    """ Mixin for testing authentication. """
+    """
+    Mixin for testing authentication.
+    """
     def setUp(self):
         super().setUp()
         responses.reset()

@@ -35,7 +35,9 @@ JWT = 'abc.123.doremi'
 
 @ddt.ddt
 class EdxRestApiClientTests(TestCase):
-    """ Tests for the edX Rest API client. """
+    """
+    Tests for the edX Rest API client.
+    """
 
     @ddt.unpack
     @ddt.data(
@@ -63,17 +65,23 @@ class EdxRestApiClientTests(TestCase):
         {'url': None, 'signing_key': None, 'username': None, 'oauth_access_token': None},
     )
     def test_invalid_configuration(self, kwargs):
-        """ If the constructor arguments are invalid, an InvalidConfigurationError should be raised. """
+        """
+        If the constructor arguments are invalid, an InvalidConfigurationError should be raised.
+        """
         self.assertRaises(ValueError, EdxRestApiClient, **kwargs)
 
     @mock.patch('edx_rest_api_client.auth.JwtAuth.__init__', return_value=None)
     def test_tracking_context(self, mock_auth):
-        """ Ensure the tracking context is included with API requests if specified. """
+        """
+        Ensure the tracking context is included with API requests if specified.
+        """
         EdxRestApiClient(URL, SIGNING_KEY, USERNAME, FULL_NAME, EMAIL, tracking_context=TRACKING_CONTEXT)
         self.assertIn(TRACKING_CONTEXT, mock_auth.call_args[1].values())
 
     def test_oauth2(self):
-        """ Ensure OAuth2 authentication is used when an access token is supplied to the constructor. """
+        """
+        Ensure OAuth2 authentication is used when an access token is supplied to the constructor.
+        """
 
         with mock.patch('edx_rest_api_client.auth.BearerAuth.__init__', return_value=None) as mock_auth:
             EdxRestApiClient(URL, oauth_access_token=ACCESS_TOKEN)
@@ -107,11 +115,15 @@ class EdxRestApiClientTests(TestCase):
 
 @ddt.ddt
 class ClientCredentialTests(AuthenticationTestMixin, TestCase):
-    """ Test client credentials requests. """
+    """
+    Test client credentials requests.
+    """
 
     @responses.activate
     def test_get_client_credential_access_token_success(self):
-        """ Test that the get access token method handles 200 responses and returns the access token. """
+        """
+        Test that the get access token method handles 200 responses and returns the access token.
+        """
         code = 200
         body = {"access_token": "my-token", "expires_in": 1000}
         now = datetime.datetime.utcnow()
@@ -132,7 +144,9 @@ class ClientCredentialTests(AuthenticationTestMixin, TestCase):
     @ddt.unpack
     @responses.activate
     def test_get_client_credential_access_token_failure(self, code, body):
-        """ Test that the get access token method handles failure responses. """
+        """
+        Test that the get access token method handles failure responses.
+        """
         with self.assertRaises(requests.RequestException):
             self._mock_auth_api(OAUTH_URL, code, body=body)
             EdxRestApiClient.get_oauth_access_token(OAUTH_URL, "client_id", "client_secret")
@@ -144,7 +158,9 @@ class ClientCredentialTests(AuthenticationTestMixin, TestCase):
 
 
 class CachedClientCredentialTests(AuthenticationTestMixin, TestCase):
-    """ Test cached client credentials requests. """
+    """
+    Test cached client credentials requests.
+    """
 
     def setUp(self):
         super().setUp()
