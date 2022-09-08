@@ -32,7 +32,9 @@ class JwtAuthTests(TestCase):
         responses.add(responses.GET, self.url)
 
     def assert_expected_token_value(self, tracking_context=None, issuer=None, expires_in=None):
-        """ DRY helper. """
+        """
+        DRY helper.
+        """
 
         # Mock the HTTP response and issue the request
         auth_kwargs = {'expires_in': expires_in}
@@ -69,22 +71,30 @@ class JwtAuthTests(TestCase):
 
     @responses.activate
     def test_headers(self):
-        """ Verify the class adds an Authorization header that includes the correct JWT. """
+        """
+        Verify the class adds an Authorization header that includes the correct JWT.
+        """
         self.assert_expected_token_value()
 
     @responses.activate
     def test_tracking_context(self):
-        """ Verify the tracking context is enclosed in the token payload, when specified. """
+        """
+        Verify the tracking context is enclosed in the token payload, when specified.
+        """
         self.assert_expected_token_value(tracking_context={'foo': 'bar'})
 
     @responses.activate
     def test_issuer(self):
-        """ Verify that the issuer is enclosed in the token payload, when specified. """
+        """
+        Verify that the issuer is enclosed in the token payload, when specified.
+        """
         self.assert_expected_token_value(issuer='http://example.com/oauth')
 
     @responses.activate
     def test_expires_in(self):
-        """ Verify the expiration date is enclosed in the token payload, when specified. """
+        """
+        Verify the expiration date is enclosed in the token payload, when specified.
+        """
         self.assert_expected_token_value(expires_in=60)
 
 
@@ -96,7 +106,9 @@ class BearerAuthTests(TestCase):
 
     @responses.activate
     def test_headers(self):
-        """ Verify the class adds an Authorization headers with the bearer token. """
+        """
+        Verify the class adds an Authorization headers with the bearer token.
+        """
         token = 'abc123'
         requests.get(self.url, auth=auth.BearerAuth(token))
         self.assertEqual(responses.calls[0].request.headers['Authorization'], f'Bearer {token}')

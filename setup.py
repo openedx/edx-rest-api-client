@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-""" Setup to allow pip installs of edx-rest-api-client module """
+"""
+Setup to allow pip installs of edx-rest-api-client module.
+"""
 
 import os
 import re
