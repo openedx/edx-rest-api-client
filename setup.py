@@ -83,7 +83,7 @@ def is_requirement(line):
 setup(
     name='edx-rest-api-client',
     version=__version__,
-    description='Slumber client used to access various edX Platform REST APIs.',
+    description='Client utilities to access various Open edX Platform REST APIs.',
     long_description=long_description,
     long_description_content_type="text/x-rst",
     classifiers=[
