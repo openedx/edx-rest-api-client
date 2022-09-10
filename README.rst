@@ -1,14 +1,14 @@
 edX REST API Client  |CI|_ |Codecov|_
 =========================================
-.. |CI| image:: https://github.com/edx/edx-rest-api-client/workflows/Python%20CI/badge.svg?branch=master
-.. _CI: https://github.com/edx/edx-rest-api-client/actions?query=workflow%3A%22Python+CI%22
+.. |CI| image:: https://github.com/openedx/edx-rest-api-client/workflows/Python%20CI/badge.svg?branch=master
+.. _CI: https://github.com/openedx/edx-rest-api-client/actions?query=workflow%3A%22Python+CI%22
 
 .. |Codecov| image:: https://codecov.io/github/edx/edx-rest-api-client/coverage.svg?branch=master
 .. _Codecov: https://codecov.io/github/edx/edx-rest-api-client?branch=master
 
 The edX REST API Client (henceforth, client) allows users to communicate with various edX REST APIs, including the `E-Commerce Service`_ and the `Programs Service`_.
 
-.. _E-Commerce Service: https://github.com/edx/ecommerce
+.. _E-Commerce Service: https://github.com/openedx/ecommerce
 .. _Programs Service: https://github.com/edx/programs
 
 Testing
@@ -52,7 +52,7 @@ Additional Requirements
 
 The OAuthAPIClient uses the TieredCache internally for caching.  Read more about the `requirements of TieredCache`_, which include Django caching and some custom middleware.
 
-.. _requirements of TieredCache: https://github.com/edx/edx-django-utils/blob/master/edx_django_utils/cache/README.rst#tieredcache
+.. _requirements of TieredCache: https://github.com/openedx/edx-django-utils/blob/master/edx_django_utils/cache/README.rst#tieredcache
 
 How to Contribute
 -----------------
@@ -63,4 +63,4 @@ Contributions are very welcome, but for legal reasons, you must submit a signed
 high code quality, which will make your contribution more likely to be accepted.
 
 .. _individual contributor's agreement: http://code.edx.org/individual-contributor-agreement.pdf
-.. _CONTRIBUTING: https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst
+.. _CONTRIBUTING: https://github.com/openedx/edx-platform/blob/master/CONTRIBUTING.rst

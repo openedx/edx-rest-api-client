@@ -11,7 +11,7 @@ class JwtAuth(AuthBase):
     Attaches JWT Authentication to the given Request object.
 
     Deprecated:
-        See https://github.com/edx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst
+        See https://github.com/openedx/edx-platform/blob/master/openedx/core/djangoapps/oauth_dispatch/docs/decisions/0008-use-asymmetric-jwts.rst
 
     Todos:
         * Remove pyjwt dependency from edx-rest-api-client when this class is

@@ -96,7 +96,7 @@ setup(
         'Environment :: Web Environment',
     ],
     keywords='edx rest api client',
-    url='https://github.com/edx/edx-rest-api-client',
+    url='https://github.com/openedx/edx-rest-api-client',
     author='edX',
     author_email='oscm@edx.org',
     license='Apache',

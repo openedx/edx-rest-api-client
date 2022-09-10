@@ -203,7 +203,7 @@ class OAuthAPIClient(requests.Session):
     - https://requests.readthedocs.io/en/master/user/advanced/#session-objects
 
     Note: Requires Django + Middleware for TieredCache, used for caching the access token.
-    See https://github.com/edx/edx-django-utils/blob/master/edx_django_utils/cache/README.rst#tieredcache
+    See https://github.com/openedx/edx-django-utils/blob/master/edx_django_utils/cache/README.rst#tieredcache
 
     """
 
@@ -265,7 +265,7 @@ class OAuthAPIClient(requests.Session):
         another client.
 
         Here is example code that properly uses the configured JWT decoder:
-        https://github.com/edx/edx-drf-extensions/blob/master/edx_rest_framework_extensions/auth/jwt/authentication.py#L180-L190
+        https://github.com/openedx/edx-drf-extensions/blob/master/edx_rest_framework_extensions/auth/jwt/authentication.py#L180-L190
         """
         self._ensure_authentication()
         return self.auth.token
