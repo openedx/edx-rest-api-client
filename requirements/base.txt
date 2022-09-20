@@ -6,7 +6,7 @@
 #
 asgiref==3.5.2
     # via django
-certifi==2022.6.15.1
+certifi==2022.9.14
     # via requests
 cffi==1.15.1
     # via pynacl
@@ -23,9 +23,9 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==3.0.0
     # via edx-django-utils
-edx-django-utils==5.0.1
+edx-django-utils==5.1.0
     # via -r requirements/base.in
-idna==3.3
+idna==3.4
     # via requests
 newrelic==8.1.0.180
     # via edx-django-utils
@@ -35,7 +35,7 @@ psutil==5.9.2
     # via edx-django-utils
 pycparser==2.21
     # via cffi
-pyjwt==2.4.0
+pyjwt==2.5.0
     # via -r requirements/base.in
 pynacl==1.5.0
     # via edx-django-utils
