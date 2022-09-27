@@ -25,7 +25,7 @@ build==0.8.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-certifi==2022.9.14
+certifi==2022.9.24
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -130,7 +130,7 @@ isort==5.10.1
     # via
     #   -r requirements/test.txt
     #   pylint
-jaraco-classes==3.2.2
+jaraco-classes==3.2.3
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -279,7 +279,7 @@ pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
-readme-renderer==37.1
+readme-renderer==37.2
     # via
     #   -r requirements/test.txt
     #   twine
@@ -320,7 +320,7 @@ six==1.16.0
     #   tox
 slumber==0.7.1
     # via -r requirements/test.txt
-sqlparse==0.4.2
+sqlparse==0.4.3
     # via
     #   -r requirements/test.txt
     #   django
