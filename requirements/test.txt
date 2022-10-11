@@ -8,7 +8,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.12.10
+astroid==2.12.11
     # via
     #   pylint
     #   pylint-celery
@@ -65,7 +65,7 @@ django-waffle==3.0.0
     #   edx-django-utils
 docutils==0.19
     # via readme-renderer
-edx-django-utils==5.1.0
+edx-django-utils==5.2.0
     # via -r requirements/base.txt
 edx-lint==5.3.0
     # via -r requirements/test.in
@@ -101,7 +101,7 @@ mccabe==0.7.0
     # via pylint
 more-itertools==8.14.0
     # via jaraco-classes
-newrelic==8.2.0.181
+newrelic==8.2.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -135,7 +135,7 @@ pygments==2.13.0
     #   rich
 pyjwt==2.5.0
     # via -r requirements/base.txt
-pylint==2.15.3
+pylint==2.15.4
     # via
     #   edx-lint
     #   pylint-celery
@@ -182,7 +182,7 @@ requests==2.28.1
     #   responses
     #   slumber
     #   twine
-requests-toolbelt==0.9.1
+requests-toolbelt==0.10.0
     # via twine
 responses==0.21.0
     # via -r requirements/test.in
@@ -219,7 +219,7 @@ tomlkit==0.11.5
     # via pylint
 twine==4.0.1
     # via -r requirements/test.in
-typing-extensions==4.3.0
+typing-extensions==4.4.0
     # via
     #   astroid
     #   pylint
@@ -234,5 +234,5 @@ webencodings==0.5.1
     # via bleach
 wrapt==1.14.1
     # via astroid
-zipp==3.8.1
+zipp==3.9.0
     # via importlib-metadata
