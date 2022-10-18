@@ -3,6 +3,10 @@ name: Python CI
 on:
   push:
     branches: [master]
+  workflow_dispatch:
+    inputs:
+      branch: 
+        default: 'test'
   pull_request:
     branches:
     - '**'
@@ -18,7 +22,12 @@ jobs:
         python-version: ['3.8']
         toxenv: [quality, django32, django40]
     steps:
-    - uses: actions/checkout@v1
+    - name: setup target branch
+      run: echo "target_branch=$(if ['${{ inputs.branch }}' = '']; then echo 'master'; else echo '${{ inputs.branch }}'; fi)" >> $GITHUB_ENV
+
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ env.target_branch }}
     - name: setup python
       uses: actions/setup-python@v2
       with:
