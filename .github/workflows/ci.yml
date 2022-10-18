@@ -22,7 +22,7 @@ jobs:
       env:
         BRANCH: 'test'
         DEFAULT_BRANCH: 'master'
-      run: echo "target_branch=$(if [ $BRANCH == 'test' ]; then echo '$DEFAULT_BRANCH'; else echo $BRANCH; fi)" >> $GITHUB_ENV
+      run: echo "target_branch=$(if [ $BRANCH == 'test' ]; then echo $DEFAULT_BRANCH; else echo $BRANCH; fi)" >> $GITHUB_ENV
 
     - uses: actions/checkout@v2
       with:
