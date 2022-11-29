@@ -8,7 +8,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.12.12
+astroid==2.12.13
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -69,7 +69,7 @@ coverage[toml]==6.5.0
     #   -r requirements/test.txt
     #   codecov
     #   pytest-cov
-cryptography==38.0.3
+cryptography==38.0.4
     # via
     #   -r requirements/test.txt
     #   secretstorage
@@ -105,7 +105,7 @@ edx-django-utils==5.2.0
     # via -r requirements/test.txt
 edx-lint==5.3.0
     # via -r requirements/test.txt
-exceptiongroup==1.0.1
+exceptiongroup==1.0.4
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -121,7 +121,7 @@ idna==3.4
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==5.0.0
+importlib-metadata==5.1.0
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -187,13 +187,13 @@ pep517==0.13.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pip-tools==6.9.0
+pip-tools==6.10.0
     # via -r requirements/pip-tools.txt
 pkginfo==1.8.3
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==2.5.3
+platformdirs==2.5.4
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -213,7 +213,7 @@ py==1.11.0
     # via
     #   -r requirements/ci.txt
     #   tox
-pycodestyle==2.9.1
+pycodestyle==2.10.0
     # via -r requirements/test.txt
 pycparser==2.21
     # via
@@ -226,7 +226,7 @@ pygments==2.13.0
     #   rich
 pyjwt==2.6.0
     # via -r requirements/test.txt
-pylint==2.15.5
+pylint==2.15.6
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -269,7 +269,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/test.txt
     #   freezegun
-python-slugify==6.1.2
+python-slugify==7.0.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -326,7 +326,7 @@ sqlparse==0.4.3
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==4.1.0
+stevedore==4.1.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -354,7 +354,7 @@ tomlkit==0.11.6
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==3.27.0
+tox==3.27.1
     # via
     #   -r requirements/ci.txt
     #   tox-battery
@@ -362,7 +362,7 @@ tox-battery==0.6.1
     # via -r requirements/ci.txt
 twine==4.0.1
     # via -r requirements/test.txt
-types-toml==0.10.8
+types-toml==0.10.8.1
     # via
     #   -r requirements/test.txt
     #   responses
@@ -372,14 +372,14 @@ typing-extensions==4.4.0
     #   astroid
     #   pylint
     #   rich
-urllib3==1.26.12
+urllib3==1.26.13
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   requests
     #   responses
     #   twine
-virtualenv==20.16.6
+virtualenv==20.17.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -387,7 +387,7 @@ webencodings==0.5.1
     # via
     #   -r requirements/test.txt
     #   bleach
-wheel==0.38.2
+wheel==0.38.4
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
@@ -395,7 +395,7 @@ wrapt==1.14.1
     # via
     #   -r requirements/test.txt
     #   astroid
-zipp==3.10.0
+zipp==3.11.0
     # via
     #   -r requirements/test.txt
     #   importlib-metadata
