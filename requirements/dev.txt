@@ -79,7 +79,7 @@ distlib==0.3.6
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.17
+django==3.2.18
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -99,7 +99,7 @@ docutils==0.19
     #   readme-renderer
 edx-django-utils==5.2.0
     # via -r requirements/test.txt
-edx-lint==5.3.0
+edx-lint==5.3.2
     # via -r requirements/test.txt
 exceptiongroup==1.1.0
     # via
@@ -122,7 +122,7 @@ importlib-metadata==6.0.0
     #   -r requirements/test.txt
     #   keyring
     #   twine
-importlib-resources==5.10.2
+importlib-resources==5.12.0
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -175,7 +175,7 @@ more-itertools==9.0.0
     # via
     #   -r requirements/test.txt
     #   jaraco-classes
-newrelic==8.6.0
+newrelic==8.7.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -365,11 +365,11 @@ tox-battery==0.6.1
     # via -r requirements/ci.txt
 twine==4.0.2
     # via -r requirements/test.txt
-types-toml==0.10.8.3
+types-toml==0.10.8.5
     # via
     #   -r requirements/test.txt
     #   responses
-typing-extensions==4.4.0
+typing-extensions==4.5.0
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -398,7 +398,7 @@ wrapt==1.14.1
     # via
     #   -r requirements/test.txt
     #   astroid
-zipp==3.13.0
+zipp==3.14.0
     # via
     #   -r requirements/test.txt
     #   importlib-metadata
