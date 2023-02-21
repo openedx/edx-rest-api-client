@@ -65,7 +65,7 @@ docutils==0.19
     # via readme-renderer
 edx-django-utils==5.2.0
     # via -r requirements/base.txt
-edx-lint==5.3.0
+edx-lint==5.3.2
     # via -r requirements/test.in
 exceptiongroup==1.1.0
     # via pytest
@@ -79,7 +79,7 @@ importlib-metadata==6.0.0
     # via
     #   keyring
     #   twine
-importlib-resources==5.10.2
+importlib-resources==5.12.0
     # via keyring
 iniconfig==2.0.0
     # via pytest
@@ -107,7 +107,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==9.0.0
     # via jaraco-classes
-newrelic==8.6.0
+newrelic==8.7.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -223,9 +223,9 @@ tomlkit==0.11.6
     # via pylint
 twine==4.0.2
     # via -r requirements/test.in
-types-toml==0.10.8.3
+types-toml==0.10.8.5
     # via responses
-typing-extensions==4.4.0
+typing-extensions==4.5.0
     # via
     #   astroid
     #   pylint
@@ -240,7 +240,7 @@ webencodings==0.5.1
     # via bleach
 wrapt==1.14.1
     # via astroid
-zipp==3.13.0
+zipp==3.14.0
     # via
     #   importlib-metadata
     #   importlib-resources
