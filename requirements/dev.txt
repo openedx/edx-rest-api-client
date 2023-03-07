@@ -8,7 +8,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.14.2
+astroid==2.15.0
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -35,7 +35,7 @@ cffi==1.15.1
     #   -r requirements/test.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.0.1
+charset-normalizer==3.1.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -65,7 +65,7 @@ coverage[toml]==7.2.1
     #   -r requirements/test.txt
     #   codecov
     #   pytest-cov
-cryptography==39.0.1
+cryptography==39.0.2
     # via
     #   -r requirements/test.txt
     #   secretstorage
@@ -191,13 +191,13 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-pip-tools==6.12.2
+pip-tools==6.12.3
     # via -r requirements/pip-tools.txt
 pkginfo==1.9.6
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==3.0.0
+platformdirs==3.1.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -230,7 +230,7 @@ pygments==2.14.0
     #   rich
 pyjwt==2.6.0
     # via -r requirements/test.txt
-pylint==2.16.2
+pylint==2.16.4
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -258,7 +258,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.2.1
+pytest==7.2.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -306,7 +306,7 @@ rfc3986==2.0.0
     # via
     #   -r requirements/test.txt
     #   twine
-rich==13.3.1
+rich==13.3.2
     # via
     #   -r requirements/test.txt
     #   twine
@@ -382,7 +382,7 @@ urllib3==1.26.14
     #   requests
     #   responses
     #   twine
-virtualenv==20.19.0
+virtualenv==20.20.0
     # via
     #   -r requirements/ci.txt
     #   tox
