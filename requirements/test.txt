@@ -40,7 +40,7 @@ click-log==0.4.0
     # via edx-lint
 code-annotations==1.3.0
     # via edx-lint
-coverage[toml]==7.2.1
+coverage[toml]==7.2.2
     # via pytest-cov
 cryptography==39.0.2
     # via secretstorage
@@ -63,9 +63,9 @@ django-waffle==3.0.0
     #   edx-django-utils
 docutils==0.19
     # via readme-renderer
-edx-django-utils==5.2.0
+edx-django-utils==5.3.0
     # via -r requirements/base.txt
-edx-lint==5.3.2
+edx-lint==5.3.4
     # via -r requirements/test.in
 exceptiongroup==1.1.1
     # via pytest
@@ -75,7 +75,7 @@ idna==3.4
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==6.0.0
+importlib-metadata==6.1.0
     # via
     #   keyring
     #   twine
@@ -107,7 +107,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==9.1.0
     # via jaraco-classes
-newrelic==8.7.0
+newrelic==8.7.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
