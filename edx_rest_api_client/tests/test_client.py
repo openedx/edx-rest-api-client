@@ -1,24 +1,18 @@
 import datetime
 import json
 import os
-from unittest import mock, TestCase
+from unittest import TestCase, mock
 
 import ddt
 import requests
 import responses
-
 from edx_django_utils.cache import TieredCache
 from freezegun import freeze_time
 
 from edx_rest_api_client import __version__
 from edx_rest_api_client.auth import JwtAuth
-from edx_rest_api_client.client import (
-    EdxRestApiClient,
-    OAuthAPIClient,
-    get_and_cache_oauth_access_token,
-    get_oauth_access_token,
-    user_agent
-)
+from edx_rest_api_client.client import (EdxRestApiClient, OAuthAPIClient, get_and_cache_oauth_access_token,
+                                        get_oauth_access_token, user_agent)
 from edx_rest_api_client.tests.mixins import AuthenticationTestMixin
 
 URL = 'http://example.com/api/v2'
@@ -362,3 +356,19 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
         client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
         access_token = client.get_jwt_access_token()
         self.assertEqual(access_token, token)
+
+    @responses.activate
+    @mock.patch('edx_rest_api_client.client.get_request_id')
+    def test_request_id_forwarding(self, mock_get_request_id):
+        request_id = 'a-fake-request-id'
+        mock_get_request_id.return_value = request_id
+        token = 'abcd'
+        self._mock_auth_api(self.base_url + '/oauth2/access_token', 200, {'access_token': token, 'expires_in': 60})
+        client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
+        post_url = self.base_url + '/oauth2/access_token'
+        responses.add(responses.POST,
+                      post_url,
+                      status=200,
+                      json={})
+        response = client.post(post_url, data={'test': 'ok'})
+        assert response.request.headers.get('X-Request-ID') == request_id
