@@ -8,7 +8,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.15.4
+astroid==2.15.5
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -83,7 +83,7 @@ django-waffle==3.0.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-docutils==0.19
+docutils==0.20
     # via
     #   -r requirements/test.txt
     #   readme-renderer
@@ -186,7 +186,7 @@ pkginfo==1.9.6
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==3.5.0
+platformdirs==3.5.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -217,7 +217,7 @@ pygments==2.15.1
     #   -r requirements/test.txt
     #   readme-renderer
     #   rich
-pyjwt==2.6.0
+pyjwt==2.7.0
     # via -r requirements/test.txt
 pylint==2.17.4
     # via
@@ -234,7 +234,7 @@ pylint-django==2.5.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
-pylint-plugin-utils==0.7
+pylint-plugin-utils==0.8.1
     # via
     #   -r requirements/test.txt
     #   pylint-celery
@@ -316,7 +316,7 @@ sqlparse==0.4.4
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==5.0.0
+stevedore==5.1.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
