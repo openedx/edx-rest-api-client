@@ -75,7 +75,10 @@ def get_request_id():
     Helper to get the request id - usually set via an X-Request-ID header
     """
     request = crum.get_current_request()
-    return getattr(request, 'id', None)
+    if request is not None and request.headers is not None:
+        return request.headers.get('X-Request-ID')
+    else:
+        return None
 
 
 def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials',
