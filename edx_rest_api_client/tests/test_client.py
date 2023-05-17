@@ -358,10 +358,12 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
         self.assertEqual(access_token, token)
 
     @responses.activate
-    @mock.patch('edx_rest_api_client.client.get_request_id')
-    def test_request_id_forwarding(self, mock_get_request_id):
+    @mock.patch('crum.get_current_request')
+    def test_request_id_forwarding(self, mock_crum_get_current_request):
         request_id = 'a-fake-request-id'
-        mock_get_request_id.return_value = request_id
+        mock_request = mock.MagicMock()
+        mock_request.headers.get.return_value = request_id
+        mock_crum_get_current_request.return_value = mock_request
         token = 'abcd'
         self._mock_auth_api(self.base_url + '/oauth2/access_token', 200, {'access_token': token, 'expires_in': 60})
         client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
@@ -372,3 +374,35 @@ class OAuthAPIClientTests(AuthenticationTestMixin, TestCase):
                       json={})
         response = client.post(post_url, data={'test': 'ok'})
         assert response.request.headers.get('X-Request-ID') == request_id
+
+    @responses.activate
+    @mock.patch('crum.get_current_request')
+    def test_request_id_forwarding_no_id(self, mock_crum_get_current_request):
+        mock_request = mock.MagicMock()
+        mock_request.headers.get.return_value = None
+        mock_crum_get_current_request.return_value = mock_request
+        token = 'abcd'
+        self._mock_auth_api(self.base_url + '/oauth2/access_token', 200, {'access_token': token, 'expires_in': 60})
+        client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
+        post_url = self.base_url + '/oauth2/access_token'
+        responses.add(responses.POST,
+                      post_url,
+                      status=200,
+                      json={})
+        response = client.post(post_url, data={'test': 'ok'})
+        assert response.request.headers.get('X-Request-ID') is None
+
+    @responses.activate
+    @mock.patch('crum.get_current_request')
+    def test_request_id_forwarding_no_request(self, mock_crum_get_current_request):
+        mock_crum_get_current_request.return_value = None
+        token = 'abcd'
+        self._mock_auth_api(self.base_url + '/oauth2/access_token', 200, {'access_token': token, 'expires_in': 60})
+        client = OAuthAPIClient(self.base_url, self.client_id, self.client_secret)
+        post_url = self.base_url + '/oauth2/access_token'
+        responses.add(responses.POST,
+                      post_url,
+                      status=200,
+                      json={})
+        response = client.post(post_url, data={'test': 'ok'})
+        assert response.request.headers.get('X-Request-ID') is None

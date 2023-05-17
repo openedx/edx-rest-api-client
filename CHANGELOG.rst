@@ -17,6 +17,10 @@ Unreleased
 ----------
 * Nothing
 
+[5.5.2]
+--------
+feat: improve how we look for x-request-id headers to forward
+
 [5.5.1]
 --------
 feat: forward x-request-id headers if `crum` can find them
