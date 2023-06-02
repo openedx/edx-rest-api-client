@@ -3,15 +3,15 @@ import json
 import os
 import socket
 
+import crum
 import requests
 import requests.utils
 import slumber
-
 from edx_django_utils.cache import TieredCache
 from edx_django_utils.monitoring import set_custom_attribute
-from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
-from edx_rest_api_client.__version__ import __version__
 
+from edx_rest_api_client.__version__ import __version__
+from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
 
 # When caching tokens, use this value to err on expiring tokens a little early so they are
 # sure to be valid at the time they are used.
@@ -68,6 +68,17 @@ def _get_oauth_url(url):
         return stripped_url + '/access_token'
 
     return stripped_url + '/oauth2/access_token'
+
+
+def get_request_id():
+    """
+    Helper to get the request id - usually set via an X-Request-ID header
+    """
+    request = crum.get_current_request()
+    if request is not None and request.headers is not None:
+        return request.headers.get('X-Request-ID')
+    else:
+        return None
 
 
 def get_oauth_access_token(url, client_id, client_secret, token_type='jwt', grant_type='client_credentials',
@@ -272,7 +283,7 @@ class OAuthAPIClient(requests.Session):
         self._ensure_authentication()
         return self.auth.token
 
-    def request(self, method, url, **kwargs):  # pylint: disable=arguments-differ
+    def request(self, method, url, headers=None, **kwargs):  # pylint: disable=arguments-differ
         """
         Overrides Session.request to ensure that the session is authenticated.
 
@@ -280,9 +291,14 @@ class OAuthAPIClient(requests.Session):
         instead use Session.get or Session.post.
 
         """
+        request_id = get_request_id()
+        if headers is None:
+            headers = {}
+        if headers.get('X-Request-ID') is None and request_id is not None:
+            headers['X-Request-ID'] = request_id
         set_custom_attribute('api_client', 'OAuthAPIClient')
         self._ensure_authentication()
-        return super().request(method, url, **kwargs)
+        return super().request(method, url, headers=headers, **kwargs)
 
 
 class EdxRestApiClient(slumber.API):
