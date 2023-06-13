@@ -95,7 +95,7 @@ exceptiongroup==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.12.0
+filelock==3.12.2
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -144,7 +144,7 @@ lazy-object-proxy==1.9.0
     # via
     #   -r requirements/test.txt
     #   astroid
-markdown-it-py==2.2.0
+markdown-it-py==3.0.0
     # via
     #   -r requirements/test.txt
     #   rich
@@ -186,7 +186,7 @@ pkginfo==1.9.6
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==3.5.1
+platformdirs==3.5.3
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -247,7 +247,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.3.1
+pytest==7.3.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -294,7 +294,7 @@ rfc3986==2.0.0
     # via
     #   -r requirements/test.txt
     #   twine
-rich==13.4.1
+rich==13.4.2
     # via
     #   -r requirements/test.txt
     #   twine
@@ -360,7 +360,7 @@ typing-extensions==4.6.3
     #   astroid
     #   pylint
     #   rich
-urllib3==2.0.2
+urllib3==2.0.3
     # via
     #   -r requirements/test.txt
     #   requests
