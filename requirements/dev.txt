@@ -106,7 +106,7 @@ idna==3.4
     # via
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==6.6.0
+importlib-metadata==6.7.0
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -136,7 +136,7 @@ jinja2==3.1.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
-keyring==23.13.1
+keyring==24.0.0
     # via
     #   -r requirements/test.txt
     #   twine
@@ -186,7 +186,7 @@ pkginfo==1.9.6
     # via
     #   -r requirements/test.txt
     #   twine
-platformdirs==3.5.3
+platformdirs==3.6.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -273,7 +273,7 @@ pyyaml==6.0
     #   -r requirements/test.txt
     #   code-annotations
     #   responses
-readme-renderer==37.3
+readme-renderer==40.0
     # via
     #   -r requirements/test.txt
     #   twine
@@ -366,7 +366,7 @@ urllib3==2.0.3
     #   requests
     #   responses
     #   twine
-virtualenv==20.23.0
+virtualenv==20.23.1
     # via
     #   -r requirements/ci.txt
     #   tox
