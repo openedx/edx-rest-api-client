@@ -73,7 +73,7 @@ idna==3.4
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==6.6.0
+importlib-metadata==6.7.0
     # via
     #   keyring
     #   twine
@@ -91,7 +91,7 @@ jeepney==0.8.0
     #   secretstorage
 jinja2==3.1.2
     # via code-annotations
-keyring==23.13.1
+keyring==24.0.0
     # via twine
 lazy-object-proxy==1.9.0
     # via astroid
@@ -117,7 +117,7 @@ pbr==5.11.1
     #   stevedore
 pkginfo==1.9.6
     # via twine
-platformdirs==3.5.3
+platformdirs==3.6.0
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -175,7 +175,7 @@ pyyaml==6.0
     # via
     #   code-annotations
     #   responses
-readme-renderer==37.3
+readme-renderer==40.0
     # via twine
 requests==2.31.0
     # via
