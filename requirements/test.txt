@@ -91,7 +91,7 @@ jeepney==0.8.0
     #   secretstorage
 jinja2==3.1.2
     # via code-annotations
-keyring==24.0.0
+keyring==24.2.0
     # via twine
 lazy-object-proxy==1.9.0
     # via astroid
@@ -105,7 +105,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==9.1.0
     # via jaraco-classes
-newrelic==8.8.0
+newrelic==8.8.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -117,9 +117,9 @@ pbr==5.11.1
     #   stevedore
 pkginfo==1.9.6
     # via twine
-platformdirs==3.6.0
+platformdirs==3.8.0
     # via pylint
-pluggy==1.0.0
+pluggy==1.2.0
     # via pytest
 psutil==5.9.5
     # via
@@ -155,7 +155,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==7.3.2
+pytest==7.4.0
     # via
     #   pytest-cov
     #   pytest-django
