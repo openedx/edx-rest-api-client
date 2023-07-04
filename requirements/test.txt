@@ -65,7 +65,7 @@ edx-django-utils==5.5.0
     # via -r requirements/base.txt
 edx-lint==5.3.4
     # via -r requirements/test.in
-exceptiongroup==1.1.1
+exceptiongroup==1.1.2
     # via pytest
 freezegun==1.2.2
     # via -r requirements/test.in
@@ -223,7 +223,7 @@ twine==4.0.2
     # via -r requirements/test.in
 types-pyyaml==6.0.12.10
     # via responses
-typing-extensions==4.6.3
+typing-extensions==4.7.1
     # via
     #   -r requirements/base.txt
     #   asgiref
