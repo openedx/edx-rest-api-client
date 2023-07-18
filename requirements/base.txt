@@ -12,7 +12,7 @@ cffi==1.15.1
     # via pynacl
 charset-normalizer==3.2.0
     # via requests
-click==8.1.4
+click==8.1.5
     # via edx-django-utils
 django==3.2.20
     # via
