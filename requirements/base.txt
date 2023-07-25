@@ -6,13 +6,13 @@
 #
 asgiref==3.7.2
     # via django
-certifi==2023.5.7
+certifi==2023.7.22
     # via requests
 cffi==1.15.1
     # via pynacl
 charset-normalizer==3.2.0
     # via requests
-click==8.1.4
+click==8.1.6
     # via edx-django-utils
 django==3.2.20
     # via
@@ -23,7 +23,7 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==3.0.0
     # via edx-django-utils
-edx-django-utils==5.5.0
+edx-django-utils==5.6.0
     # via -r requirements/base.in
 idna==3.4
     # via requests
@@ -35,7 +35,7 @@ psutil==5.9.5
     # via edx-django-utils
 pycparser==2.21
     # via cffi
-pyjwt==2.7.0
+pyjwt==2.8.0
     # via -r requirements/base.in
 pynacl==1.5.0
     # via edx-django-utils
@@ -53,5 +53,5 @@ stevedore==5.1.0
     # via edx-django-utils
 typing-extensions==4.7.1
     # via asgiref
-urllib3==2.0.3
+urllib3==2.0.4
     # via requests
