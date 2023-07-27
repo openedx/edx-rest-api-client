@@ -100,7 +100,7 @@ All community members are expected to follow the `Open edX Code of Conduct`_.
 Reporting Security Issues
 *************************
 
-Please do not report security issues in public. Please email security@tcril.org.
+Please do not report security issues in public. Please email security@openedx.org.
 
 
 .. |CI| image:: https://github.com/openedx/edx-rest-api-client/workflows/Python%20CI/badge.svg?branch=master
