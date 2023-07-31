@@ -17,6 +17,10 @@ Unreleased
 ----------
 * Nothing
 
+[5.6.0]
+--------
+chore: Update Requirements
+
 [5.5.2]
 --------
 feat: improve how we look for x-request-id headers to forward
