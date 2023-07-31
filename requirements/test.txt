@@ -21,7 +21,6 @@ certifi==2023.7.22
 cffi==1.15.1
     # via
     #   -r requirements/base.txt
-    #   cryptography
     #   pynacl
 charset-normalizer==3.2.0
     # via
@@ -40,8 +39,6 @@ code-annotations==1.5.0
     # via edx-lint
 coverage[toml]==7.2.7
     # via pytest-cov
-cryptography==41.0.2
-    # via secretstorage
 ddt==1.6.0
     # via -r requirements/test.in
 dill==0.3.7
@@ -50,12 +47,13 @@ dill==0.3.7
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.txt
     #   django-crum
+    #   django-waffle
     #   edx-django-utils
 django-crum==0.7.9
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-django-waffle==3.0.0
+django-waffle==4.0.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -85,10 +83,6 @@ isort==5.12.0
     # via pylint
 jaraco-classes==3.3.0
     # via keyring
-jeepney==0.8.0
-    # via
-    #   keyring
-    #   secretstorage
 jinja2==3.1.2
     # via code-annotations
 keyring==24.2.0
@@ -105,7 +99,7 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==10.0.0
     # via jaraco-classes
-newrelic==8.8.1
+newrelic==8.9.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -117,7 +111,7 @@ pbr==5.11.1
     #   stevedore
 pkginfo==1.9.6
     # via twine
-platformdirs==3.9.1
+platformdirs==3.10.0
     # via pylint
 pluggy==1.2.0
     # via pytest
@@ -125,7 +119,7 @@ psutil==5.9.5
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pycodestyle==2.10.0
+pycodestyle==2.11.0
     # via -r requirements/test.in
 pycparser==2.21
     # via
@@ -137,7 +131,7 @@ pygments==2.15.1
     #   rich
 pyjwt==2.8.0
     # via -r requirements/base.txt
-pylint==2.17.4
+pylint==2.17.5
     # via
     #   edx-lint
     #   pylint-celery
@@ -186,14 +180,12 @@ requests==2.31.0
     #   twine
 requests-toolbelt==1.0.0
     # via twine
-responses==0.23.1
+responses==0.23.2
     # via -r requirements/test.in
 rfc3986==2.0.0
     # via twine
-rich==13.4.2
+rich==13.5.1
     # via twine
-secretstorage==3.3.3
-    # via keyring
 six==1.16.0
     # via
     #   bleach
@@ -217,7 +209,7 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
-tomlkit==0.11.8
+tomlkit==0.12.1
     # via pylint
 twine==4.0.2
     # via -r requirements/test.in
