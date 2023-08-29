@@ -12,7 +12,7 @@ cffi==1.15.1
     # via pynacl
 charset-normalizer==3.2.0
     # via requests
-click==8.1.6
+click==8.1.7
     # via edx-django-utils
 django==3.2.20
     # via
@@ -24,11 +24,11 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==4.0.0
     # via edx-django-utils
-edx-django-utils==5.6.0
+edx-django-utils==5.7.0
     # via -r requirements/base.in
 idna==3.4
     # via requests
-newrelic==8.9.0
+newrelic==9.0.0
     # via edx-django-utils
 pbr==5.11.1
     # via stevedore
