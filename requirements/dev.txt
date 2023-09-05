@@ -17,7 +17,7 @@ bleach==6.0.0
     # via
     #   -r requirements/test.txt
     #   readme-renderer
-build==0.10.0
+build==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
@@ -69,7 +69,7 @@ distlib==0.3.7
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.20
+django==3.2.21
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -109,7 +109,9 @@ idna==3.4
     #   requests
 importlib-metadata==6.8.0
     # via
+    #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
+    #   build
     #   keyring
     #   twine
 importlib-resources==6.0.1
@@ -248,7 +250,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.4.0
+pytest==7.4.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -265,7 +267,7 @@ python-slugify==8.0.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2023.3
+pytz==2023.3.post1
     # via
     #   -r requirements/test.txt
     #   django
@@ -370,7 +372,7 @@ urllib3==2.0.4
     #   requests
     #   responses
     #   twine
-virtualenv==20.24.3
+virtualenv==20.24.4
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -388,6 +390,7 @@ wrapt==1.15.0
     #   astroid
 zipp==3.16.2
     # via
+    #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
     #   importlib-metadata
     #   importlib-resources
