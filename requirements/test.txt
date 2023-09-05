@@ -156,7 +156,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==7.4.0
+pytest==7.4.1
     # via
     #   pytest-cov
     #   pytest-django
@@ -168,7 +168,7 @@ python-dateutil==2.8.2
     # via freezegun
 python-slugify==8.0.1
     # via code-annotations
-pytz==2023.3
+pytz==2023.3.post1
     # via
     #   -r requirements/base.txt
     #   django
