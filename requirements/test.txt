@@ -8,7 +8,7 @@ asgiref==3.7.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.15.6
+astroid==2.15.8
     # via
     #   pylint
     #   pylint-celery
@@ -16,12 +16,12 @@ certifi==2023.7.22
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   -r requirements/base.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via
     #   -r requirements/base.txt
     #   requests
@@ -36,9 +36,9 @@ click-log==0.4.0
     # via edx-lint
 code-annotations==1.5.0
     # via edx-lint
-coverage[toml]==7.3.1
+coverage[toml]==7.3.2
     # via pytest-cov
-cryptography==41.0.3
+cryptography==41.0.4
     # via secretstorage
 ddt==1.6.0
     # via -r requirements/test.in
@@ -76,7 +76,7 @@ importlib-metadata==6.8.0
     # via
     #   keyring
     #   twine
-importlib-resources==6.0.1
+importlib-resources==6.1.0
     # via keyring
 iniconfig==2.0.0
     # via pytest
@@ -104,13 +104,13 @@ mdurl==0.1.2
     # via markdown-it-py
 more-itertools==10.1.0
     # via jaraco-classes
-newrelic==9.0.0
+newrelic==9.1.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
 nh3==0.2.14
     # via readme-renderer
-packaging==23.1
+packaging==23.2
     # via pytest
 pbr==5.11.1
     # via
@@ -118,7 +118,7 @@ pbr==5.11.1
     #   stevedore
 pkginfo==1.9.6
     # via twine
-platformdirs==3.10.0
+platformdirs==3.11.0
     # via pylint
 pluggy==1.3.0
     # via pytest
@@ -138,7 +138,7 @@ pygments==2.16.1
     #   rich
 pyjwt==2.8.0
     # via -r requirements/base.txt
-pylint==2.17.5
+pylint==2.17.7
     # via
     #   edx-lint
     #   pylint-celery
@@ -191,7 +191,7 @@ responses==0.23.3
     # via -r requirements/test.in
 rfc3986==2.0.0
     # via twine
-rich==13.5.2
+rich==13.6.0
     # via twine
 secretstorage==3.3.3
     # via keyring
@@ -221,16 +221,16 @@ tomlkit==0.12.1
     # via pylint
 twine==4.0.2
     # via -r requirements/test.in
-types-pyyaml==6.0.12.11
+types-pyyaml==6.0.12.12
     # via responses
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via
     #   -r requirements/base.txt
     #   asgiref
     #   astroid
     #   pylint
     #   rich
-urllib3==2.0.4
+urllib3==2.0.6
     # via
     #   -r requirements/base.txt
     #   requests
@@ -238,7 +238,7 @@ urllib3==2.0.4
     #   twine
 wrapt==1.15.0
     # via astroid
-zipp==3.16.2
+zipp==3.17.0
     # via
     #   importlib-metadata
     #   importlib-resources
