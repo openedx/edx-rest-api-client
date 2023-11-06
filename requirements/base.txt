@@ -45,10 +45,6 @@ pyjwt==2.8.0
 pynacl==1.5.0
     # via edx-django-utils
 requests==2.32.3
-    # via
-    #   -r requirements/base.in
-    #   slumber
-slumber==0.7.1
     # via -r requirements/base.in
 sqlparse==0.5.0
     # via django

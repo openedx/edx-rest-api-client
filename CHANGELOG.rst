@@ -17,6 +17,10 @@ Unreleased
 ----------
 * Nothing
 
+[6.0.0]
+--------
+Breaking Changes: The EdxRestApiClient` has been deprecated and removed in this release.
+
 [5.7.1]
 --------
 chore: Update Requirements specifically to unpin the requests library
