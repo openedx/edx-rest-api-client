@@ -113,7 +113,7 @@ exceptiongroup==1.2.1
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.14.0
+filelock==3.15.4
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -311,7 +311,6 @@ requests==2.32.3
     #   -r requirements/test.txt
     #   requests-toolbelt
     #   responses
-    #   slumber
     #   twine
 requests-toolbelt==1.0.0
     # via
@@ -336,8 +335,6 @@ six==1.16.0
     #   -r requirements/test.txt
     #   edx-lint
     #   python-dateutil
-slumber==0.7.1
-    # via -r requirements/test.txt
 sqlparse==0.5.0
     # via
     #   -r requirements/test.txt
@@ -384,7 +381,7 @@ urllib3==2.2.2
     #   requests
     #   responses
     #   twine
-virtualenv==20.26.2
+virtualenv==20.26.3
     # via
     #   -r requirements/ci.txt
     #   tox
