@@ -28,6 +28,7 @@ certifi==2023.11.17
 cffi==1.16.0
     # via
     #   -r requirements/test.txt
+    #   cryptography
     #   pynacl
 chardet==5.2.0
     # via
@@ -63,6 +64,10 @@ coverage[toml]==7.3.2
     #   -r requirements/test.txt
     #   coverage
     #   pytest-cov
+cryptography==41.0.7
+    # via
+    #   -r requirements/test.txt
+    #   secretstorage
 ddt==1.7.0
     # via -r requirements/test.txt
 dill==0.3.7
@@ -84,7 +89,7 @@ django-crum==0.7.9
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django-waffle==4.0.0
+django-waffle==4.1.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -126,7 +131,7 @@ iniconfig==2.0.0
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.12.0
+isort==5.13.1
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -134,6 +139,11 @@ jaraco-classes==3.3.0
     # via
     #   -r requirements/test.txt
     #   keyring
+jeepney==0.8.0
+    # via
+    #   -r requirements/test.txt
+    #   keyring
+    #   secretstorage
 jinja2==3.1.2
     # via
     #   -r requirements/test.txt
@@ -219,7 +229,7 @@ pygments==2.17.2
     #   rich
 pyjwt==2.8.0
     # via -r requirements/test.txt
-pylint==3.0.2
+pylint==3.0.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -302,6 +312,10 @@ rich==13.7.0
     # via
     #   -r requirements/test.txt
     #   twine
+secretstorage==3.3.3
+    # via
+    #   -r requirements/test.txt
+    #   keyring
 six==1.16.0
     # via
     #   -r requirements/test.txt
@@ -343,7 +357,7 @@ tox==4.11.4
     # via -r requirements/ci.txt
 twine==4.0.2
     # via -r requirements/test.txt
-typing-extensions==4.8.0
+typing-extensions==4.9.0
     # via
     #   -r requirements/test.txt
     #   asgiref

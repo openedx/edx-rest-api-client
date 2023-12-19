@@ -19,6 +19,7 @@ certifi==2023.11.17
 cffi==1.16.0
     # via
     #   -r requirements/base.txt
+    #   cryptography
     #   pynacl
 charset-normalizer==3.3.2
     # via
@@ -39,6 +40,8 @@ coverage[toml]==7.3.2
     # via
     #   coverage
     #   pytest-cov
+cryptography==41.0.7
+    # via secretstorage
 ddt==1.7.0
     # via -r requirements/test.in
 dill==0.3.7
@@ -53,7 +56,7 @@ django-crum==0.7.9
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-django-waffle==4.0.0
+django-waffle==4.1.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -79,10 +82,14 @@ importlib-resources==6.1.1
     # via keyring
 iniconfig==2.0.0
     # via pytest
-isort==5.12.0
+isort==5.13.1
     # via pylint
 jaraco-classes==3.3.0
     # via keyring
+jeepney==0.8.0
+    # via
+    #   keyring
+    #   secretstorage
 jinja2==3.1.2
     # via code-annotations
 keyring==24.3.0
@@ -131,7 +138,7 @@ pygments==2.17.2
     #   rich
 pyjwt==2.8.0
     # via -r requirements/base.txt
-pylint==3.0.2
+pylint==3.0.3
     # via
     #   edx-lint
     #   pylint-celery
@@ -186,6 +193,8 @@ rfc3986==2.0.0
     # via twine
 rich==13.7.0
     # via twine
+secretstorage==3.3.3
+    # via keyring
 six==1.16.0
     # via
     #   edx-lint
@@ -212,7 +221,7 @@ tomlkit==0.12.3
     # via pylint
 twine==4.0.2
     # via -r requirements/test.in
-typing-extensions==4.8.0
+typing-extensions==4.9.0
     # via
     #   -r requirements/base.txt
     #   asgiref
