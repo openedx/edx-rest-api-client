@@ -59,7 +59,7 @@ colorama==0.4.6
     # via
     #   -r requirements/ci.txt
     #   tox
-coverage[toml]==7.3.3
+coverage[toml]==7.4.0
     # via
     #   -r requirements/test.txt
     #   coverage
@@ -68,7 +68,7 @@ cryptography==41.0.7
     # via
     #   -r requirements/test.txt
     #   secretstorage
-ddt==1.7.0
+ddt==1.7.1
     # via -r requirements/test.txt
 dill==0.3.7
     # via
@@ -110,13 +110,13 @@ filelock==3.13.1
     #   -r requirements/ci.txt
     #   tox
     #   virtualenv
-freezegun==1.3.1
+freezegun==1.4.0
     # via -r requirements/test.txt
 idna==3.6
     # via
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==7.0.0
+importlib-metadata==7.0.1
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
@@ -168,11 +168,11 @@ mdurl==0.1.2
     # via
     #   -r requirements/test.txt
     #   markdown-it-py
-more-itertools==10.1.0
+more-itertools==10.2.0
     # via
     #   -r requirements/test.txt
     #   jaraco-classes
-newrelic==9.3.0
+newrelic==9.4.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -261,7 +261,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.4.3
+pytest==7.4.4
     # via
     #   -r requirements/test.txt
     #   pytest-cov
