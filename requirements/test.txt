@@ -8,11 +8,11 @@ asgiref==3.7.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==3.0.2
+astroid==3.0.3
     # via
     #   pylint
     #   pylint-celery
-certifi==2023.11.17
+certifi==2024.2.2
     # via
     #   -r requirements/base.txt
     #   requests
@@ -34,13 +34,13 @@ click==8.1.7
     #   edx-lint
 click-log==0.4.0
     # via edx-lint
-code-annotations==1.5.0
+code-annotations==1.6.0
     # via edx-lint
 coverage[toml]==7.4.1
     # via
     #   coverage
     #   pytest-cov
-cryptography==42.0.1
+cryptography==42.0.2
     # via secretstorage
 ddt==1.7.1
     # via -r requirements/test.in
@@ -96,7 +96,7 @@ keyring==24.3.0
     # via twine
 markdown-it-py==3.0.0
     # via rich
-markupsafe==2.1.4
+markupsafe==2.1.5
     # via jinja2
 mccabe==0.7.0
     # via pylint
@@ -118,7 +118,7 @@ pbr==6.0.0
     #   stevedore
 pkginfo==1.9.6
     # via twine
-platformdirs==4.1.0
+platformdirs==4.2.0
     # via pylint
 pluggy==1.4.0
     # via pytest
@@ -162,13 +162,13 @@ pytest==8.0.0
     #   pytest-django
 pytest-cov==4.1.0
     # via -r requirements/test.in
-pytest-django==4.7.0
+pytest-django==4.8.0
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via freezegun
-python-slugify==8.0.2
+python-slugify==8.0.3
     # via code-annotations
-pytz==2023.4
+pytz==2024.1
     # via
     #   -r requirements/base.txt
     #   django
@@ -228,7 +228,7 @@ typing-extensions==4.9.0
     #   astroid
     #   pylint
     #   rich
-urllib3==2.1.0
+urllib3==2.2.0
     # via
     #   -r requirements/base.txt
     #   requests
