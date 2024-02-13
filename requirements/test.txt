@@ -84,7 +84,7 @@ iniconfig==2.0.0
     # via pytest
 isort==5.13.2
     # via pylint
-jaraco-classes==3.3.0
+jaraco-classes==3.3.1
     # via keyring
 jeepney==0.8.0
     # via
@@ -166,7 +166,7 @@ pytest-django==4.8.0
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via freezegun
-python-slugify==8.0.3
+python-slugify==8.0.4
     # via code-annotations
 pytz==2024.1
     # via
@@ -219,7 +219,7 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.12.3
     # via pylint
-twine==4.0.2
+twine==5.0.0
     # via -r requirements/test.in
 typing-extensions==4.9.0
     # via
