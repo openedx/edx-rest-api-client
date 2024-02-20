@@ -37,10 +37,8 @@ click-log==0.4.0
 code-annotations==1.6.0
     # via edx-lint
 coverage[toml]==7.4.1
-    # via
-    #   coverage
-    #   pytest-cov
-cryptography==42.0.2
+    # via pytest-cov
+cryptography==42.0.3
     # via secretstorage
 ddt==1.7.1
     # via -r requirements/test.in
@@ -156,7 +154,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==8.0.0
+pytest==8.0.1
     # via
     #   pytest-cov
     #   pytest-django
@@ -187,7 +185,7 @@ requests==2.31.0
     #   twine
 requests-toolbelt==1.0.0
     # via twine
-responses==0.24.1
+responses==0.25.0
     # via -r requirements/test.in
 rfc3986==2.0.0
     # via twine
@@ -228,7 +226,7 @@ typing-extensions==4.9.0
     #   astroid
     #   pylint
     #   rich
-urllib3==2.2.0
+urllib3==2.2.1
     # via
     #   -r requirements/base.txt
     #   requests

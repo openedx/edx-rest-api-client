@@ -54,5 +54,5 @@ stevedore==5.1.0
     # via edx-django-utils
 typing-extensions==4.9.0
     # via asgiref
-urllib3==2.2.0
+urllib3==2.2.1
     # via requests
