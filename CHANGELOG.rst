@@ -17,6 +17,10 @@ Unreleased
 ----------
 * Nothing
 
+[5.7.0]
+--------
+feat: Adding python 3.11 and 3.12 support. Dropped django32 support.
+
 [5.6.0]
 --------
 chore: Update Requirements
