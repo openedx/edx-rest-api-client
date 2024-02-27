@@ -8,7 +8,7 @@ asgiref==3.7.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==3.0.3
+astroid==3.1.0
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -17,7 +17,7 @@ build==1.0.3
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-cachetools==5.3.2
+cachetools==5.3.3
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -59,15 +59,15 @@ colorama==0.4.6
     # via
     #   -r requirements/ci.txt
     #   tox
-coverage[toml]==7.4.1
+coverage[toml]==7.4.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==42.0.3
+cryptography==42.0.5
     # via
     #   -r requirements/test.txt
     #   secretstorage
-ddt==1.7.1
+ddt==1.7.2
     # via -r requirements/test.txt
 dill==0.3.8
     # via
@@ -122,7 +122,7 @@ importlib-metadata==7.0.1
     #   build
     #   keyring
     #   twine
-importlib-resources==6.1.1
+importlib-resources==6.1.2
     # via
     #   -r requirements/test.txt
     #   keyring
@@ -171,7 +171,7 @@ more-itertools==10.2.0
     # via
     #   -r requirements/test.txt
     #   jaraco-classes
-newrelic==9.6.0
+newrelic==9.7.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -228,7 +228,7 @@ pygments==2.17.2
     #   rich
 pyjwt==2.8.0
     # via -r requirements/test.txt
-pylint==3.0.3
+pylint==3.1.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -261,7 +261,7 @@ pyproject-hooks==1.0.0
     #   -r requirements/pip-tools.txt
     #   build
     #   pip-tools
-pytest==8.0.1
+pytest==8.0.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -287,7 +287,7 @@ pyyaml==6.0.1
     #   -r requirements/test.txt
     #   code-annotations
     #   responses
-readme-renderer==42.0
+readme-renderer==43.0
     # via
     #   -r requirements/test.txt
     #   twine
@@ -327,7 +327,7 @@ sqlparse==0.4.4
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==5.1.0
+stevedore==5.2.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -349,7 +349,7 @@ tomli==2.0.1
     #   pyproject-hooks
     #   pytest
     #   tox
-tomlkit==0.12.3
+tomlkit==0.12.4
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -357,7 +357,7 @@ tox==4.13.0
     # via -r requirements/ci.txt
 twine==5.0.0
     # via -r requirements/test.txt
-typing-extensions==4.9.0
+typing-extensions==4.10.0
     # via
     #   -r requirements/test.txt
     #   asgiref
@@ -370,7 +370,7 @@ urllib3==2.2.1
     #   requests
     #   responses
     #   twine
-virtualenv==20.25.0
+virtualenv==20.25.1
     # via
     #   -r requirements/ci.txt
     #   tox
