@@ -41,9 +41,8 @@ upgrade: piptools $(COMMON_CONSTRAINTS_TXT)	## update the requirements/*.txt fil
 	mv requirements/common_constraints.tmp requirements/common_constraints.txt
 	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/base.txt requirements/base.in
 	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/dev.txt requirements/dev.in
-	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/docs.txt requirements/docs.in
 	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/test.txt requirements/test.in
-	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/tox.txt requirements/pip-tools.in
+	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/pip-tools.txt requirements/pip-tools.in
 	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/ci.txt requirements/ci.in
 	# Let tox control the Django and DRF versions for tests
 	sed -i.tmp '/^django==/d' requirements/test.txt
