@@ -6,6 +6,10 @@
 #
 asgiref==3.7.2
     # via django
+backports-zoneinfo==0.2.1 ; python_version < "3.9"
+    # via
+    #   -c requirements/constraints.txt
+    #   django
 certifi==2024.2.2
     # via requests
 cffi==1.16.0
@@ -14,9 +18,8 @@ charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via edx-django-utils
-django==3.2.24
+django==4.2.10
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   django-crum
     #   django-waffle
     #   edx-django-utils
@@ -28,7 +31,7 @@ edx-django-utils==5.10.1
     # via -r requirements/base.in
 idna==3.6
     # via requests
-newrelic==9.6.0
+newrelic==9.7.0
     # via edx-django-utils
 pbr==6.0.0
     # via stevedore
@@ -40,8 +43,6 @@ pyjwt==2.8.0
     # via -r requirements/base.in
 pynacl==1.5.0
     # via edx-django-utils
-pytz==2024.1
-    # via django
 requests==2.31.0
     # via
     #   -r requirements/base.in
@@ -50,9 +51,9 @@ slumber==0.7.1
     # via -r requirements/base.in
 sqlparse==0.4.4
     # via django
-stevedore==5.1.0
+stevedore==5.2.0
     # via edx-django-utils
-typing-extensions==4.9.0
+typing-extensions==4.10.0
     # via asgiref
 urllib3==2.2.1
     # via requests
