@@ -12,6 +12,10 @@ astroid==3.1.0
     # via
     #   pylint
     #   pylint-celery
+backports-zoneinfo==0.2.1
+    # via
+    #   -r requirements/base.txt
+    #   django
 certifi==2024.2.2
     # via
     #   -r requirements/base.txt
@@ -90,7 +94,7 @@ jeepney==0.8.0
     #   secretstorage
 jinja2==3.1.3
     # via code-annotations
-keyring==24.3.0
+keyring==24.3.1
     # via twine
 markdown-it-py==3.0.0
     # via rich
@@ -114,7 +118,7 @@ pbr==6.0.0
     # via
     #   -r requirements/base.txt
     #   stevedore
-pkginfo==1.9.6
+pkginfo==1.10.0
     # via twine
 platformdirs==4.2.0
     # via pylint
@@ -162,14 +166,10 @@ pytest-cov==4.1.0
     # via -r requirements/test.in
 pytest-django==4.8.0
     # via -r requirements/test.in
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
     # via freezegun
 python-slugify==8.0.4
     # via code-annotations
-pytz==2024.1
-    # via
-    #   -r requirements/base.txt
-    #   django
 pyyaml==6.0.1
     # via
     #   code-annotations
@@ -189,7 +189,7 @@ responses==0.25.0
     # via -r requirements/test.in
 rfc3986==2.0.0
     # via twine
-rich==13.7.0
+rich==13.7.1
     # via twine
 secretstorage==3.3.3
     # via keyring
