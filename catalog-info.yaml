@@ -19,6 +19,6 @@ spec:
   # (Required) This can be a group (`group:<github_group_name>`) or a user (`user:<github_username>`).
   # Don't forget the "user:" or "group:" prefix. Groups must be GitHub team
   # names in the openedx GitHub organization: https://github.com/orgs/openedx/teams
-  owner: group:arch-bom
+  owner: 
   type: 'library'
   lifecycle: 'production'
