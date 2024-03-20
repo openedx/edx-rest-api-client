@@ -296,7 +296,6 @@ requests==2.31.0
     #   -r requirements/test.txt
     #   requests-toolbelt
     #   responses
-    #   slumber
     #   twine
 requests-toolbelt==1.0.0
     # via
@@ -321,8 +320,6 @@ six==1.16.0
     #   -r requirements/test.txt
     #   edx-lint
     #   python-dateutil
-slumber==0.7.1
-    # via -r requirements/test.txt
 sqlparse==0.4.4
     # via
     #   -r requirements/test.txt

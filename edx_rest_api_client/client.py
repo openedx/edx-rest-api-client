@@ -1,17 +1,16 @@
 import datetime
 import json
-import os
 import socket
+import os
 
 import crum
 import requests
 import requests.utils
-import slumber
 from edx_django_utils.cache import TieredCache
 from edx_django_utils.monitoring import set_custom_attribute
 
 from edx_rest_api_client.__version__ import __version__
-from edx_rest_api_client.auth import BearerAuth, JwtAuth, SuppliedJwtAuth
+from edx_rest_api_client.auth import SuppliedJwtAuth
 
 # When caching tokens, use this value to err on expiring tokens a little early so they are
 # sure to be valid at the time they are used.
@@ -299,69 +298,3 @@ class OAuthAPIClient(requests.Session):
         set_custom_attribute('api_client', 'OAuthAPIClient')
         self._ensure_authentication()
         return super().request(method, url, headers=headers, **kwargs)
-
-
-class EdxRestApiClient(slumber.API):
-    """
-    API client for edX REST API.
-
-    (deprecated)  See docs/decisions/0002-oauth-api-client-replacement.rst.
-    """
-
-    @classmethod
-    def user_agent(cls):
-        return USER_AGENT
-
-    @classmethod
-    def get_oauth_access_token(cls, url, client_id, client_secret, token_type='bearer',
-                               timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT)):
-        #     'To help transition to OAuthAPIClient, use EdxRestApiClient.get_and_cache_jwt_oauth_access_token instead'
-        #     'of EdxRestApiClient.get_oauth_access_token to share cached jwt token used by OAuthAPIClient.'
-        return get_oauth_access_token(url, client_id, client_secret, token_type=token_type, timeout=timeout)
-
-    @classmethod
-    def get_and_cache_jwt_oauth_access_token(cls, url, client_id, client_secret,
-                                             timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT)):
-        return get_and_cache_oauth_access_token(url, client_id, client_secret, token_type="jwt", timeout=timeout)
-
-    def __init__(self, url, signing_key=None, username=None, full_name=None, email=None,
-                 timeout=5, issuer=None, expires_in=30, tracking_context=None, oauth_access_token=None,
-                 session=None, jwt=None, **kwargs):
-        """
-        EdxRestApiClient is deprecated. Use OAuthAPIClient instead.
-
-        Instantiate a new client. You can pass extra kwargs to Slumber like
-        'append_slash'.
-
-        Raises:
-            ValueError: If a URL is not provided.
-
-        """
-        set_custom_attribute('api_client', 'EdxRestApiClient')
-        if not url:
-            raise ValueError('An API url must be supplied!')
-
-        if jwt:
-            auth = SuppliedJwtAuth(jwt)
-        elif oauth_access_token:
-            auth = BearerAuth(oauth_access_token)
-        elif signing_key and username:
-            auth = JwtAuth(username, full_name, email, signing_key,
-                           issuer=issuer, expires_in=expires_in, tracking_context=tracking_context)
-        else:
-            auth = None
-
-        session = session or requests.Session()
-        session.headers['User-Agent'] = self.user_agent()
-
-        session.timeout = timeout
-        super().__init__(
-            url,
-            session=session,
-            auth=auth,
-            **kwargs
-        )
-
-
-EdxRestApiClient.user_agent.__func__.__doc__ = user_agent.__doc__
-EdxRestApiClient.get_oauth_access_token.__func__.__doc__ = get_oauth_access_token.__doc__
