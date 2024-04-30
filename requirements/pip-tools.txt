@@ -16,7 +16,7 @@ packaging==23.2
     #   build
 pip-tools==7.4.1
     # via -r requirements/pip-tools.in
-pyproject-hooks==1.0.0
+pyproject-hooks==1.1.0
     # via
     #   build
     #   pip-tools
@@ -24,7 +24,6 @@ tomli==2.0.1
     # via
     #   build
     #   pip-tools
-    #   pyproject-hooks
 wheel==0.43.0
     # via pip-tools
 zipp==3.17.0
@@ -35,5 +34,5 @@ zipp==3.17.0
 # The following packages are considered to be unsafe in a requirements file:
 pip==24.0
     # via pip-tools
-setuptools==69.2.0
+setuptools==69.5.1
     # via pip-tools
