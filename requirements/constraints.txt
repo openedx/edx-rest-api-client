@@ -15,7 +15,4 @@ backports.zoneinfo;python_version<"3.9"
 
 # Temporary pins to avoid conflicts
 packaging==23.2
-requests==2.31.0
-slumber==0.7.1
-twine==5.0.0
 zipp==3.17.0
