@@ -32,11 +32,11 @@ edx-django-utils==5.14.2
     # via -r requirements/base.in
 idna==3.7
     # via requests
-newrelic==9.10.0
+newrelic==9.11.0
     # via edx-django-utils
 pbr==6.0.0
     # via stevedore
-psutil==5.9.8
+psutil==6.0.0
     # via edx-django-utils
 pycparser==2.22
     # via cffi
@@ -56,5 +56,5 @@ stevedore==5.2.0
     # via edx-django-utils
 typing-extensions==4.12.2
     # via asgiref
-urllib3==2.2.1
+urllib3==2.2.2
     # via requests
