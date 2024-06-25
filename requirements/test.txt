@@ -43,7 +43,7 @@ click-log==0.4.0
     # via edx-lint
 code-annotations==1.8.0
     # via edx-lint
-coverage[toml]==7.5.3
+coverage[toml]==7.5.4
     # via pytest-cov
 cryptography==42.0.8
     # via secretstorage
@@ -79,7 +79,7 @@ idna==3.7
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==7.1.0
+importlib-metadata==7.2.1
     # via
     #   keyring
     #   twine
@@ -115,7 +115,7 @@ more-itertools==10.3.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-newrelic==9.10.0
+newrelic==9.11.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -135,11 +135,11 @@ platformdirs==4.2.2
     # via pylint
 pluggy==1.5.0
     # via pytest
-psutil==5.9.8
+psutil==6.0.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pycodestyle==2.11.1
+pycodestyle==2.12.0
     # via -r requirements/test.in
 pycparser==2.22
     # via
@@ -196,7 +196,7 @@ requests==2.32.3
     #   twine
 requests-toolbelt==1.0.0
     # via twine
-responses==0.25.2
+responses==0.25.3
     # via -r requirements/test.in
 rfc3986==2.0.0
     # via twine
@@ -237,7 +237,7 @@ typing-extensions==4.12.2
     #   astroid
     #   pylint
     #   rich
-urllib3==2.2.1
+urllib3==2.2.2
     # via
     #   -r requirements/base.txt
     #   requests
