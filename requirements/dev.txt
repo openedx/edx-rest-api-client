@@ -113,7 +113,7 @@ exceptiongroup==1.2.1
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.14.0
+filelock==3.15.4
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -124,7 +124,7 @@ idna==3.7
     # via
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==7.2.1
+importlib-metadata==8.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
@@ -213,7 +213,7 @@ pbr==6.0.0
     #   stevedore
 pip-tools==7.4.1
     # via -r requirements/pip-tools.txt
-pkginfo==1.11.1
+pkginfo==1.10.0
     # via
     #   -r requirements/test.txt
     #   twine
@@ -247,7 +247,7 @@ pygments==2.18.0
     #   rich
 pyjwt==2.8.0
     # via -r requirements/test.txt
-pylint==3.2.3
+pylint==3.2.5
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -369,7 +369,7 @@ tomlkit==0.12.5
     #   pylint
 tox==4.15.1
     # via -r requirements/ci.txt
-twine==5.1.0
+twine==5.1.1
     # via -r requirements/test.txt
 typing-extensions==4.12.2
     # via
@@ -384,7 +384,7 @@ urllib3==2.2.2
     #   requests
     #   responses
     #   twine
-virtualenv==20.26.2
+virtualenv==20.26.3
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -401,11 +401,11 @@ zipp==3.17.0
     #   importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
-pip==24.1
+pip==24.1.1
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-setuptools==70.1.1
+setuptools==70.2.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
