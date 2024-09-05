@@ -18,8 +18,9 @@ Unreleased
 * Nothing
 
 [6.0.0]
---------
-Breaking Changes: The EdxRestApiClient` has been deprecated and removed in this release.
+-------
+Breaking Change: The EdxRestApiClient` has been deprecated and removed in this release.
+Breaking Change: Dropping Python 3.8 support
 
 [5.7.1]
 --------
