@@ -30,25 +30,29 @@ $(COMMON_CONSTRAINTS_TXT):
 	wget -O "$(@)" https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt || touch "$(@)"
 	echo "$(COMMON_CONSTRAINTS_TEMP_COMMENT)" | cat - $(@) > temp && mv temp $(@)
 
+
 export CUSTOM_COMPILE_COMMAND = make upgrade
-upgrade: piptools $(COMMON_CONSTRAINTS_TXT)	## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
+compile-requirements: piptools $(COMMON_CONSTRAINTS_TXT)	## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
 	# Make sure to compile files after any other files they include!
 	sed '/^importlib-metadata</d' requirements/common_constraints.txt > requirements/common_constraints.tmp
 	mv requirements/common_constraints.tmp requirements/common_constraints.txt
-	pip-compile --upgrade --allow-unsafe --rebuild -o requirements/pip.txt requirements/pip.in
-	pip-compile --upgrade --allow-unsafe --verbose --rebuild -o requirements/pip-tools.txt requirements/pip-tools.in
+	pip-compile ${COMPILE_OPTS} --allow-unsafe --rebuild -o requirements/pip.txt requirements/pip.in
+	pip-compile ${COMPILE_OPTS} --allow-unsafe --verbose --rebuild -o requirements/pip-tools.txt requirements/pip-tools.in
 	pip install -qr requirements/pip.txt
 	pip install -qr requirements/pip-tools.txt
 	sed 's/Django<4.0//g' requirements/common_constraints.txt > requirements/common_constraints.tmp
 	mv requirements/common_constraints.tmp requirements/common_constraints.txt
-	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/base.txt requirements/base.in
-	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/test.txt requirements/test.in
-	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/dev.txt requirements/dev.in
-	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/pip-tools.txt requirements/pip-tools.in
-	pip-compile --upgrade  --allow-unsafe --verbose --rebuild -o requirements/ci.txt requirements/ci.in
+	pip-compile ${COMPILE_OPTS}  --allow-unsafe --verbose --rebuild -o requirements/base.txt requirements/base.in
+	pip-compile ${COMPILE_OPTS}  --allow-unsafe --verbose --rebuild -o requirements/test.txt requirements/test.in
+	pip-compile ${COMPILE_OPTS}  --allow-unsafe --verbose --rebuild -o requirements/dev.txt requirements/dev.in
+	pip-compile ${COMPILE_OPTS}  --allow-unsafe --verbose --rebuild -o requirements/pip-tools.txt requirements/pip-tools.in
+	pip-compile ${COMPILE_OPTS}  --allow-unsafe --verbose --rebuild -o requirements/ci.txt requirements/ci.in
 	# Let tox control the Django and DRF versions for tests
 	sed -i.tmp '/^django==/d' requirements/test.txt
 	sed -i.tmp '/^djangorestframework==/d' requirements/test.txt
 	rm requirements/test.txt.tmp
+
+upgrade:  ## update the pip requirements files to use the latest releases satisfying our constraints
+	$(MAKE) compile-requirements COMPILE_OPTS="--upgrade"
 
 validate: test quality
