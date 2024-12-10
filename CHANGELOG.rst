@@ -17,6 +17,25 @@ Unreleased
 ----------
 * Nothing
 
+[6.0.0]
+-------
+* Breaking Change: The EdxRestApiClient` has been deprecated and removed in this release.
+
+* Breaking Change: Dropping Python 3.8 support
+
+* We no longer test with ubuntu 20.04 and test with whatever is the latest
+  ubuntu supplied by the ``ubuntu-latest`` github action.  Not actually a
+  breaking change but a change in expectations that we're noting here. We
+  believe there is no code tied to the OS version in this library.
+
+[5.7.1]
+--------
+chore: Update Requirements specifically to unpin the requests library
+
+[5.7.0]
+--------
+feat: Adding python 3.11 and 3.12 support. Dropped django32 support.
+
 [5.6.0]
 --------
 chore: Update Requirements

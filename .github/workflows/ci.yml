@@ -14,13 +14,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-20.04]
-        python-version: ['3.8']
-        toxenv: [quality, django32, django40]
+        os: [ubuntu-latest]
+        python-version:
+        - '3.11'
+        - '3.12'
+        toxenv: [quality, django42]
     steps:
     - uses: actions/checkout@v4
     - name: setup python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -36,8 +38,9 @@ jobs:
       run: make test
 
     - name: Run Coverage
-      if: matrix.python-version == '3.8' && matrix.toxenv=='django32'
-      uses: codecov/codecov-action@v3
+      if: matrix.python-version == '3.12' && matrix.toxenv=='django42'
+      uses: codecov/codecov-action@v4
       with:
+        token: ${{ secrets.CODECOV_TOKEN }}
         flags: unittests
         fail_ci_if_error: true
