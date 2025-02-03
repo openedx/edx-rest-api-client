@@ -17,6 +17,10 @@ Unreleased
 ----------
 * Nothing
 
+[6.1.0]
+-------
+* feat!: Python 3.11 Upgrade
+
 [6.0.0]
 -------
 * Breaking Change: The EdxRestApiClient` has been deprecated and removed in this release.
