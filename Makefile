@@ -34,14 +34,10 @@ $(COMMON_CONSTRAINTS_TXT):
 export CUSTOM_COMPILE_COMMAND = make upgrade
 compile-requirements: piptools $(COMMON_CONSTRAINTS_TXT)	## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
 	# Make sure to compile files after any other files they include!
-	sed '/^importlib-metadata</d' requirements/common_constraints.txt > requirements/common_constraints.tmp
-	mv requirements/common_constraints.tmp requirements/common_constraints.txt
 	pip-compile ${COMPILE_OPTS} --allow-unsafe --rebuild -o requirements/pip.txt requirements/pip.in
 	pip-compile ${COMPILE_OPTS} --allow-unsafe --verbose --rebuild -o requirements/pip-tools.txt requirements/pip-tools.in
 	pip install -qr requirements/pip.txt
 	pip install -qr requirements/pip-tools.txt
-	sed 's/Django<4.0//g' requirements/common_constraints.txt > requirements/common_constraints.tmp
-	mv requirements/common_constraints.tmp requirements/common_constraints.txt
 	pip-compile ${COMPILE_OPTS}  --allow-unsafe --verbose --rebuild -o requirements/base.txt requirements/base.in
 	pip-compile ${COMPILE_OPTS}  --allow-unsafe --verbose --rebuild -o requirements/test.txt requirements/test.in
 	pip-compile ${COMPILE_OPTS}  --allow-unsafe --verbose --rebuild -o requirements/dev.txt requirements/dev.in
