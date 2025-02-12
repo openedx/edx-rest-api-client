@@ -9,7 +9,7 @@ The edX REST API Client simplifies communicating with other Open edX services by
 Getting Started with Development
 ********************************
 
-In a Python 3.8 virtual environment:
+In a Python 3.11 virtual environment:
 
 .. code-block:: shell
 

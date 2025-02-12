@@ -17,6 +17,12 @@ Unreleased
 ----------
 * Nothing
 
+[6.1.0]
+-------
+- Updated Python requirement files with `Python 3.11`. 
+- Dropped support for `Python 3.8` from `tox.ini`. 
+- Bumped the package version to `6.1.0`.
+
 [6.0.0]
 -------
 * Breaking Change: The EdxRestApiClient` has been deprecated and removed in this release.
