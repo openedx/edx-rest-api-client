@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-cachetools==5.5.1
+cachetools==5.5.2
     # via tox
 chardet==5.2.0
     # via tox
@@ -30,5 +30,5 @@ pyproject-api==1.9.0
     # via tox
 tox==4.24.1
     # via -r requirements/ci.in
-virtualenv==20.29.1
+virtualenv==20.29.2
     # via tox
