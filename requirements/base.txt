@@ -14,7 +14,7 @@ charset-normalizer==3.4.1
     # via requests
 click==8.1.8
     # via edx-django-utils
-django==4.2.19
+django==4.2.20
     # via
     #   -c requirements/common_constraints.txt
     #   django-crum
@@ -28,7 +28,7 @@ edx-django-utils==7.2.0
     # via -r requirements/base.in
 idna==3.10
     # via requests
-newrelic==10.6.0
+newrelic==10.7.0
     # via edx-django-utils
 pbr==6.1.1
     # via stevedore
@@ -52,5 +52,5 @@ urllib3==2.2.3
     #   requests
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==75.8.2
+setuptools==76.1.0
     # via pbr
