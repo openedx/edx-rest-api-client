@@ -17,6 +17,10 @@ Unreleased
 ----------
 * Nothing
 
+[6.2.0]
+-------
+- Added support for `Django 5.2`. 
+
 [6.1.0]
 -------
 - Updated Python requirement files with `Python 3.11`. 
