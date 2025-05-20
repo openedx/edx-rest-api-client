@@ -6,46 +6,46 @@
 #
 asgiref==3.8.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   django
 astroid==3.3.9
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   pylint
     #   pylint-celery
 backports-tarfile==1.2.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   jaraco-context
 build==1.2.2.post1
     # via
-    #   -r requirements/pip-tools.txt
+    #   -r pip-tools.txt
     #   pip-tools
 cachetools==5.5.2
     # via
-    #   -r requirements/ci.txt
+    #   -r ci.txt
     #   tox
 certifi==2025.1.31
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   requests
 cffi==1.17.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   cryptography
     #   pynacl
 chardet==5.2.0
     # via
-    #   -r requirements/ci.txt
+    #   -r ci.txt
     #   tox
 charset-normalizer==3.4.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   requests
 click==8.1.8
     # via
-    #   -r requirements/pip-tools.txt
-    #   -r requirements/test.txt
+    #   -r pip-tools.txt
+    #   -r test.txt
     #   click-log
     #   code-annotations
     #   edx-django-utils
@@ -53,143 +53,143 @@ click==8.1.8
     #   pip-tools
 click-log==0.4.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-lint
 code-annotations==2.2.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-lint
 colorama==0.4.6
     # via
-    #   -r requirements/ci.txt
+    #   -r ci.txt
     #   tox
 coverage[toml]==7.7.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   pytest-cov
 cryptography==44.0.2
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   secretstorage
 ddt==1.7.2
-    # via -r requirements/test.txt
+    # via -r test.txt
 dill==0.3.9
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   pylint
 distlib==0.3.9
     # via
-    #   -r requirements/ci.txt
+    #   -r ci.txt
     #   virtualenv
 django==4.2.20
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/test.txt
+    #   -c common_constraints.txt
+    #   -r test.txt
     #   django-crum
     #   django-waffle
     #   edx-django-utils
 django-crum==0.7.9
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-django-utils
 django-waffle==4.2.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-django-utils
 docutils==0.21.2
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   readme-renderer
 edx-django-utils==7.2.0
-    # via -r requirements/test.txt
+    # via -r test.txt
 edx-lint==5.6.0
-    # via -r requirements/test.txt
-filelock==3.17.0
+    # via -r test.txt
+filelock==3.18.0
     # via
-    #   -r requirements/ci.txt
+    #   -r ci.txt
     #   tox
     #   virtualenv
 freezegun==1.5.1
-    # via -r requirements/test.txt
+    # via -r test.txt
 id==1.5.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   twine
 idna==3.10
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   requests
 importlib-metadata==8.6.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   keyring
 iniconfig==2.0.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   pytest
 isort==6.0.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   pylint
 jaraco-classes==3.4.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   keyring
 jaraco-context==6.0.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   keyring
 jaraco-functools==4.1.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   keyring
 jeepney==0.9.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   keyring
     #   secretstorage
 jinja2==3.1.6
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   code-annotations
 keyring==25.6.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   twine
 markdown-it-py==3.0.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   rich
 markupsafe==3.0.2
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   jinja2
 mccabe==0.7.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   pylint
 mdurl==0.1.2
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   markdown-it-py
 more-itertools==10.6.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   jaraco-classes
     #   jaraco-functools
 newrelic==10.7.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-django-utils
 nh3==0.2.21
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   readme-renderer
 packaging==24.2
     # via
-    #   -r requirements/ci.txt
-    #   -r requirements/pip-tools.txt
-    #   -r requirements/test.txt
+    #   -r ci.txt
+    #   -r pip-tools.txt
+    #   -r test.txt
     #   build
     #   pyproject-api
     #   pytest
@@ -197,179 +197,179 @@ packaging==24.2
     #   twine
 pbr==6.1.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   stevedore
 pip-tools==7.4.1
-    # via -r requirements/pip-tools.txt
+    # via -r pip-tools.txt
 platformdirs==4.3.6
     # via
-    #   -r requirements/ci.txt
-    #   -r requirements/test.txt
+    #   -r ci.txt
+    #   -r test.txt
     #   pylint
     #   tox
     #   virtualenv
 pluggy==1.5.0
     # via
-    #   -r requirements/ci.txt
-    #   -r requirements/test.txt
+    #   -r ci.txt
+    #   -r test.txt
     #   pytest
     #   tox
 psutil==7.0.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-django-utils
 pycodestyle==2.12.1
-    # via -r requirements/test.txt
+    # via -r test.txt
 pycparser==2.22
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   cffi
 pygments==2.19.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   readme-renderer
     #   rich
 pyjwt==2.10.1
-    # via -r requirements/test.txt
+    # via -r test.txt
 pylint==3.3.5
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-lint
     #   pylint-celery
     #   pylint-django
     #   pylint-plugin-utils
 pylint-celery==0.3
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-lint
 pylint-django==2.6.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-lint
 pylint-plugin-utils==0.8.2
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   pylint-celery
     #   pylint-django
 pynacl==1.5.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-django-utils
 pyproject-api==1.9.0
     # via
-    #   -r requirements/ci.txt
+    #   -r ci.txt
     #   tox
 pyproject-hooks==1.2.0
     # via
-    #   -r requirements/pip-tools.txt
+    #   -r pip-tools.txt
     #   build
     #   pip-tools
 pytest==8.3.5
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   pytest-cov
     #   pytest-django
 pytest-cov==6.0.0
-    # via -r requirements/test.txt
+    # via -r test.txt
 pytest-django==4.10.0
-    # via -r requirements/test.txt
+    # via -r test.txt
 python-dateutil==2.9.0.post0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   freezegun
 python-slugify==8.0.4
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   code-annotations
 pyyaml==6.0.2
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   code-annotations
     #   responses
 readme-renderer==44.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   twine
 requests==2.32.3
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   id
     #   requests-toolbelt
     #   responses
     #   twine
 requests-toolbelt==1.0.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   twine
 responses==0.25.7
-    # via -r requirements/test.txt
+    # via -r test.txt
 rfc3986==2.0.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   twine
 rich==13.9.4
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   twine
 secretstorage==3.3.3
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   keyring
 six==1.17.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   edx-lint
     #   python-dateutil
 sqlparse==0.5.3
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   django
 stevedore==5.4.1
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   code-annotations
     #   edx-django-utils
 text-unidecode==1.3
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   python-slugify
 tomlkit==0.13.2
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   pylint
-tox==4.24.1
-    # via -r requirements/ci.txt
+tox==4.24.2
+    # via -r ci.txt
 twine==6.1.0
-    # via -r requirements/test.txt
+    # via -r test.txt
 urllib3==2.2.3
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/test.txt
+    #   -c common_constraints.txt
+    #   -r test.txt
     #   requests
     #   responses
     #   twine
-virtualenv==20.29.2
+virtualenv==20.29.3
     # via
-    #   -r requirements/ci.txt
+    #   -r ci.txt
     #   tox
 wheel==0.45.1
     # via
-    #   -r requirements/pip-tools.txt
+    #   -r pip-tools.txt
     #   pip-tools
 zipp==3.21.0
     # via
-    #   -r requirements/test.txt
+    #   -r test.txt
     #   importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 pip==24.2
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/pip-tools.txt
+    #   -c common_constraints.txt
+    #   -r pip-tools.txt
     #   pip-tools
-setuptools==76.1.0
+setuptools==78.1.1
     # via
-    #   -r requirements/pip-tools.txt
-    #   -r requirements/test.txt
+    #   -r pip-tools.txt
+    #   -r test.txt
     #   pbr
     #   pip-tools
