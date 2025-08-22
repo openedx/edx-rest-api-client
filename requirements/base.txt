@@ -14,9 +14,9 @@ charset-normalizer==3.4.1
     # via requests
 click==8.1.8
     # via edx-django-utils
-django==4.2.20
+django==4.2.22
     # via
-    #   -c requirements/common_constraints.txt
+    #   -c common_constraints.txt
     #   django-crum
     #   django-waffle
     #   edx-django-utils
@@ -25,7 +25,7 @@ django-crum==0.7.9
 django-waffle==4.2.0
     # via edx-django-utils
 edx-django-utils==7.2.0
-    # via -r requirements/base.in
+    # via -r base.in
 idna==3.10
     # via requests
 newrelic==10.7.0
@@ -37,18 +37,18 @@ psutil==7.0.0
 pycparser==2.22
     # via cffi
 pyjwt==2.10.1
-    # via -r requirements/base.in
+    # via -r base.in
 pynacl==1.5.0
     # via edx-django-utils
 requests==2.32.3
-    # via -r requirements/base.in
+    # via -r base.in
 sqlparse==0.5.3
     # via django
 stevedore==5.4.1
     # via edx-django-utils
 urllib3==2.2.3
     # via
-    #   -c requirements/common_constraints.txt
+    #   -c common_constraints.txt
     #   requests
 
 # The following packages are considered to be unsafe in a requirements file:
