@@ -10,3 +10,9 @@
 
 # Common constraints for edx repos
 -c common_constraints.txt
+
+# pinning version to resolve requirements upgrade conflicts
+packaging<25.0
+# pylint requires platformdirs==4.3.8, pluggy==1.6.0 which conflicts with tox requirements
+platformdirs<4.3.7
+pluggy<1.6.0
