@@ -12,7 +12,8 @@
 -c common_constraints.txt
 
 # pinning version to resolve requirements upgrade conflicts
-packaging<25.0
 # pylint requires platformdirs==4.3.8, pluggy==1.6.0 which conflicts with tox requirements
+# issue to unpin these dependencies https://github.com/openedx/edx-rest-api-client/issues/379
+packaging<25.0
 platformdirs<4.3.7
 pluggy<1.6.0
