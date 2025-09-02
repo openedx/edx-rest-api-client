@@ -28,8 +28,6 @@ edx-django-utils==8.0.0
     # via -r requirements/base.in
 idna==3.10
     # via requests
-pbr==7.0.1
-    # via stevedore
 psutil==7.0.0
     # via edx-django-utils
 pycparser==2.22
@@ -42,11 +40,7 @@ requests==2.32.5
     # via -r requirements/base.in
 sqlparse==0.5.3
     # via django
-stevedore==5.4.1
+stevedore==5.5.0
     # via edx-django-utils
 urllib3==2.5.0
     # via requests
-
-# The following packages are considered to be unsafe in a requirements file:
-setuptools==80.9.0
-    # via pbr
