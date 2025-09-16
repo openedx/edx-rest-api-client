@@ -18,9 +18,10 @@ certifi==2025.8.3
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.17.1
+cffi==2.0.0
     # via
     #   -r requirements/base.txt
+    #   cryptography
     #   pynacl
 charset-normalizer==3.4.3
     # via
@@ -37,8 +38,10 @@ click-log==0.4.0
     # via edx-lint
 code-annotations==2.3.0
     # via edx-lint
-coverage[toml]==7.10.4
+coverage[toml]==7.10.6
     # via pytest-cov
+cryptography==45.0.7
+    # via secretstorage
 ddt==1.7.2
     # via -r requirements/test.in
 dill==0.4.0
@@ -83,6 +86,10 @@ jaraco-context==6.0.1
     # via keyring
 jaraco-functools==4.3.0
     # via keyring
+jeepney==0.9.0
+    # via
+    #   keyring
+    #   secretstorage
 jinja2==3.1.6
     # via code-annotations
 keyring==25.6.0
@@ -95,7 +102,7 @@ mccabe==0.7.0
     # via pylint
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==10.7.0
+more-itertools==10.8.0
     # via
     #   jaraco-classes
     #   jaraco-functools
@@ -106,10 +113,6 @@ packaging==24.2
     #   -c requirements/constraints.txt
     #   pytest
     #   twine
-pbr==7.0.1
-    # via
-    #   -r requirements/base.txt
-    #   stevedore
 platformdirs==4.3.6
     # via
     #   -c requirements/constraints.txt
@@ -125,7 +128,7 @@ psutil==7.0.0
     #   edx-django-utils
 pycodestyle==2.14.0
     # via -r requirements/test.in
-pycparser==2.22
+pycparser==2.23
     # via
     #   -r requirements/base.txt
     #   cffi
@@ -150,15 +153,15 @@ pylint-plugin-utils==0.9.0
     # via
     #   pylint-celery
     #   pylint-django
-pynacl==1.5.0
+pynacl==1.6.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==8.4.1
+pytest==8.4.2
     # via
     #   pytest-cov
     #   pytest-django
-pytest-cov==6.2.1
+pytest-cov==7.0.0
     # via -r requirements/test.in
 pytest-django==4.11.1
     # via -r requirements/test.in
@@ -187,6 +190,8 @@ rfc3986==2.0.0
     # via twine
 rich==14.1.0
     # via twine
+secretstorage==3.4.0
+    # via keyring
 six==1.17.0
     # via
     #   edx-lint
@@ -195,7 +200,7 @@ sqlparse==0.5.3
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==5.4.1
+stevedore==5.5.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -204,7 +209,7 @@ text-unidecode==1.3
     # via python-slugify
 tomlkit==0.13.3
     # via pylint
-twine==6.1.0
+twine==6.2.0
     # via -r requirements/test.in
 urllib3==2.5.0
     # via
@@ -214,9 +219,3 @@ urllib3==2.5.0
     #   twine
 zipp==3.23.0
     # via importlib-metadata
-
-# The following packages are considered to be unsafe in a requirements file:
-setuptools==80.9.0
-    # via
-    #   -r requirements/base.txt
-    #   pbr
