@@ -38,7 +38,7 @@ click-log==0.4.0
     # via edx-lint
 code-annotations==2.3.0
     # via edx-lint
-coverage[toml]==7.12.0
+coverage[toml]==7.13.0
     # via pytest-cov
 cryptography==46.0.3
     # via secretstorage
@@ -60,7 +60,7 @@ django-waffle==5.0.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-docutils==0.22.3
+docutils==0.22.4
     # via readme-renderer
 edx-django-utils==8.0.1
     # via -r requirements/base.txt
@@ -74,7 +74,7 @@ idna==3.11
     # via
     #   -r requirements/base.txt
     #   requests
-importlib-metadata==8.7.0
+importlib-metadata==8.7.1
     # via keyring
 iniconfig==2.3.0
     # via pytest
@@ -84,7 +84,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.0.1
     # via keyring
-jaraco-functools==4.3.0
+jaraco-functools==4.4.0
     # via keyring
 jeepney==0.9.0
     # via
@@ -157,7 +157,7 @@ pynacl==1.6.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==9.0.1
+pytest==9.0.2
     # via
     #   pytest-cov
     #   pytest-django
@@ -196,7 +196,7 @@ six==1.17.0
     # via
     #   edx-lint
     #   python-dateutil
-sqlparse==0.5.4
+sqlparse==0.5.5
     # via
     #   -r requirements/base.txt
     #   django
@@ -211,7 +211,7 @@ tomlkit==0.13.3
     # via pylint
 twine==6.2.0
     # via -r requirements/test.in
-urllib3==2.5.0
+urllib3==2.6.2
     # via
     #   -r requirements/base.txt
     #   requests
