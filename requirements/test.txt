@@ -6,7 +6,7 @@
 #
 asgiref==3.11.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   django
 astroid==3.3.11
     # via
@@ -16,20 +16,20 @@ backports-tarfile==1.2.0
     # via jaraco-context
 certifi==2025.11.12
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 cffi==2.0.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   cryptography
     #   pynacl
 charset-normalizer==3.4.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 click==8.3.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   click-log
     #   code-annotations
     #   edx-django-utils
@@ -43,36 +43,37 @@ coverage[toml]==7.12.0
 cryptography==46.0.3
     # via secretstorage
 ddt==1.7.2
-    # via -r requirements/test.in
+    # via -r test.in
 dill==0.4.0
     # via pylint
+django==5.2.8
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/base.txt
+    #   -c common_constraints.txt
+    #   -r base.txt
     #   django-crum
     #   django-waffle
     #   edx-django-utils
 django-crum==0.7.9
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-django-utils
 django-waffle==5.0.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-django-utils
 docutils==0.22.3
     # via readme-renderer
 edx-django-utils==8.0.1
-    # via -r requirements/base.txt
+    # via -r base.txt
 edx-lint==5.6.0
-    # via -r requirements/test.in
+    # via -r test.in
 freezegun==1.5.5
-    # via -r requirements/test.in
+    # via -r test.in
 id==1.5.0
     # via twine
 idna==3.11
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 importlib-metadata==8.7.0
     # via keyring
@@ -110,27 +111,27 @@ nh3==0.3.2
     # via readme-renderer
 packaging==24.2
     # via
-    #   -c requirements/constraints.txt
+    #   -c constraints.txt
     #   pytest
     #   twine
 platformdirs==4.3.6
     # via
-    #   -c requirements/constraints.txt
+    #   -c constraints.txt
     #   pylint
 pluggy==1.5.0
     # via
-    #   -c requirements/constraints.txt
+    #   -c constraints.txt
     #   pytest
     #   pytest-cov
 psutil==7.1.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-django-utils
 pycodestyle==2.14.0
-    # via -r requirements/test.in
+    # via -r test.in
 pycparser==2.23
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   cffi
 pygments==2.19.2
     # via
@@ -138,7 +139,7 @@ pygments==2.19.2
     #   readme-renderer
     #   rich
 pyjwt==2.10.1
-    # via -r requirements/base.txt
+    # via -r base.txt
 pylint==3.3.9
     # via
     #   edx-lint
@@ -155,16 +156,16 @@ pylint-plugin-utils==0.9.0
     #   pylint-django
 pynacl==1.6.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-django-utils
 pytest==9.0.1
     # via
     #   pytest-cov
     #   pytest-django
 pytest-cov==7.0.0
-    # via -r requirements/test.in
+    # via -r test.in
 pytest-django==4.11.1
-    # via -r requirements/test.in
+    # via -r test.in
 python-dateutil==2.9.0.post0
     # via freezegun
 python-slugify==8.0.4
@@ -177,7 +178,7 @@ readme-renderer==44.0
     # via twine
 requests==2.32.5
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   id
     #   requests-toolbelt
     #   responses
@@ -185,7 +186,7 @@ requests==2.32.5
 requests-toolbelt==1.0.0
     # via twine
 responses==0.25.8
-    # via -r requirements/test.in
+    # via -r test.in
 rfc3986==2.0.0
     # via twine
 rich==14.2.0
@@ -198,11 +199,11 @@ six==1.17.0
     #   python-dateutil
 sqlparse==0.5.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   django
 stevedore==5.6.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   code-annotations
     #   edx-django-utils
 text-unidecode==1.3
@@ -210,10 +211,10 @@ text-unidecode==1.3
 tomlkit==0.13.3
     # via pylint
 twine==6.2.0
-    # via -r requirements/test.in
-urllib3==2.5.0
+    # via -r test.in
+urllib3==2.6.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
     #   responses
     #   twine
