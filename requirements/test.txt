@@ -4,17 +4,17 @@
 #
 #    make upgrade
 #
-asgiref==3.11.0
+asgiref==3.11.1
     # via
     #   -r requirements/base.txt
     #   django
-astroid==4.0.3
+astroid==4.0.4
     # via
     #   pylint
     #   pylint-celery
 backports-tarfile==1.2.0
     # via jaraco-context
-certifi==2026.1.4
+certifi==2026.2.25
     # via
     #   -r requirements/base.txt
     #   requests
@@ -23,7 +23,7 @@ cffi==2.0.0
     #   -r requirements/base.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.4.4
+charset-normalizer==3.4.5
     # via
     #   -r requirements/base.txt
     #   requests
@@ -36,11 +36,11 @@ click==8.3.1
     #   edx-lint
 click-log==0.4.0
     # via edx-lint
-code-annotations==2.3.0
+code-annotations==2.3.2
     # via edx-lint
-coverage[toml]==7.13.2
+coverage[toml]==7.13.4
     # via pytest-cov
-cryptography==46.0.3
+cryptography==46.0.5
     # via secretstorage
 ddt==1.7.2
     # via -r requirements/test.in
@@ -68,7 +68,7 @@ edx-lint==5.6.0
     # via -r requirements/test.in
 freezegun==1.5.5
     # via -r requirements/test.in
-id==1.5.0
+id==1.6.1
     # via twine
 idna==3.11
     # via
@@ -78,11 +78,11 @@ importlib-metadata==8.7.1
     # via keyring
 iniconfig==2.3.0
     # via pytest
-isort==7.0.0
+isort==8.0.1
     # via pylint
 jaraco-classes==3.4.0
     # via keyring
-jaraco-context==6.1.0
+jaraco-context==6.1.1
     # via keyring
 jaraco-functools==4.4.0
     # via keyring
@@ -106,7 +106,7 @@ more-itertools==10.8.0
     # via
     #   jaraco-classes
     #   jaraco-functools
-nh3==0.3.2
+nh3==0.3.3
     # via readme-renderer
 packaging==24.2
     # via
@@ -122,7 +122,7 @@ pluggy==1.5.0
     #   -c requirements/constraints.txt
     #   pytest
     #   pytest-cov
-psutil==7.2.1
+psutil==7.2.2
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -137,9 +137,9 @@ pygments==2.19.2
     #   pytest
     #   readme-renderer
     #   rich
-pyjwt==2.10.1
+pyjwt==2.11.0
     # via -r requirements/base.txt
-pylint==4.0.4
+pylint==4.0.5
     # via
     #   edx-lint
     #   pylint-celery
@@ -163,7 +163,7 @@ pytest==9.0.2
     #   pytest-django
 pytest-cov==7.0.0
     # via -r requirements/test.in
-pytest-django==4.11.1
+pytest-django==4.12.0
     # via -r requirements/test.in
 python-dateutil==2.9.0.post0
     # via freezegun
@@ -178,17 +178,16 @@ readme-renderer==44.0
 requests==2.32.5
     # via
     #   -r requirements/base.txt
-    #   id
     #   requests-toolbelt
     #   responses
     #   twine
 requests-toolbelt==1.0.0
     # via twine
-responses==0.25.8
+responses==0.26.0
     # via -r requirements/test.in
 rfc3986==2.0.0
     # via twine
-rich==14.3.1
+rich==14.3.3
     # via twine
 secretstorage==3.5.0
     # via keyring
@@ -200,7 +199,7 @@ sqlparse==0.5.5
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==5.6.0
+stevedore==5.7.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -214,6 +213,7 @@ twine==6.2.0
 urllib3==2.6.3
     # via
     #   -r requirements/base.txt
+    #   id
     #   requests
     #   responses
     #   twine
