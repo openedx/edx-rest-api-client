@@ -9,7 +9,7 @@ import requests.utils
 from edx_django_utils.cache import TieredCache
 from edx_django_utils.monitoring import set_custom_attribute
 
-from edx_rest_api_client.__version__ import __version__
+from edx_rest_api_client import __version__
 from edx_rest_api_client.auth import SuppliedJwtAuth
 
 # When caching tokens, use this value to err on expiring tokens a little early so they are
