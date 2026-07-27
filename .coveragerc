@@ -1,7 +1,7 @@
 [run]
 branch = True
 data_file = .coverage
-source=edx_rest_api_client
+source=src/edx_rest_api_client
 omit =
     test_settings
 

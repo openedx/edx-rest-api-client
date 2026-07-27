@@ -5,10 +5,12 @@ Setup to allow pip installs of edx-rest-api-client module.
 
 import os
 import re
+import sys
 
 from setuptools import find_packages, setup
 
-from edx_rest_api_client import __version__
+sys.path.append('src')
+from edx_rest_api_client import __version__  # pylint: disable=wrong-import-position
 
 with open('README.rst') as readme:
     long_description = readme.read()
@@ -132,6 +134,7 @@ setup(
     author='edX',
     author_email='oscm@edx.org',
     license='Apache',
-    packages=find_packages(exclude=['*.tests']),
+    package_dir={'': 'src'},
+    packages=find_packages(where='src', exclude=['*.tests']),
     install_requires=load_requirements('requirements/base.in'),
 )
