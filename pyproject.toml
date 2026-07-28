@@ -20,7 +20,6 @@ classifiers = [
     "Framework :: Django :: 5.2",
     "Intended Audience :: Developers",
     "Environment :: Web Environment",
-    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -75,3 +74,62 @@ exclude_lines = [
 
 [tool.coverage.html]
 directory = "htmlcov"
+
+[dependency-groups]
+# Base test packages, no Django version pinned.
+test-base = [
+    "coverage",
+    "ddt",
+    "edx-lint",
+    "freezegun",
+    "pycodestyle",
+    "pytest-cov",
+    "pytest-django",
+    "responses",
+    "twine",
+]
+# The currently supported/default Django version.
+test = [
+    {include-group = "test-base"},
+    "Django>=5.2,<6.0",
+]
+# Legacy Django 4.2 support.
+django42 = [
+    {include-group = "test-base"},
+    "Django>=4.2,<4.3",
+]
+quality = [
+    {include-group = "test"},
+    "build",
+]
+# Minimal CI group: just what's needed to invoke tox.
+ci = [
+    "tox",
+    "tox-uv",
+]
+dev = [
+    {include-group = "quality"},
+    {include-group = "ci"},
+]
+
+[tool.uv]
+package = true
+conflicts = [
+    [
+        {group = "test"},
+        {group = "django42"},
+    ],
+]
+
+#  DO NOT EDIT constraint-dependencies DIRECTLY.
+#  This list is managed by `edx_lint write_uv_constraints`
+#  and will be overwritten the next time `make upgrade` is run.
+#  - GLOBAL constraints: edit edx_lint/files/common_constraints.txt
+#  - REPO-SPECIFIC constraints: edit [tool.edx_lint].uv_constraints in this file
+constraint-dependencies = [
+    "Django<6.0",
+    "elasticsearch<7.14.0",
+]
+
+[tool.edx_lint]
+uv_constraints = []
