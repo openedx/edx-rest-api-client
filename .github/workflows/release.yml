@@ -39,7 +39,6 @@ jobs:
         github_token: ${{ secrets.OPENEDX_SEMANTIC_RELEASE_GITHUB_TOKEN }}
         git_committer_name: "github-actions"
         git_committer_email: "github-actions@github.com"
-        changelog: "false"
 
     - name: Upload dist artifacts
       if: steps.release.outputs.released == 'true'
