@@ -1,6 +1,0 @@
-# Core requirements for using this package template
--c constraints.txt
-
-edx-django-utils
-requests
-PyJWT
