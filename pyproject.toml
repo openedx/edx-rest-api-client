@@ -10,7 +10,7 @@ readme = "README.rst"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [
-    {name = "edX", email = "oscm@edx.org"},
+    {name = "Open edX Project", email = "oscm@openedx.org"},
 ]
 requires-python = ">=3.11"
 classifiers = [
@@ -21,7 +21,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "Environment :: Web Environment",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Internet",
 ]
