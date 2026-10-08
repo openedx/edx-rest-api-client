@@ -8,16 +8,16 @@ help: ## display this help message
 
 quality: ## check coding style with pycodestyle and pylint
 	uv sync --group quality
-	DJANGO_SETTINGS_MODULE=test_settings PYTHONPATH=. uv run pycodestyle --config=.pep8 src/edx_rest_api_client
-	DJANGO_SETTINGS_MODULE=test_settings PYTHONPATH=. uv run pylint --rcfile=pylintrc src/edx_rest_api_client
-	uv run python -m build
-	uv run twine check dist/*
+	DJANGO_SETTINGS_MODULE=test_settings PYTHONPATH=. pycodestyle --config=.pep8 src/edx_rest_api_client
+	DJANGO_SETTINGS_MODULE=test_settings PYTHONPATH=. pylint --rcfile=pylintrc src/edx_rest_api_client
+	python -m build
+	twine check dist/*
 
 requirements: ## install development environment requirements
 	uv sync --group dev
 
 test: ## run tests in the current virtualenv
-	uv run tox
+	tox
 
 upgrade: ## update the uv.lock file with the latest packages satisfying pyproject.toml
 	uv run --with edx-lint edx_lint write_uv_constraints pyproject.toml
