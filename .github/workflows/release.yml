@@ -35,7 +35,7 @@ jobs:
       id: release
       uses: python-semantic-release/python-semantic-release@b700dbeb1f431a0fcc30a79f3f0869407fe07278 # v10.7.0
       with:
-        github_token: ${{ secrets.OPENEDX_SEMANTIC_RELEASE_GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         git_committer_name: "github-actions"
         git_committer_email: "github-actions@github.com"
         changelog: "false"
